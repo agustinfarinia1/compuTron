@@ -1,0 +1,56 @@
+<form class="container bg-secondary rounded">
+  <div class="d-flex justify-content-center">
+    <h3>Carga productos</h3>
+  </div>
+  <div class="form-group mt-1 mb-1">
+    <span>Codigo producto</span>
+    <input class="form-control"  type="text" name="codigo" placeholder="codigo Producto" [(ngModel)]="campoCodigo" required>
+  </div>
+  <div class="form-group mt-1 mb-1">
+    <span>Nombre</span>
+    <input class="form-control" type="text" name="nombre" placeholder="nombre producto" [(ngModel)]="campoNombre" required>
+  </div>
+  <div class="form-group mt-1 mb-1">
+    <span>Categoria</span>
+    <input class="form-control" type="text" name="categoria" placeholder="categoria producto" [(ngModel)]="campoCategoria" required>
+  </div>
+  <div class="form-group mt-1 mb-1">
+    <span>Marca</span>
+    <input class="form-control" type="text" name="marca" placeholder="marca producto" [(ngModel)]="campoMarca" required>
+  </div>
+  <div class="form-group mt-1 mb-1">
+    <span>Cantidad</span>
+    <input class="form-control" type="number" name="cantidad" placeholder="cantidad producto" [(ngModel)]="campoCantidad" min="1" required>
+  </div>
+  <div class="form-group mt-1 mb-1">
+    <span>Precio</span>
+    <input class="form-control" type="number" name="precio" placeholder="precio producto" [(ngModel)]="campoPrecio" min="1" required>
+  </div>
+  <div class="d-flex justify-content-center">
+    <button class="btn btn-dark mt-2 mb-2" (click)="registrarProducto()">Registrar</button>
+  </div>
+</form>
+
+<div class="container bg-secondary mt-3">
+  <div class="d-flex justify-content-center">
+    <h3>Lista productos</h3>
+  </div>
+  <div class="row m-auto" *ngFor="let producto of listaProductos; let i = index">
+    <div class="col">
+      <div class="card m-3">
+        <div class="d-flex justify-content-center">
+          <img src="http://http2.mlstatic.com/D_615774-MLA46552695388_062021-I.jpg" class="card-img-top" alt="Imagen 1" style="width: 200px;">
+        </div>
+          <div class="card-body">
+              <h5 class="card-title">{{producto.getNombre()}}</h5>
+              <p class="card-text">{{producto.getMarca()}}</p>
+              <p class="card-text">{{producto.getCategoria()}}</p>
+              <p class="card-text">{{producto.getPrecio()}}</p>
+              <div class="d-flex justify-content-center">
+                <a href="#" class="btn btn-primary">Detalle Producto</a>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+</div>
