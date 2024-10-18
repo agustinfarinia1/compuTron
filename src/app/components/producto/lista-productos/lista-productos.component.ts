@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Producto } from '../../../models/producto.model';
 import { CommonModule } from '@angular/common';
 import { ProductoItemComponent } from "../producto-item/producto-item.component";
+import { CategoriasJsonServerService } from '../../../services/categorias-json-server.service';
 
 @Component({
   selector: 'app-lista-productos',
@@ -12,9 +13,16 @@ import { ProductoItemComponent } from "../producto-item/producto-item.component"
 })
 export class ListaProductosComponent {
 
+  listaCategorias : [];
+
   @Input() listaProductos:Producto[];
 
-  constructor() {
+  constructor(private categoriasServicio:CategoriasJsonServerService) {
     this.listaProductos = [];
+    this.listaCategorias = [];
+  }
+
+  ngOnInit(): void {
+    this.categoriasServicio.getCategorias().then((respuesta) => this.listaCategorias = respuesta);
   }
 }

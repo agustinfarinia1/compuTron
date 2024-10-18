@@ -2,7 +2,7 @@ export class Producto{
 
   private codigo : string;
   private titulo : string;
-  private categoria : string;
+  private categoria : number;
   private marca : string;
   private modelo : string;
   private cantidad : number;
@@ -10,7 +10,7 @@ export class Producto{
   private imagen : string;
   private eliminado : boolean;
 
-  constructor(newCodigo:string,newTitulo:string,newCategoria:string,newMarca:string,newModelo : string,newCantidad:number,newPrecio : number,newImagen : string){
+  constructor(newCodigo:string,newTitulo:string,newCategoria:number,newMarca:string,newModelo : string,newCantidad:number,newPrecio : number,newImagen : string){
     this.codigo = newCodigo;
     this.titulo = newTitulo;
     this.categoria = newCategoria;
@@ -26,7 +26,7 @@ export class Producto{
     this.titulo = newTitulo;
   }
 
-  setCategoria = (newCategoria : string) => {
+  setCategoria = (newCategoria : number) => {
     this.categoria = newCategoria;
   }
 

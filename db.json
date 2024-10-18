@@ -1,0 +1,159 @@
+{
+  "categorias": [
+    {
+      "codigo": "C001",
+      "nombre": "Fuente",
+      "valor": "1"
+    },
+    {
+      "codigo": "C002",
+      "nombre": "Memoria ram",
+      "valor": "2"
+    },
+    {
+      "codigo": "C003",
+      "nombre": "Procesador",
+      "valor": "3"
+    },
+    {
+      "codigo": "C004",
+      "nombre": "Placa madre",
+      "valor": "4"
+    },
+    {
+      "codigo": "C005",
+      "nombre": "Placa de video",
+      "valor": "5"
+    },
+    {
+      "codigo": "C006",
+      "nombre": "Almacenamiento",
+      "valor": "6"
+    },
+    {
+      "codigo": "C007",
+      "nombre": "Gabinete",
+      "valor": "7"
+    },
+    {
+      "codigo": "C008",
+      "nombre": "Perifericos",
+      "valor": "8"
+    }
+  ],
+  "stock": [
+    {
+      "id": "450c",
+      "codigo": "MLA1426080587",
+      "titulo": "Memoria Ram Ddr5 Kingston Fury Impact 16gb 5600mts Sodimm",
+      "categoria": "2",
+      "marca": "Kingston",
+      "modelo": "KF556S40IB-16",
+      "cantidad": 1,
+      "precio": 83661.6,
+      "imagen": "http://http2.mlstatic.com/D_903624-MLU73608858296_122023-I.jpg",
+      "eliminado": false
+    },
+    {
+      "id": "1b25",
+      "codigo": "MLA1815108838",
+      "titulo": "Procesador Amd Ryzen 5 8600g 5.3 Ghz Am5 1",
+      "categoria": "3",
+      "marca": "AMD",
+      "modelo": "8600g",
+      "cantidad": 1,
+      "precio": 351776,
+      "imagen": "http://http2.mlstatic.com/D_979717-MLU74347982464_022024-I.jpg",
+      "eliminado": false
+    },
+    {
+      "id": "2e41",
+      "codigo": "MLA1444443177",
+      "titulo": "Motherboard Msi Pro B650m-p Am5 Color Negro",
+      "categoria": "4",
+      "marca": "MSI",
+      "modelo": "Pro B650m-P",
+      "cantidad": 1,
+      "precio": 180040.5,
+      "imagen": "http://http2.mlstatic.com/D_866694-MLU74411752036_022024-I.jpg",
+      "eliminado": false
+    },
+    {
+      "id": "07b8",
+      "codigo": "MLA1918994290",
+      "titulo": "Monitor LG Led Negro 110/220v",
+      "categoria": "8",
+      "marca": "LG",
+      "modelo": "19M38A",
+      "cantidad": 1,
+      "precio": 153500,
+      "imagen": "http://http2.mlstatic.com/D_768693-MLU70045241524_062023-I.jpg",
+      "eliminado": false
+    },
+    {
+      "id": "9993",
+      "codigo": "MLA1737250346",
+      "titulo": "Teclado Gamer Redragon Kumara K552 Qwerty Outemu Red Español Latinoamérica Color Negro Con Luz Rgb",
+      "categoria": "8",
+      "marca": "Redragon",
+      "modelo": "K552",
+      "cantidad": 1,
+      "precio": 79242.88,
+      "imagen": "http://http2.mlstatic.com/D_864807-MLA77594879101_072024-I.jpg",
+      "eliminado": false
+    },
+    {
+      "id": "f173",
+      "codigo": "MLA883168123",
+      "titulo": "Mouse Gamer Logitech G203 Lightsync Rgb",
+      "categoria": "8",
+      "marca": "Logitech",
+      "modelo": "Prodigy",
+      "cantidad": 1,
+      "precio": 30999,
+      "imagen": "http://http2.mlstatic.com/D_691725-MLA44137401768_112020-O.jpg",
+      "eliminado": false
+    }
+  ],
+  "usuarios": [
+    {
+      "codigo": "U001",
+      "email": "admin@admin.com",
+      "usuario": "admin",
+      "contraseña": "admin123",
+      "nombre": "admin",
+      "apellido": "admin",
+      "direccion": "admin123",
+      "carrito": []
+    },
+    {
+      "codigo": "U002",
+      "email": "agustin@agustin.com",
+      "usuario": "agustin",
+      "contraseña": "agustin123",
+      "nombre": "agustin",
+      "apellido": "fariña",
+      "direccion": "agustin123",
+      "carrito": [
+        {
+          "codigo": "S002",
+          "cantidad": 1
+        }
+      ]
+    }
+  ],
+  "pedidos": [
+    {
+      "codigo": "P001",
+      "usuario": "U002",
+      "fechaCreacion": "18/10/2024",
+      "fechaFinEstimada": "25/10/2024",
+      "listaProductos": [
+        {
+          "codigo": "S001",
+          "cantidad": "1"
+        }
+      ]
+    }
+  ]
+}
