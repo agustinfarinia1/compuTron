@@ -1,0 +1,17 @@
+<div class="card m-3"> <!-- rounded-0 para sacar los bordes -->
+  <div class="d-flex justify-content-center">
+    <img [src]="producto.getImagen()" class="card-img-top" alt="Imagen 1" style="width: 200px;">
+  </div>
+    <div class="card-body">
+        <h5 class="card-title">{{producto.getTitulo()}}</h5>
+        <!-- <p class="card-text">{{indice}}</p> -->
+        <!-- <p class="card-text">{{producto.getCodigo()}}</p> -->
+        <p class="card-text">{{producto.getMarca()}}</p>
+        <p class="card-text">{{producto.getModelo()}}</p>
+        <p class="card-text">{{producto.getCategoria()}}</p>
+        <p class="card-text">{{producto.getPrecio()}}</p>
+        <div class="d-flex justify-content-center">
+          <a href="#" class="btn btn-primary">Detalle Producto</a>
+        </div>
+    </div>
+</div>

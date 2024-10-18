@@ -1,25 +1,29 @@
 export class Producto{
 
   private codigo : string;
-  private nombre : string;
+  private titulo : string;
   private categoria : string;
   private marca : string;
+  private modelo : string;
   private cantidad : number;
   private precio : number;
+  private imagen : string;
   private eliminado : boolean;
 
-  constructor(newCodigo:string,newNombre:string,newCategoria:string,newMarca:string,newCantidad:number,newPrecio : number){
+  constructor(newCodigo:string,newTitulo:string,newCategoria:string,newMarca:string,newModelo : string,newCantidad:number,newPrecio : number,newImagen : string){
     this.codigo = newCodigo;
-    this.nombre = newNombre;
+    this.titulo = newTitulo;
     this.categoria = newCategoria;
     this.marca = newMarca;
+    this.modelo = newModelo;
     this.cantidad = newCantidad;
     this.precio = newPrecio;
+    this.imagen = newImagen;
     this.eliminado = false;
   }
 
-  setNombre = (newNombre : string) => {
-    this.nombre = newNombre;
+  setTitulo = (newTitulo : string) => {
+    this.titulo = newTitulo;
   }
 
   setCategoria = (newCategoria : string) => {
@@ -30,12 +34,20 @@ export class Producto{
     this.marca = newMarca;
   }
 
+  setModelo = (newModelo : string) => {
+    this.modelo = newModelo;
+  }
+
   setCantidad = (newCantidad : number) => {
     this.cantidad = newCantidad;
   }
 
   setPrecio = (newPrecio : number) => {
     this.precio = newPrecio;
+  }
+
+  setImagen = (newImagen : string) => {
+    this.imagen = newImagen;
   }
 
   setEliminado = (newEliminado : boolean) => {
@@ -46,8 +58,8 @@ export class Producto{
     return this.codigo;
   }
 
-  getNombre = ()  => {
-    return this.nombre;
+  getTitulo = ()  => {
+    return this.titulo;
   }
 
   getCategoria = () => {
@@ -58,12 +70,20 @@ export class Producto{
     return this.marca;
   }
 
+  getModelo = () => {
+    return this.modelo;
+  }
+
   getCantidad = () => {
     return this.cantidad;
   }
 
   getPrecio = () => {
     return this.precio;
+  }
+
+  getImagen = () => {
+    return this.imagen;
   }
 
   getEliminado = () => {
