@@ -3,42 +3,50 @@
     {
       "codigo": "C001",
       "nombre": "Fuente",
-      "valor": "1"
+      "valor": "1",
+      "id": "1adc"
     },
     {
       "codigo": "C002",
       "nombre": "Memoria ram",
-      "valor": "2"
+      "valor": "2",
+      "id": "1c20"
     },
     {
       "codigo": "C003",
       "nombre": "Procesador",
-      "valor": "3"
+      "valor": "3",
+      "id": "ce78"
     },
     {
       "codigo": "C004",
       "nombre": "Placa madre",
-      "valor": "4"
+      "valor": "4",
+      "id": "ca91"
     },
     {
       "codigo": "C005",
       "nombre": "Placa de video",
-      "valor": "5"
+      "valor": "5",
+      "id": "da6a"
     },
     {
       "codigo": "C006",
       "nombre": "Almacenamiento",
-      "valor": "6"
+      "valor": "6",
+      "id": "e3bb"
     },
     {
       "codigo": "C007",
       "nombre": "Gabinete",
-      "valor": "7"
+      "valor": "7",
+      "id": "87cb"
     },
     {
       "codigo": "C008",
       "nombre": "Perifericos",
-      "valor": "8"
+      "valor": "8",
+      "id": "e66e"
     }
   ],
   "stock": [
@@ -113,6 +121,18 @@
       "precio": 30999,
       "imagen": "http://http2.mlstatic.com/D_691725-MLA44137401768_112020-O.jpg",
       "eliminado": false
+    },
+    {
+      "id": "6173",
+      "codigo": "MLA933816378",
+      "titulo": "Placa De Vídeo Gtx 1050 Ti Geforce Nvidia Msi  4gb Oc Edition",
+      "categoria": 0,
+      "marca": "MSI",
+      "modelo": "GTX 1050 Ti",
+      "cantidad": 1,
+      "precio": 353583.35,
+      "imagen": "http://http2.mlstatic.com/D_652880-MLA43530435729_092020-I.jpg",
+      "eliminado": false
     }
   ],
   "usuarios": [
@@ -124,7 +144,8 @@
       "nombre": "admin",
       "apellido": "admin",
       "direccion": "admin123",
-      "carrito": []
+      "carrito": [],
+      "id": "b751"
     },
     {
       "codigo": "U002",
@@ -139,7 +160,8 @@
           "codigo": "S002",
           "cantidad": 1
         }
-      ]
+      ],
+      "id": "8711"
     }
   ],
   "pedidos": [
@@ -153,7 +175,8 @@
           "codigo": "S001",
           "cantidad": "1"
         }
-      ]
+      ],
+      "id": "8a9f"
     }
   ]
 }
