@@ -8,5 +8,6 @@
 - Uso de estilos Bootstrap.
 
 ### Integrantes
--[Fariña Martinez Agustin Ariel](https://www.linkedin.com/in/agustin-farinia/)
--[Ciro Lopez](https://www.linkedin.com/in/cirolopez2001/)
+[Fariña Martinez Agustin Ariel](https://www.linkedin.com/in/agustin-farinia/)
+
+[Ciro Lopez](https://www.linkedin.com/in/cirolopez2001/)
