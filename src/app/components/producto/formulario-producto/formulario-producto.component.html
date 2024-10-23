@@ -1,15 +1,15 @@
-<form class="container py-4 px-3 bg-light border rounded shadow-sm" #formularioProducto="ngForm">
-  <h3 class="text-center mb-4 text-secondary">Carga productos</h3>
+<form class="container py-4 px-3 bg-warning border rounded shadow-sm" #formularioProducto="ngForm">
+  <h3 class="text-center mb-4 text-dark">Carga productos</h3>
   <div class="mb-3">
-    <label for="busqueda" class="form-label text-secondary">Búsqueda producto</label>
+    <label for="busqueda" class="form-label text-dark">Búsqueda producto</label>
     <div class="input-group">
       <input id="busqueda" class="form-control bg-white" type="text" name="busqueda" placeholder="Buscar producto" [(ngModel)]="campoBusqueda">
-      <button class="btn btn-secondary" type="button" (click)="buscarProductos()">Buscar</button>
+      <button class="btn btn-dark" type="button" (click)="buscarProductos()">Buscar</button>
     </div>
   </div>
 
   <div class="mb-3">
-    <label for="seleccionProducto" class="form-label text-secondary">Seleccionar producto</label>
+    <label for="seleccionProducto" class="form-label text-dark">Seleccionar producto</label>
     <select id="seleccionProducto" class="form-select bg-white" name="seleccionProducto" (change)="seleccionProducto($event)">
       <option selected>Seleccione producto buscado</option>
       <option [value]="i" *ngFor="let producto of respuestaBusqueda;let i = index">{{producto["title"]}}</option>
@@ -18,43 +18,43 @@
 
   <div class="row g-3">
     <div class="col-md-6">
-      <label for="codigo" class="form-label text-secondary">Código producto</label>
+      <label for="codigo" class="form-label text-dark">Código producto</label>
       <input id="codigo" class="form-control bg-white" type="text" name="codigo" placeholder="Código producto" [(ngModel)]="campoCodigo" #nombreInput="ngModel" required>
     </div>
     <div class="col-md-6">
-      <label for="titulo" class="form-label text-secondary">Título</label>
+      <label for="titulo" class="form-label text-dark">Título</label>
       <input id="titulo" class="form-control bg-white" type="text" name="nombre" placeholder="Título producto" [(ngModel)]="campoTitulo" #nombreInput="ngModel" required>
     </div>
     <div class="col-md-6">
-      <label for="seleccionCategoria" class="form-label text-secondary">Categoría producto</label>
+      <label for="seleccionCategoria" class="form-label text-dark">Categoría producto</label>
       <select id="seleccionCategoria" class="form-select bg-white" name="seleccionCategoria" (change)="seleccionCategoria($event)">
         <option selected>Seleccione categoría</option>
         <option [value]="i" *ngFor="let categoria of respuestaCategorias;let i = index">{{categoria["nombre"]}}</option>
       </select>
     </div>
     <div class="col-md-6">
-      <label for="marca" class="form-label text-secondary">Marca</label>
+      <label for="marca" class="form-label text-dark">Marca</label>
       <input id="marca" class="form-control bg-white" type="text" name="marca" placeholder="Marca producto" [(ngModel)]="campoMarca" #nombreInput="ngModel" required>
     </div>
     <div class="col-md-6">
-      <label for="modelo" class="form-label text-secondary">Modelo</label>
+      <label for="modelo" class="form-label text-dark">Modelo</label>
       <input id="modelo" class="form-control bg-white" type="text" name="modelo" placeholder="Modelo producto" [(ngModel)]="campoModelo" #nombreInput="ngModel" required>
     </div>
     <div class="col-md-6">
-      <label for="cantidad" class="form-label text-secondary">Cantidad</label>
+      <label for="cantidad" class="form-label text-dark">Cantidad</label>
       <input id="cantidad" class="form-control bg-white" type="number" name="cantidad" placeholder="Cantidad producto" [(ngModel)]="campoCantidad" #nombreInput="ngModel" min="1" required>
     </div>
     <div class="col-md-6">
-      <label for="precio" class="form-label text-secondary">Precio</label>
+      <label for="precio" class="form-label text-dark">Precio</label>
       <input id="precio" class="form-control bg-white" type="number" name="precio" placeholder="Precio producto" [(ngModel)]="campoPrecio" min="1" #nombreInput="ngModel" required>
     </div>
     <div class="col-12">
-      <label for="imagen" class="form-label text-secondary">Imagen</label>
+      <label for="imagen" class="form-label text-dark">Imagen</label>
       <input id="imagen" class="form-control bg-white" type="text" name="imagen" placeholder="Link imagen producto" [(ngModel)]="campoImagen" #nombreInput="ngModel" required>
     </div>
   </div>
 
   <div class="text-center mt-4">
-    <button type="submit" class="btn btn-secondary" [disabled]="formularioProducto.invalid" (click)="submitFormulario()">Registrar</button>
+    <button type="submit" class="btn btn-dark" [disabled]="formularioProducto.invalid" (click)="submitFormulario()">Registrar</button>
   </div>
 </form>

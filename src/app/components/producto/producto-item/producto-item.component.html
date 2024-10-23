@@ -2,12 +2,12 @@
   <div class="card-img-top p-4">
     <img [src]="producto.getImagen()" class="img-fluid mx-auto d-block" alt="Imagen del producto" style="max-height: 200px; object-fit: contain;">
   </div>
-  <div class="card-body d-flex flex-column">
-    <h5 class="card-title text-truncate">{{producto.getTitulo()}}</h5>
+  <div class="card-body d-flex flex-column bg-warning">
+    <h5 class="card-title">{{producto.getTitulo()}}</h5>
     <p class="card-text mb-1"><small class="text-muted">{{producto.getMarca()}}</small></p>
     <p class="card-text mb-1">{{producto.getModelo()}}</p>
-    <p class="card-text mb-1"><span class="badge bg-secondary">{{this.getCategoriaPorValor(producto.getCategoria())}}</span></p>
+    <p class="card-text mb-1"><span class="badge bg-dark">{{this.getCategoriaPorValor(producto.getCategoria())}}</span></p>
     <p class="card-text mb-3"><strong>{{producto.getPrecio()}}</strong></p>
-    <a href="#" class="btn btn-secondary mt-auto">Detalle Producto</a>
+    <a href="#" class="btn btn-dark mt-auto">Detalle Producto</a>
   </div>
 </div>
