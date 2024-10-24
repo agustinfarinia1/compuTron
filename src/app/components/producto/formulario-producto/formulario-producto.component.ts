@@ -19,10 +19,11 @@ export class FormularioProductoComponent{
   productoFormulario : FormGroup;
   respuestaBusqueda : [] = [];
   respuestaCategorias = [];
-  idProducto : string = "P1";
+  idProducto : string = "";
   tituloFormulario = "Carga Productos";
   textoBoton = "Cargar";
   cantidadProductos : number;
+  modoFormulario : number = 0;
 
   constructor(private servicioMl:ApiMlService,private categoriasServicio: CategoriasJsonServerService,private productosServicio: ProductosJsonServerService){
     this.cantidadProductos = 0;
@@ -31,7 +32,7 @@ export class FormularioProductoComponent{
       codigoML : new FormControl("",[Validators.required,Validators.minLength(3)],),
       titulo : new FormControl("",[Validators.required,Validators.minLength(3)]),
       categoria : new FormControl(null,[Validators.required]),
-      marca : new FormControl("",[Validators.required,Validators.minLength(3)]),
+      marca : new FormControl("",[Validators.required,Validators.minLength(2)]),
       modelo : new FormControl("",[Validators.required,Validators.minLength(3)]),
       cantidad : new FormControl(1,[Validators.required,Validators.min(1)]),
       precio : new FormControl(1000,[Validators.required,Validators.min(1000)]),
@@ -46,6 +47,7 @@ export class FormularioProductoComponent{
       this.productosServicio.consultarCodigo(this.idProducto).then((respuestaConsultaId) => {
         let respuestaProducto = respuestaConsultaId[0];
         if(respuestaProducto){ // Si existe el producto que tiene que buscar por ID, Cambia el modo a Edicion
+          this.modoFormulario = 1;
           this.tituloFormulario = "Editar Producto";
           this.textoBoton = "Editar";
           if(this.respuestaCategorias){
@@ -106,17 +108,17 @@ export class FormularioProductoComponent{
 
   submitFormulario = () =>{
     let producto : Producto = new Producto(this.productoFormulario.get("codigoML")?.value,this.productoFormulario.get("titulo")?.value,this.productoFormulario.get("categoria")?.value,this.productoFormulario.get("marca")?.value,this.productoFormulario.get("modelo")?.value,this.productoFormulario.get("cantidad")?.value,this.productoFormulario.get("precio")?.value,this.productoFormulario.get("imagen")?.value);
-    if(this.idProducto){
-      let indexCategoria =  this.productoFormulario.get("categoria")?.value;
-      if(indexCategoria){
+    let indexCategoria =  this.productoFormulario.get("categoria")?.value;
+    if(indexCategoria){
+      producto.setCategoria(this.respuestaCategorias[indexCategoria]["id"]);
+      if(this.modoFormulario === 1){
         producto.setId(this.idProducto);
-        producto.setCategoria(this.respuestaCategorias[indexCategoria]["id"]);
         this.productosServicio.editarProducto(producto);
-      }
     }
     else{
       producto.setId(`P${this.cantidadProductos}`);
       this.productosServicio.setNewProducto(producto);
+    }
     }
   }
 }
