@@ -1,8 +1,11 @@
+import { ProductosJsonServerService } from "../services/productos-json-server.service";
+
 export class Producto{
 
-  private codigo : string;
+  private id : string;
+  private codigoML : string;
   private titulo : string;
-  private categoria : number;
+  private categoria : string;
   private marca : string;
   private modelo : string;
   private cantidad : number;
@@ -10,8 +13,9 @@ export class Producto{
   private imagen : string;
   private eliminado : boolean;
 
-  constructor(newCodigo:string,newTitulo:string,newCategoria:number,newMarca:string,newModelo : string,newCantidad:number,newPrecio : number,newImagen : string){
-    this.codigo = newCodigo;
+  constructor(newCodigoML : string,newTitulo : string,newCategoria : string,newMarca : string,newModelo : string,newCantidad : number,newPrecio : number,newImagen : string,newId : string = ""){
+    this.id = newId;
+    this.codigoML = newCodigoML;
     this.titulo = newTitulo;
     this.categoria = newCategoria;
     this.marca = newMarca;
@@ -22,11 +26,19 @@ export class Producto{
     this.eliminado = false;
   }
 
+  setId = (newId : string) => {
+    this.id = newId;
+  }
+
+  setCodigoML = (newCodigoML : string) => {
+    this.codigoML = newCodigoML;
+  }
+
   setTitulo = (newTitulo : string) => {
     this.titulo = newTitulo;
   }
 
-  setCategoria = (newCategoria : number) => {
+  setCategoria = (newCategoria : string) => {
     this.categoria = newCategoria;
   }
 
@@ -54,8 +66,12 @@ export class Producto{
     this.eliminado = newEliminado;
   }
 
-  getCodigo = ()  => {
-    return this.codigo;
+  getId = () => {
+    return this.id;
+  }
+
+  getCodigoML = ()  => {
+    return this.codigoML;
   }
 
   getTitulo = ()  => {
