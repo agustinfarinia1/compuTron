@@ -15,16 +15,12 @@ export class GestionProductoComponent implements OnInit {
 
   listaProductos: Producto[];
 
-  constructor(private jsonServerServicio: ProductosJsonServerService) {
+  constructor(private productosServicio: ProductosJsonServerService) {
     this.listaProductos = [];
+
   }
 
   ngOnInit(): void {
-    this.jsonServerServicio.getStock().then((respuesta) => this.listaProductos = respuesta);
-  }
-
-  cargarProducto = (producto: Producto) => {
-    this.listaProductos.push(producto);
-    this.jsonServerServicio.setNewProductoStock(producto);
+    this.productosServicio.getProductos().then((respuestaProductos) => this.listaProductos = respuestaProductos);
   }
 }

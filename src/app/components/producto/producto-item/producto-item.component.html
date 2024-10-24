@@ -6,7 +6,7 @@
     <h5 class="card-title">{{producto.getTitulo()}}</h5>
     <p class="card-text mb-1"><small class="text-muted">{{producto.getMarca()}}</small></p>
     <p class="card-text mb-1">{{producto.getModelo()}}</p>
-    <p class="card-text mb-1"><span class="badge bg-dark">{{this.getCategoriaPorValor(producto.getCategoria())}}</span></p>
+    <p class="card-text mb-1"><span class="badge bg-dark">{{this.getCategoriaPorValor(this.producto.getCategoria())}}</span></p>
     <p class="card-text mb-3"><strong>{{producto.getPrecio()}}</strong></p>
     <a href="#" class="btn btn-dark mt-auto">Detalle Producto</a>
   </div>

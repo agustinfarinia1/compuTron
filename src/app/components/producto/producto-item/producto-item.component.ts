@@ -15,16 +15,16 @@ export class ProductoItemComponent{
   @Input() indice : number;
 
   constructor() {
-    this.producto = new Producto("","",0,"","",1,1,"");
+    this.producto = new Producto("","","","","",1,1,"");
     this.indice = 1;
     this.listaCategorias = [];
   }
 
-  getCategoriaPorValor = (valor : number) => {
+  getCategoriaPorValor = (valor : string) => {
     if(this.listaCategorias){
-      const respuesta : any = this.listaCategorias.find((respuesta : any) => respuesta.valor === valor);
+      const respuesta : any = this.listaCategorias.find((respuesta : any) => respuesta.id === valor);
       if(respuesta){
-        return respuesta.nombre;
+        return respuesta.valor;
       }
     }
   }
