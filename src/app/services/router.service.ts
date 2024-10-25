@@ -15,4 +15,12 @@ export class RouterService {
   irALogin () {
     this.router.navigateByUrl("/");
   }
+
+  irAEditarProducto (id : string) {
+    this.router.navigateByUrl(`admin-productos/editar/${id}`);
+  }
+
+  irAEliminarProducto (id : string) {
+    this.router.navigateByUrl(`admin-productos/eliminar/${id}`);
+  }
 }

@@ -7,6 +7,7 @@ import { FormularioProductoComponent } from './components/producto/formulario-pr
 import { ListaProductosComponent } from './components/producto/lista-productos/lista-productos.component';
 import { DetalleProductoComponent } from './components/producto/detalle-producto/detalle-producto.component';
 import { authGuard } from './guards/auth.guard';
+import { EliminarProductoComponent } from './components/producto/eliminar-producto/eliminar-producto.component';
 
 export const routes: Routes = [
   {path:"login",component:LogueoComponent},
@@ -16,7 +17,8 @@ export const routes: Routes = [
   {path:"productos/:id",component:DetalleProductoComponent,canActivate:[authGuard]},
   {path:"admin-productos",component:GestionProductoComponent,canActivate:[authGuard]},
   {path:"admin-productos/cargar",component:FormularioProductoComponent,canActivate:[authGuard]},
-  {path:"admin-productos/cargar/:id",component:FormularioProductoComponent,canActivate:[authGuard]},
+  {path:"admin-productos/editar/:id",component:FormularioProductoComponent,canActivate:[authGuard]},
+  {path:"admin-productos/eliminar/:id",component:EliminarProductoComponent,canActivate:[authGuard]},
   {path:"",redirectTo:"login",pathMatch:"full"},
   {path:"**",component:HomeComponent}
 ];
