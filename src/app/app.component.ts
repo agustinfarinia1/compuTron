@@ -1,16 +1,22 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ListaProductosComponent } from "./components/producto/lista-productos/lista-productos.component";
-import { FormularioProductoComponent } from "./components/producto/formulario-producto/formulario-producto.component";
-import { GestionProductoComponent } from "./components/producto/gestion-producto/gestion-producto.component";
-import { HttpClientModule } from '@angular/common/http';
+import { NavBarComponent } from './components/herramientas/nav-bar/nav-bar.component';
+import { AuthService } from './services/auth.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ListaProductosComponent, FormularioProductoComponent, GestionProductoComponent,HttpClientModule],
+  imports: [RouterOutlet,NavBarComponent,CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  titulo = "Computron";
+
+  constructor(private auth:AuthService){}
+
+  verificarLogueo () {
+    return this.auth.isAuth();
+  }
 }

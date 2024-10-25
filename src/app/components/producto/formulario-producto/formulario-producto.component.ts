@@ -114,11 +114,11 @@ export class FormularioProductoComponent{
       if(this.modoFormulario === 1){
         producto.setId(this.idProducto);
         this.productosServicio.editarProducto(producto);
-    }
-    else{
-      producto.setId(`P${this.cantidadProductos}`);
-      this.productosServicio.setNewProducto(producto);
-    }
+      }
+      else{
+        producto.setId(`P${this.cantidadProductos}`);
+        this.productosServicio.setNewProducto(producto);
+      }
     }
   }
 }

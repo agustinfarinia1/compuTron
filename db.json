@@ -33,5 +33,18 @@
       "valor": "Perifericos"
     }
   ],
-  "stock": []
+  "stock": [
+    {
+      "id": "P1",
+      "codigoML": "MLA1455439633",
+      "titulo": "Memoria Corsair Vengeance Rgb Ddr5 32 Gb(2x16) 5200mhz Intel",
+      "categoria": "C2",
+      "marca": "Corsair",
+      "modelo": "CMH32GX5M2B5200C40",
+      "cantidad": 1,
+      "precio": 204938,
+      "imagen": "http://http2.mlstatic.com/D_757994-MLU73551837907_122023-I.jpg",
+      "eliminado": false
+    }
+  ]
 }
