@@ -45,6 +45,54 @@
       "precio": 204938,
       "imagen": "http://http2.mlstatic.com/D_757994-MLU73551837907_122023-I.jpg",
       "eliminado": false
+    },
+    {
+      "id": "P2",
+      "codigoML": "MLA1442188071",
+      "titulo": "Microprocesador Pc Amd Ryzen 5 4600g 8mb 3.7ghz Socket Am4 100-100000147box 6 Nucleos 12 Hilos",
+      "categoria": "C3",
+      "marca": "AMD",
+      "modelo": "4600g",
+      "cantidad": 1,
+      "precio": 180639,
+      "imagen": "http://http2.mlstatic.com/D_921573-MLU79266660511_092024-I.jpg",
+      "eliminado": false
+    },
+    {
+      "id": "P3",
+      "codigoML": "MLA883168123",
+      "titulo": "Mouse Gamer Logitech G203 Lightsync Rgb",
+      "categoria": "C8",
+      "marca": "Logitech",
+      "modelo": "Prodigy",
+      "cantidad": 1,
+      "precio": 27093,
+      "imagen": "http://http2.mlstatic.com/D_691725-MLA44137401768_112020-O.jpg",
+      "eliminado": false
+    },
+    {
+      "id": "P4",
+      "codigoML": "MLA1941176174",
+      "titulo": "Monitor LG Led Amd Freesync 22 Full Hd 22mp410-b 22 Hdmi Vga Color Negro",
+      "categoria": "C8",
+      "marca": "LG",
+      "modelo": "LED",
+      "cantidad": 1,
+      "precio": 208999,
+      "imagen": "http://http2.mlstatic.com/D_686119-MLU79180109419_092024-I.jpg",
+      "eliminado": false
+    },
+    {
+      "id": "P5",
+      "codigoML": "MLA1455815813",
+      "titulo": "Auriculares Gamer Razer  Blackshark V2 X Rz04-03240100-r3m1 Classic Black",
+      "categoria": "C8",
+      "marca": "Razer",
+      "modelo": "Blackshark V2 X",
+      "cantidad": 1,
+      "precio": 115503,
+      "imagen": "http://http2.mlstatic.com/D_647640-MLA45812997947_052021-I.jpg",
+      "eliminado": false
     }
   ]
 }

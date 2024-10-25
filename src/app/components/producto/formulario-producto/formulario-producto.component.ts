@@ -1,10 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { Producto } from '../../../models/producto.model';
-import { Form, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ApiMlService } from '../../../services/api-ml.service';
 import { CommonModule } from '@angular/common';
 import { CategoriasJsonServerService } from '../../../services/categorias-json-server.service';
 import { ProductosJsonServerService } from '../../../services/productos-json-server.service';
+import { RouterService } from '../../../services/router.service';
 
 @Component({
   selector: 'app-formulario-producto',
@@ -14,19 +15,21 @@ import { ProductosJsonServerService } from '../../../services/productos-json-ser
   styleUrl: './formulario-producto.component.css'
 })
 export class FormularioProductoComponent{
-  //@Input() idProducto: string; // Se debera implementar una obtencion del id por el url
+  @Input("id") idProducto!: string;
 
   productoFormulario : FormGroup;
   respuestaBusqueda : [] = [];
   respuestaCategorias = [];
-  idProducto : string = "";
   tituloFormulario = "Carga Productos";
   textoBoton = "Cargar";
   cantidadProductos : number;
-  modoFormulario : number = 0;
+  modoFormulario : number;
+  cartelExito : boolean;
 
-  constructor(private servicioMl:ApiMlService,private categoriasServicio: CategoriasJsonServerService,private productosServicio: ProductosJsonServerService){
+  constructor(private servicioMl:ApiMlService,private categoriasServicio: CategoriasJsonServerService,private productosServicio: ProductosJsonServerService,private router : RouterService){
     this.cantidadProductos = 0;
+    this.modoFormulario = 0;
+    this.cartelExito = false;
     this.productoFormulario = new FormGroup({
       busqueda : new FormControl(),
       codigoML : new FormControl("",[Validators.required,Validators.minLength(3)],),
@@ -110,6 +113,7 @@ export class FormularioProductoComponent{
     let producto : Producto = new Producto(this.productoFormulario.get("codigoML")?.value,this.productoFormulario.get("titulo")?.value,this.productoFormulario.get("categoria")?.value,this.productoFormulario.get("marca")?.value,this.productoFormulario.get("modelo")?.value,this.productoFormulario.get("cantidad")?.value,this.productoFormulario.get("precio")?.value,this.productoFormulario.get("imagen")?.value);
     let indexCategoria =  this.productoFormulario.get("categoria")?.value;
     if(indexCategoria){
+      this.cartelExito = true;
       producto.setCategoria(this.respuestaCategorias[indexCategoria]["id"]);
       if(this.modoFormulario === 1){
         producto.setId(this.idProducto);
@@ -119,6 +123,7 @@ export class FormularioProductoComponent{
         producto.setId(`P${this.cantidadProductos}`);
         this.productosServicio.setNewProducto(producto);
       }
+      this.router.irAHome();
     }
   }
 }

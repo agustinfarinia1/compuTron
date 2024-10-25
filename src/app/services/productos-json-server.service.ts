@@ -67,7 +67,7 @@ export class ProductosJsonServerService {
     try {
         const respuesta = await fetch(url);
         const datos = await respuesta.json();
-        return datos;
+        return datos.map((item: any) => new Producto(item.codigo,item.titulo,item.categoria,item.marca,item.modelo,item.cantidad,item.precio,item.imagen,item.id));
       }
     catch (error) {
       console.error("Error al obtener los datos:", error);
