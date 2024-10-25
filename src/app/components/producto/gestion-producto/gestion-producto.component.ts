@@ -3,11 +3,12 @@ import { FormularioProductoComponent } from "../formulario-producto/formulario-p
 import { ListaProductosComponent } from "../lista-productos/lista-productos.component";
 import { Producto } from '../../../models/producto.model';
 import { ProductosJsonServerService } from '../../../services/productos-json-server.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-gestion-producto',
   standalone: true,
-  imports: [FormularioProductoComponent, ListaProductosComponent],
+  imports: [ListaProductosComponent,RouterLink],
   templateUrl: './gestion-producto.component.html',
   styleUrl: './gestion-producto.component.css'
 })
