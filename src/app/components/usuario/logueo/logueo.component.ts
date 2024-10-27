@@ -1,10 +1,10 @@
 // login.component.ts
 import { Component } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
+import { RouterService } from '../../../services/router.service';
 
 @Component({
   selector: 'app-login',
@@ -16,14 +16,14 @@ import { AuthService } from '../../../services/auth.service';
 export class LogueoComponent {
   loginData = { usuario: '', password: '' };
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: RouterService) {}
 
   iniciarSesion() {
     this.authService.login(this.loginData.usuario, this.loginData.password)
       .then(success => {
         if (success) {
           alert('Inicio de sesión exitoso');
-          this.router.navigate(['/home']);
+          this.router.irAHome();
         } else {
           alert('Usuario o contraseña incorrectos');
         }
