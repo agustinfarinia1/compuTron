@@ -3,6 +3,7 @@ import { ProductosJsonServerService } from '../../../services/productos-json-ser
 import { Producto } from '../../../models/producto.model';
 import { CommonModule } from '@angular/common';
 import { RouterService } from '../../../services/router.service';
+import { CategoriasJsonServerService } from '../../../services/categorias-json-server.service';
 
 @Component({
   selector: 'app-eliminar-producto',
@@ -13,20 +14,31 @@ import { RouterService } from '../../../services/router.service';
 })
 export class EliminarProductoComponent implements OnInit{
   @Input("id") idProducto!: string;
+  categorias : [];
 
   producto : Producto;
 
-  constructor(private productoService : ProductosJsonServerService,private router: RouterService){
+  constructor(private productoService : ProductosJsonServerService,private router: RouterService,private categoriaService : CategoriasJsonServerService){
     this.producto = new Producto("","","","","",0,0,"");
+    this.categorias = [];
   }
 
   ngOnInit(): void {
     if(this.idProducto){
       this.productoService.consultarCodigo(this.idProducto).then((respuestaProducto) => this.producto = respuestaProducto[0]);
+      this.categoriaService.getCategorias().then((respuestaCategorias) => this.categorias = respuestaCategorias);
     }
   }
 
-  volverInicio () {
+  buscarCategoria (idCategoria : string){
+    let categoria : any= this.categorias.find((busquedaCategoria : any) => busquedaCategoria.id === idCategoria);
+    if(categoria){
+      return categoria.valor;
+    }
+    return null;
+  }
+
+  volverAlInicio () {
     this.router.irAHome();
   }
 

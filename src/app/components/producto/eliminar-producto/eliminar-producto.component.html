@@ -8,10 +8,10 @@
                   <h5 class="d-flex card-title justify-content-center">{{producto.getTitulo()}}</h5>
                   <p class="card-text">Marca: {{producto.getMarca()}}</p>
                   <p class="card-text">Modelo: {{producto.getModelo()}}</p>
-                  <p class="card-text">Categoria: {{producto.getCategoria()}}</p>
+                  <p class="card-text">Categoria: {{buscarCategoria(producto.getCategoria())}}</p>
                   <p class="card-text">Precio: ${{producto.getPrecio()}}</p>
                   <div class="d-flex justify-content-between mt-3">
-                      <a class="btn btn-dark" (click)="volverInicio()">Volver</a>
+                      <a class="btn btn-dark" (click)="volverAlInicio()">Volver</a>
                       <a class="btn btn-danger" (click)="eliminarProducto(producto)">Eliminar</a>
                   </div>
               </div>

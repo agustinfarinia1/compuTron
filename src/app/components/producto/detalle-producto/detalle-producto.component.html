@@ -1,1 +1,21 @@
-<p>detalle-producto works!</p>
+<div class="container my-4">
+  <div class="row justify-content-center">
+    <h2 class="text-center">Eliminar Producto</h2>
+      <div class="col-md-6" *ngIf="producto">
+          <div class="card">
+              <img [src]="producto.getImagen()" alt="Producto Único" class="card-img-top product-image" style="max-height: 200px; object-fit: contain;">
+              <div class="card-body">
+                  <h5 class="d-flex card-title justify-content-center">{{producto.getTitulo()}}</h5>
+                  <p class="card-text">Marca: {{producto.getMarca()}}</p>
+                  <p class="card-text">Modelo: {{producto.getModelo()}}</p>
+                  <p class="card-text">Categoria: {{buscarCategoria(producto.getCategoria())}}</p>
+                  <p class="card-text">Precio: ${{producto.getPrecio()}}</p>
+                  <div class="d-flex justify-content-between mt-3">
+                      <a class="btn btn-dark" (click)="volverAlInicio()">Volver</a>
+                      <a class="btn btn-success" (click)="agregarAlCarrito()">Agregar al carrito</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
