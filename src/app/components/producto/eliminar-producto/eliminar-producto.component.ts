@@ -1,23 +1,24 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Producto } from '../../../models/producto.model';
 import { ProductosJsonServerService } from '../../../services/productos-json-server.service';
-import { CategoriasJsonServerService } from '../../../services/categorias-json-server.service';
-import { RouterService } from '../../../services/router.service';
+import { Producto } from '../../../models/producto.model';
 import { CommonModule } from '@angular/common';
+import { RouterService } from '../../../services/router.service';
+import { CategoriasJsonServerService } from '../../../services/categorias-json-server.service';
 
 @Component({
-  selector: 'app-detalle-producto',
+  selector: 'app-eliminar-producto',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './detalle-producto.component.html',
-  styleUrl: './detalle-producto.component.css'
+  templateUrl: './eliminar-producto.component.html',
+  styleUrl: './eliminar-producto.component.css'
 })
-export class DetalleProductoComponent implements OnInit{
+export class EliminarProductoComponent implements OnInit{
   @Input("id") idProducto!: string;
-  producto : Producto;
   categorias : [];
 
-  constructor(private productoService : ProductosJsonServerService,private categoriaService : CategoriasJsonServerService,private router : RouterService){
+  producto : Producto;
+
+  constructor(private productoService : ProductosJsonServerService,private router: RouterService,private categoriaService : CategoriasJsonServerService){
     this.producto = new Producto("","","","","",0,0,"");
     this.categorias = [];
   }
@@ -41,8 +42,9 @@ export class DetalleProductoComponent implements OnInit{
     this.router.irAHome();
   }
 
-  agregarAlCarrito () {
-    console.log(this.producto);
-    console.log("agregar al carrito");
+  eliminarProducto (producto : Producto) {
+    producto.setEliminado(true);
+    this.productoService.editarProducto(producto);
+    this.router.irAHome();
   }
 }

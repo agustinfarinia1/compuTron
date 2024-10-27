@@ -2,6 +2,6 @@
   <div class="d-flex justify-content-center">
     <h3>Gestion productos</h3>
   </div>
-  <app-formulario-producto [accionFormulario]="cargarProducto"></app-formulario-producto>
-  <app-lista-productos [listaProductos]="listaProductos"></app-lista-productos>
+  <a type="button" class="btn btn-dark" [routerLink]="['/admin-productos/cargar/']">Cargar Producto</a>
+  <app-lista-producto-admin></app-lista-producto-admin>
 </div>

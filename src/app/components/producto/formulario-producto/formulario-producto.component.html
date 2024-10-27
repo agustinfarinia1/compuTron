@@ -1,15 +1,19 @@
-<form class="container py-4 px-3 bg-light border rounded shadow-sm" #formularioProducto="ngForm">
-  <h3 class="text-center mb-4 text-secondary">Carga productos</h3>
+<div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="cartelExito">
+  <strong>¡Éxito!</strong> Tu operación se ha completado correctamente.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<form class="container py-4 px-3 bg-warning border rounded shadow-sm" [formGroup]="productoFormulario" (ngSubmit)="onSubmit()">
+  <h3 class="text-center mb-4 text-dark">{{tituloFormulario}}</h3>
   <div class="mb-3">
-    <label for="busqueda" class="form-label text-secondary">Búsqueda producto</label>
+    <label for="busqueda" class="form-label text-dark">Búsqueda producto</label>
     <div class="input-group">
-      <input id="busqueda" class="form-control bg-white" type="text" name="busqueda" placeholder="Buscar producto" [(ngModel)]="campoBusqueda">
-      <button class="btn btn-secondary" type="button" (click)="buscarProductos()">Buscar</button>
+      <input id="busqueda" class="form-control bg-white" type="text" name="busqueda" placeholder="Buscar producto" formControlName="busqueda">
+      <button class="btn btn-dark" type="button" (click)="buscarProductos()">Buscar</button>
     </div>
   </div>
 
   <div class="mb-3">
-    <label for="seleccionProducto" class="form-label text-secondary">Seleccionar producto</label>
+    <label for="seleccionProducto" class="form-label text-dark">Seleccionar producto</label>
     <select id="seleccionProducto" class="form-select bg-white" name="seleccionProducto" (change)="seleccionProducto($event)">
       <option selected>Seleccione producto buscado</option>
       <option [value]="i" *ngFor="let producto of respuestaBusqueda;let i = index">{{producto["title"]}}</option>
@@ -18,43 +22,67 @@
 
   <div class="row g-3">
     <div class="col-md-6">
-      <label for="codigo" class="form-label text-secondary">Código producto</label>
-      <input id="codigo" class="form-control bg-white" type="text" name="codigo" placeholder="Código producto" [(ngModel)]="campoCodigo" #nombreInput="ngModel" required>
+      <label for="codigo" class="form-label text-dark">Código producto</label>
+      <input id="codigo" class="form-control bg-white" type="text" name="codigo" placeholder="Código producto" formControlName="codigoML">
+      <span *ngIf="productoFormulario.get('codigoML')?.invalid && productoFormulario.get('codigoML')?.touched" class="text-danger">
+        Error-CodigoML : Dato Incorrecto
+      </span>
     </div>
     <div class="col-md-6">
-      <label for="titulo" class="form-label text-secondary">Título</label>
-      <input id="titulo" class="form-control bg-white" type="text" name="nombre" placeholder="Título producto" [(ngModel)]="campoTitulo" #nombreInput="ngModel" required>
+      <label for="titulo" class="form-label text-dark">Título</label>
+      <input id="titulo" class="form-control bg-white" type="text" name="nombre" placeholder="Título producto" formControlName="titulo">
+      <span *ngIf="productoFormulario.get('titulo')?.invalid && productoFormulario.get('titulo')?.touched" class="text-danger">
+        Error-Titulo : Dato Incorrecto
+      </span>
     </div>
     <div class="col-md-6">
-      <label for="seleccionCategoria" class="form-label text-secondary">Categoría producto</label>
-      <select id="seleccionCategoria" class="form-select bg-white" name="seleccionCategoria" (change)="seleccionCategoria($event)">
+      <label for="seleccionCategoria" class="form-label text-dark">Categoría producto</label>
+      <select id="seleccionCategoria" class="form-select bg-white" name="seleccionCategoria" (change)="seleccionCategoria($event)" formControlName="categoria">
         <option selected>Seleccione categoría</option>
-        <option [value]="i" *ngFor="let categoria of respuestaCategorias;let i = index">{{categoria["nombre"]}}</option>
+        <option [value]="i" *ngFor="let categoria of respuestaCategorias;let i = index">{{categoria["valor"]}}</option>
       </select>
+      <span *ngIf="productoFormulario.get('categoria')?.invalid && productoFormulario.get('categoria')?.touched" class="text-danger">
+        Error : Categoria Necesaria
+      </span>
     </div>
     <div class="col-md-6">
-      <label for="marca" class="form-label text-secondary">Marca</label>
-      <input id="marca" class="form-control bg-white" type="text" name="marca" placeholder="Marca producto" [(ngModel)]="campoMarca" #nombreInput="ngModel" required>
+      <label for="marca" class="form-label text-dark">Marca</label>
+      <input id="marca" class="form-control bg-white" type="text" name="marca" placeholder="Marca producto"  formControlName="marca">
+      <span *ngIf="productoFormulario.get('marca')?.invalid && productoFormulario.get('marca')?.touched" class="text-danger">
+        Error-Marca : Dato Incorrecto
+      </span>
     </div>
     <div class="col-md-6">
-      <label for="modelo" class="form-label text-secondary">Modelo</label>
-      <input id="modelo" class="form-control bg-white" type="text" name="modelo" placeholder="Modelo producto" [(ngModel)]="campoModelo" #nombreInput="ngModel" required>
+      <label for="modelo" class="form-label text-dark">Modelo</label>
+      <input id="modelo" class="form-control bg-white" type="text" name="modelo" placeholder="Modelo producto" formControlName="modelo">
+      <span *ngIf="productoFormulario.get('modelo')?.invalid && productoFormulario.get('modelo')?.touched" class="text-danger">
+        Error-Modelo : Dato Incorrecto
+      </span>
     </div>
     <div class="col-md-6">
-      <label for="cantidad" class="form-label text-secondary">Cantidad</label>
-      <input id="cantidad" class="form-control bg-white" type="number" name="cantidad" placeholder="Cantidad producto" [(ngModel)]="campoCantidad" #nombreInput="ngModel" min="1" required>
+      <label for="cantidad" class="form-label text-dark">Cantidad</label>
+      <input id="cantidad" class="form-control bg-white" type="number" name="cantidad" placeholder="Cantidad producto"  formControlName="cantidad">
+      <span *ngIf="productoFormulario.get('modelo')?.invalid && productoFormulario.get('modelo')?.touched" class="text-danger">
+        Error-Cantidad : Dato Incorrecto
+      </span>
     </div>
     <div class="col-md-6">
-      <label for="precio" class="form-label text-secondary">Precio</label>
-      <input id="precio" class="form-control bg-white" type="number" name="precio" placeholder="Precio producto" [(ngModel)]="campoPrecio" min="1" #nombreInput="ngModel" required>
+      <label for="precio" class="form-label text-dark">Precio</label>
+      <input id="precio" class="form-control bg-white" type="number" name="precio" placeholder="Precio producto"  formControlName="precio">
+      <span *ngIf="productoFormulario.get('modelo')?.invalid && productoFormulario.get('modelo')?.touched" class="text-danger">
+        Error-Precio : Dato Incorrecto
+      </span>
     </div>
     <div class="col-12">
-      <label for="imagen" class="form-label text-secondary">Imagen</label>
-      <input id="imagen" class="form-control bg-white" type="text" name="imagen" placeholder="Link imagen producto" [(ngModel)]="campoImagen" #nombreInput="ngModel" required>
+      <label for="imagen" class="form-label text-dark">Imagen</label>
+      <input id="imagen" class="form-control bg-white" type="text" name="imagen" placeholder="Link imagen producto"  formControlName="imagen">
+      <span *ngIf="productoFormulario.get('imagen')?.invalid && productoFormulario.get('imagen')?.touched" class="text-danger">
+        Error-Imagen : Dato Incorrecto
+      </span>
     </div>
   </div>
 
   <div class="text-center mt-4">
-    <button type="submit" class="btn btn-secondary" [disabled]="formularioProducto.invalid" (click)="submitFormulario()">Registrar</button>
+    <button type="submit" class="btn btn-dark" [disabled]="productoFormulario.invalid">{{textoBoton}}</button>
   </div>
 </form>
