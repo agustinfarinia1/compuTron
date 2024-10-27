@@ -5,11 +5,12 @@ import { AuthService } from './services/auth.service';
 import { CommonModule } from '@angular/common';
 import { ProductosJsonServerService } from './services/productos-json-server.service';
 import { CategoriasJsonServerService } from './services/categorias-json-server.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,NavBarComponent,CommonModule],
+  imports: [RouterOutlet,NavBarComponent,CommonModule,HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -24,6 +25,6 @@ export class AppComponent implements OnInit{
   }
 
   verificarLogueo () {
-    return this.auth.isAuth();
+    return this.auth.isAuthenticated();
   }
 }
