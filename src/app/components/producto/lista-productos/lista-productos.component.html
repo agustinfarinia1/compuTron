@@ -1,7 +1,22 @@
 <div class="container-fluid py-4">
+  <div class="d-flex justify-content-end mb-3">
+    <label for="orden" class="me-2">Ordenar por precio:</label>
+    <select id="orden" [(ngModel)]="ordenSeleccionado" (change)="ordenarProductos()">
+      <option value="default">Por defecto</option>
+      
+      <option value="desc">Más caro</option>
+      <option value="asc">Más barato</option>
+    </select>
+  </div>
+
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
-    <div class="col" *ngFor="let producto of listaProductos; let i = index">
+    <div class="col" *ngFor="let producto of listaProductos | paginate: { itemsPerPage: 8, currentPage: p }; let i=index">
       <app-producto-item [producto]="producto" [indice]="i" [listaCategorias]="listaCategorias"></app-producto-item>
-    </div>
+    </div> 
+  </div>
+  
+  <div class="d-flex justify-content-center">
+    <pagination-controls class="my-pagination" (pageChange)="p = $event" previousLabel="Anterior" nextLabel="Siguiente">
+    </pagination-controls>
   </div>
 </div>
