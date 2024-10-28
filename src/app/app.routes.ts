@@ -8,12 +8,14 @@ import { ListaProductosComponent } from './components/producto/lista-productos/l
 import { DetalleProductoComponent } from './components/producto/detalle-producto/detalle-producto.component';
 import { authGuard } from './guards/auth.guard';
 import { EliminarProductoComponent } from './components/producto/eliminar-producto/eliminar-producto.component';
+import { CarritoComponent } from './components/carrito/carrito.component';
 
 export const routes: Routes = [
   {path:"login",component:LogueoComponent},
   {path:"registrar",component:RegistrarComponent},
   {path:"inicio",component:HomeComponent,canActivate:[authGuard]},
   {path:"productos",component:ListaProductosComponent,canActivate:[authGuard]},
+  {path:"carrito",component:CarritoComponent,canActivate:[authGuard]},
   {path:"productos/:id",component:DetalleProductoComponent,canActivate:[authGuard]},
   {path:"admin-productos",component:GestionProductoComponent,canActivate:[authGuard]},
   {path:"admin-productos/cargar",component:FormularioProductoComponent,canActivate:[authGuard]},

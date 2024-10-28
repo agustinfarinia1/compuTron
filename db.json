@@ -153,7 +153,7 @@
       "categoria": "e66e",
       "marca": "HyperX",
       "modelo": "676a2aa",
-      "cantidad": 1,
+      "cantidad": 10,
       "precio": 195203,
       "imagen": "http://http2.mlstatic.com/D_835955-MLA71723357567_092023-I.jpg",
       "eliminado": false
@@ -180,7 +180,44 @@
       "nombre": "admin",
       "apellido": "admin",
       "direccion": "admin123",
-      "carrito": [],
+      "carrito": [
+        {
+          "id": "P9",
+          "codigoML": "MLA1388318679",
+          "titulo": "Auriculares Hyperx Cloud Stinger 2 Wireless Dts X Sound Pc",
+          "categoria": "e66e",
+          "marca": "HyperX",
+          "modelo": "676a2aa",
+          "cantidad": 1,
+          "precio": 195203,
+          "imagen": "http://http2.mlstatic.com/D_835955-MLA71723357567_092023-I.jpg",
+          "eliminado": false
+        },
+        {
+          "id": "6173",
+          "codigo": "MLA933816378",
+          "titulo": "Placa De Vídeo Gtx 1050 Ti Geforce Nvidia Msi  4gb Oc Edition",
+          "categoria": 0,
+          "marca": "MSI",
+          "modelo": "GTX 1050 Ti",
+          "cantidad": 1,
+          "precio": 353583.35,
+          "imagen": "http://http2.mlstatic.com/D_652880-MLA43530435729_092020-I.jpg",
+          "eliminado": false
+        },
+        {
+          "id": "P8",
+          "codigoML": "MLA1732679638",
+          "titulo": "Placa De Video Nvidia Msi  Ventus Xs Geforce Gtx 16 Series Gtx 1660 Super Geforce Gtx 1660 Super Ventus Xs Oc Oc Edition 6gb",
+          "categoria": "da6a",
+          "marca": "MSI",
+          "modelo": "GTX 1660 SUPER",
+          "cantidad": 1,
+          "precio": 353000,
+          "imagen": "http://http2.mlstatic.com/D_844032-MLU69958165034_062023-I.jpg",
+          "eliminado": false
+        }
+      ],
       "id": "b751"
     },
     {
@@ -193,8 +230,16 @@
       "direccion": "agustin123",
       "carrito": [
         {
-          "codigo": "S002",
-          "cantidad": 1
+          "id": "P9",
+          "codigoML": "MLA1388318679",
+          "titulo": "Auriculares Hyperx Cloud Stinger 2 Wireless Dts X Sound Pc",
+          "categoria": "e66e",
+          "marca": "HyperX",
+          "modelo": "676a2aa",
+          "cantidad": 1,
+          "precio": 195203,
+          "imagen": "http://http2.mlstatic.com/D_835955-MLA71723357567_092023-I.jpg",
+          "eliminado": false
         }
       ],
       "id": "8711"

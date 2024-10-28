@@ -42,7 +42,8 @@ export class DetalleProductoComponent implements OnInit{
   }
 
   agregarAlCarrito () {
-    console.log(this.producto);
-    console.log("agregar al carrito");
+   
+    this.getCarrito();
+
   }
 }
