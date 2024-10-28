@@ -1,137 +1,205 @@
 {
   "categorias": [
     {
-      "codigo": "C001",
-      "nombre": "Fuente",
-      "valor": "1",
-      "id": "1adc"
+      "id": "C1",
+      "valor": "Fuente"
     },
     {
-      "codigo": "C002",
-      "nombre": "Memoria ram",
-      "valor": "2",
-      "id": "1c20"
+      "id": "C2",
+      "valor": "Memoria ram"
     },
     {
-      "codigo": "C003",
-      "nombre": "Procesador",
-      "valor": "3",
-      "id": "ce78"
+      "id": "C3",
+      "valor": "Procesador"
     },
     {
-      "codigo": "C004",
-      "nombre": "Placa madre",
-      "valor": "4",
-      "id": "ca91"
+      "id": "C4",
+      "valor": "Placa madre"
     },
     {
-      "codigo": "C005",
-      "nombre": "Placa de video",
-      "valor": "5",
-      "id": "da6a"
+      "id": "C5",
+      "valor": "Placa de video"
     },
     {
-      "codigo": "C006",
-      "nombre": "Almacenamiento",
-      "valor": "6",
-      "id": "e3bb"
+      "id": "C6",
+      "valor": "Almacenamiento"
     },
     {
-      "codigo": "C007",
-      "nombre": "Gabinete",
-      "valor": "7",
-      "id": "87cb"
+      "id": "C7",
+      "valor": "Gabinete"
     },
     {
-      "codigo": "C008",
-      "nombre": "Perifericos",
-      "valor": "8",
-      "id": "e66e"
+      "id": "C8",
+      "valor": "Perifericos"
     }
   ],
   "stock": [
     {
-      "id": "450c",
-      "codigo": "MLA1426080587",
-      "titulo": "Memoria Ram Ddr5 Kingston Fury Impact 16gb 5600mts Sodimm",
-      "categoria": "2",
+      "id": "P1",
+      "codigoML": "MLA1455439633",
+      "titulo": "Memoria Corsair Vengeance Rgb Ddr5 32 Gb(2x16) 5200mhz Intel",
+      "categoria": "C2",
+      "marca": "Corsair",
+      "modelo": "CMH32GX5M2B5200C40",
+      "cantidad": 1,
+      "precio": 204938,
+      "imagen": "http://http2.mlstatic.com/D_757994-MLU73551837907_122023-I.jpg",
+      "eliminado": false
+    },
+    {
+      "id": "P2",
+      "codigoML": "MLA1117902383",
+      "titulo": "Memoria Ram Fury Beast Ddr4 Gamer Color Negro 8gb 1 Kingston Kf432c16bb/8",
+      "categoria": "C2",
       "marca": "Kingston",
-      "modelo": "KF556S40IB-16",
+      "modelo": "KF432C16BB/8",
       "cantidad": 1,
-      "precio": 83661.6,
-      "imagen": "http://http2.mlstatic.com/D_903624-MLU73608858296_122023-I.jpg",
+      "precio": 29715,
+      "imagen": "http://http2.mlstatic.com/D_805641-MLA74781352069_022024-I.jpg",
       "eliminado": false
     },
     {
-      "id": "1b25",
-      "codigo": "MLA1815108838",
-      "titulo": "Procesador Amd Ryzen 5 8600g 5.3 Ghz Am5 1",
-      "categoria": "3",
+      "id": "P3",
+      "codigoML": "MLA1455799859",
+      "titulo": "Memoria Ram Standard Gamer Color Verde 8gb 1 Sk Hynix Hma81gs6afr8n-uh",
+      "categoria": "C2",
+      "marca": "SK hynix",
+      "modelo": "HMA81GS6AFR8N-UH",
+      "cantidad": 1,
+      "precio": 36994,
+      "imagen": "http://http2.mlstatic.com/D_835706-MLA74781908139_022024-I.jpg",
+      "eliminado": false
+    },
+    {
+      "id": "P4",
+      "codigoML": "MLA1442188071",
+      "titulo": "Microprocesador Pc Amd Ryzen 5 4600g 8mb 3.7ghz Socket Am4 100-100000147box 6 Nucleos 12 Hilos",
+      "categoria": "C3",
       "marca": "AMD",
-      "modelo": "8600g",
+      "modelo": "4600g",
       "cantidad": 1,
-      "precio": 351776,
-      "imagen": "http://http2.mlstatic.com/D_979717-MLU74347982464_022024-I.jpg",
+      "precio": 180639,
+      "imagen": "http://http2.mlstatic.com/D_921573-MLU79266660511_092024-I.jpg",
       "eliminado": false
     },
     {
-      "id": "2e41",
-      "codigo": "MLA1444443177",
-      "titulo": "Motherboard Msi Pro B650m-p Am5 Color Negro",
-      "categoria": "4",
+      "id": "P5",
+      "codigoML": "MLA1902989746",
+      "titulo": "Procesador Amd Ryzen 7 5700g 100-100000263box De 8 Núcleos Y  4.6ghz De Frecuencia Con Gráfica Integrada",
+      "categoria": "C3",
+      "marca": "AMD",
+      "modelo": "5700G",
+      "cantidad": 1,
+      "precio": 304339,
+      "imagen": "http://http2.mlstatic.com/D_622790-MLU72699561931_112023-I.jpg",
+      "eliminado": false
+    },
+    {
+      "id": "P6",
+      "codigoML": "MLA1409347705",
+      "titulo": "Procesador Gamer Intel Core I9-14900k Bx8071514900k De 24 Núcleos Y  6ghz De Frecuencia Con Gráfica Integrada",
+      "categoria": "C3",
+      "marca": "Intel",
+      "modelo": "i9-14900K",
+      "cantidad": 1,
+      "precio": 856989,
+      "imagen": "http://http2.mlstatic.com/D_972763-MLU78939419339_092024-I.jpg",
+      "eliminado": false
+    },
+    {
+      "id": "P7",
+      "codigoML": "MLA1456936255",
+      "titulo": "Procesador Gamer Intel Core I5-12400f Bx8071512400f De 6 Núcleos Y  4.4ghz De Frecuencia",
+      "categoria": "C3",
+      "marca": "Intel",
+      "modelo": "i5-12400F",
+      "cantidad": 1,
+      "precio": 209089,
+      "imagen": "http://http2.mlstatic.com/D_618874-MLU77742070764_072024-I.jpg",
+      "eliminado": false
+    },
+    {
+      "id": "P8",
+      "codigoML": "MLA1699447682",
+      "titulo": "Motherboard Asus Prime A320m-k Am4 Ddr4 Usb 3.0 Hdmi A320 Color Negro",
+      "categoria": "C4",
+      "marca": "Asus",
+      "modelo": "A320M-K",
+      "cantidad": 1,
+      "precio": 186497,
+      "imagen": "http://http2.mlstatic.com/D_923272-MLM43779520023_102020-I.jpg",
+      "eliminado": false
+    },
+    {
+      "id": "P9",
+      "codigoML": "MLA1443111943",
+      "titulo": "Placa Madre Msi B650m Gaming Plus Wifi Am5 B650 Matx Ddr5 Negra",
+      "categoria": "C4",
       "marca": "MSI",
-      "modelo": "Pro B650m-P",
+      "modelo": "B650M GAMING PLUS WIFI",
       "cantidad": 1,
-      "precio": 180040.5,
-      "imagen": "http://http2.mlstatic.com/D_866694-MLU74411752036_022024-I.jpg",
+      "precio": 252995.1,
+      "imagen": "http://http2.mlstatic.com/D_662498-MLU76802482028_062024-I.jpg",
       "eliminado": false
     },
     {
-      "id": "07b8",
-      "codigo": "MLA1918994290",
-      "titulo": "Monitor LG Led Negro 110/220v",
-      "categoria": "8",
+      "id": "P10",
+      "codigoML": "MLA1930438716",
+      "titulo": "Monitor LG 24 Gamer Led 100hz 1920x1080 Ips Gtg Color Negro",
+      "categoria": "C8",
       "marca": "LG",
-      "modelo": "19M38A",
+      "modelo": "24MS500-B",
       "cantidad": 1,
-      "precio": 153500,
-      "imagen": "http://http2.mlstatic.com/D_768693-MLU70045241524_062023-I.jpg",
+      "precio": 192975,
+      "imagen": "http://http2.mlstatic.com/D_818066-MLU78248919307_082024-I.jpg",
       "eliminado": false
     },
     {
-      "id": "9993",
-      "codigo": "MLA1737250346",
-      "titulo": "Teclado Gamer Redragon Kumara K552 Qwerty Outemu Red Español Latinoamérica Color Negro Con Luz Rgb",
-      "categoria": "8",
-      "marca": "Redragon",
-      "modelo": "K552",
+      "id": "P11",
+      "codigoML": "MLA1455815813",
+      "titulo": "Auriculares Gamer Razer  Blackshark V2 X Rz04-03240100-r3m1 Classic Black",
+      "categoria": "C8",
+      "marca": "Razer",
+      "modelo": "Blackshark V2 X",
       "cantidad": 1,
-      "precio": 79242.88,
-      "imagen": "http://http2.mlstatic.com/D_864807-MLA77594879101_072024-I.jpg",
+      "precio": 115503,
+      "imagen": "http://http2.mlstatic.com/D_647640-MLA45812997947_052021-I.jpg",
       "eliminado": false
     },
     {
-      "id": "f173",
-      "codigo": "MLA883168123",
-      "titulo": "Mouse Gamer Logitech G203 Lightsync Rgb",
-      "categoria": "8",
+      "id": "P12",
+      "codigoML": "MLA828975423",
+      "titulo": "Mouse Logitech M170 Inalambrico Usb - Negro",
+      "categoria": "C8",
       "marca": "Logitech",
-      "modelo": "Prodigy",
+      "modelo": "M170",
       "cantidad": 1,
-      "precio": 30999,
-      "imagen": "http://http2.mlstatic.com/D_691725-MLA44137401768_112020-O.jpg",
+      "precio": 9745,
+      "imagen": "http://http2.mlstatic.com/D_969208-MLU72627875418_112023-I.jpg",
       "eliminado": false
     },
     {
-      "id": "6173",
-      "codigo": "MLA933816378",
-      "titulo": "Placa De Vídeo Gtx 1050 Ti Geforce Nvidia Msi  4gb Oc Edition",
-      "categoria": 0,
+      "id": "P13",
+      "codigoML": "MLA1440562385",
+      "titulo": "Placa De Video Nvidia Msi  Ventus 2x Geforce Rtx 40 Series Rtx 4060 Geforce Rtx 4060 Ventus 2x Black 8g Oc Black Oc Edition 8gb",
+      "categoria": "C5",
       "marca": "MSI",
-      "modelo": "GTX 1050 Ti",
+      "modelo": "RTX 4060",
       "cantidad": 1,
-      "precio": 353583.35,
-      "imagen": "http://http2.mlstatic.com/D_652880-MLA43530435729_092020-I.jpg",
+      "precio": 586653.5,
+      "imagen": "http://http2.mlstatic.com/D_629071-MLA74986655372_032024-I.jpg",
+      "eliminado": false
+    },
+    {
+      "id": "P14",
+      "codigoML": "MLA1429462743",
+      "titulo": "T. De Vídeo Xfx Amd Radeon Rx 6650 Xt Speedster Swft 210 8gb",
+      "categoria": "C5",
+      "marca": "XFX",
+      "modelo": "RX 6650 XT",
+      "cantidad": 1,
+      "precio": 419373.2,
+      "imagen": "http://http2.mlstatic.com/D_799821-MLU78582995864_082024-I.jpg",
       "eliminado": false
     }
   ],
