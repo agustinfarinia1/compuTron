@@ -4,11 +4,13 @@ import { ProductosJsonServerService } from '../../../services/productos-json-ser
 import { CategoriasJsonServerService } from '../../../services/categorias-json-server.service';
 import { RouterService } from '../../../services/router.service';
 import { CommonModule } from '@angular/common';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ListaProductosComponent } from "../lista-productos/lista-productos.component";
 
 @Component({
   selector: 'app-detalle-producto',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule, ListaProductosComponent],
   templateUrl: './detalle-producto.component.html',
   styleUrl: './detalle-producto.component.css'
 })
@@ -16,10 +18,16 @@ export class DetalleProductoComponent implements OnInit{
   @Input("id") idProducto!: string;
   producto : Producto;
   categorias : [];
+  carritoFormulario : FormGroup;
+  maximo : number;
 
   constructor(private productoService : ProductosJsonServerService,private categoriaService : CategoriasJsonServerService,private router : RouterService){
     this.producto = new Producto("","","","","",0,0,"");
     this.categorias = [];
+    this.maximo = 2;
+    this.carritoFormulario = new FormGroup({
+      cantidad : new FormControl(1,[Validators.required,Validators.min(1)]),
+    })
   }
 
   ngOnInit(): void {
@@ -44,5 +52,10 @@ export class DetalleProductoComponent implements OnInit{
   agregarAlCarrito () {
     console.log(this.producto);
     console.log("agregar al carrito");
+  }
+
+  onSubmit () {
+    console.log(this.idProducto);
+    console.log(this.carritoFormulario.value);
   }
 }
