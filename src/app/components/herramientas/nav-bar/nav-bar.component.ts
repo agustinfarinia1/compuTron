@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { RouterService } from '../../../services/router.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -12,10 +13,10 @@ import { RouterService } from '../../../services/router.service';
 export class NavBarComponent {
   titulo = "Computron";
 
-  constructor(private router : RouterService){}
+  constructor(private authService: AuthService,private router : RouterService){}
 
   cerrarSesion () {
-    localStorage.setItem("token","");
+    this.authService.logout();
     this.router.irALogin();
   }
 }
