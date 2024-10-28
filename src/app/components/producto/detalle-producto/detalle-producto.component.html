@@ -1,7 +1,7 @@
-<div class="container my-4">
+<div class="container">
   <div class="row justify-content-center">
-    <h2 class="text-center">Eliminar Producto</h2>
-      <div class="col-md-6" *ngIf="producto">
+    <h2 class="text-center">Detalle Producto</h2>
+      <div class="col" *ngIf="producto.getCategoria()">
           <div class="card">
               <img [src]="producto.getImagen()" alt="Producto Único" class="card-img-top product-image" style="max-height: 200px; object-fit: contain;">
               <div class="card-body">
@@ -10,12 +10,22 @@
                   <p class="card-text">Modelo: {{producto.getModelo()}}</p>
                   <p class="card-text">Categoria: {{buscarCategoria(producto.getCategoria())}}</p>
                   <p class="card-text">Precio: ${{producto.getPrecio()}}</p>
-                  <div class="d-flex justify-content-between mt-3">
-                      <a class="btn btn-dark" (click)="volverAlInicio()">Volver</a>
-                      <a class="btn btn-success" (click)="agregarAlCarrito()">Agregar al carrito</a>
-                  </div>
+                  <form [formGroup]="carritoFormulario" (ngSubmit)="onSubmit()">
+                    <div>
+                      <label for="cantidad" class="form-label text-dark">Cantidad Carrito</label>
+                      <input id="cantidad" class="form-control bg-white" type="number" name="cantidad" placeholder="Cantidad producto" minlength="1" [max]="maximo" formControlName="cantidad">
+                      <span *ngIf="carritoFormulario.get('cantidad')?.invalid && carritoFormulario.get('cantidad')?.touched" class="text-danger">
+                        Error-Cantidad : Dato Incorrecto
+                      </span>
+                    </div>
+                    <div class="text-center mt-4">
+                      <button type="submit" class="btn btn-dark" [disabled]="carritoFormulario.invalid">Agregar a Carrito</button>
+                    </div>
+                  </form>
               </div>
           </div>
       </div>
   </div>
+  <h2 class="mt-3 text-center">Productos Relacionados</h2>
+  <app-lista-productos *ngIf="producto.getCategoria()" [categoriaListado]="producto.getCategoria()"></app-lista-productos>
 </div>

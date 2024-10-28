@@ -93,6 +93,66 @@
       "precio": 115503,
       "imagen": "http://http2.mlstatic.com/D_647640-MLA45812997947_052021-I.jpg",
       "eliminado": false
+    },
+    {
+      "id": "P6",
+      "codigoML": "MLA1409347705",
+      "titulo": "Procesador Gamer Intel Core I9-14900k Bx8071514900k De 24 Núcleos Y  6ghz De Frecuencia Con Gráfica Integrada",
+      "categoria": "C3",
+      "marca": "Intel",
+      "modelo": "i9-14900K",
+      "cantidad": 1,
+      "precio": 856989,
+      "imagen": "http://http2.mlstatic.com/D_972763-MLU78939419339_092024-I.jpg",
+      "eliminado": false
+    },
+    {
+      "id": "P7",
+      "codigoML": "MLA1767212112",
+      "titulo": "Procesador Amd Athlon 3000g Yd3000c6fh De 2 Núcleos Y  3.5ghz De Frecuencia Con Gráfica Integrada",
+      "categoria": "C3",
+      "marca": "AMD",
+      "modelo": "3000G",
+      "cantidad": 1,
+      "precio": 67499,
+      "imagen": "http://http2.mlstatic.com/D_903372-MLU69973926625_062023-I.jpg",
+      "eliminado": false
+    },
+    {
+      "id": "P8",
+      "codigoML": "MLA1805850682",
+      "titulo": "Monitor Gamer Benq Xl-k Series Lcd Negro 110/220v",
+      "categoria": "C8",
+      "marca": "BenQ",
+      "modelo": "XL2411K",
+      "cantidad": 1,
+      "precio": 517262.65,
+      "imagen": "http://http2.mlstatic.com/D_934813-MLU77960344700_082024-I.jpg",
+      "eliminado": false
+    },
+    {
+      "id": "P9",
+      "codigoML": "MLA1117902383",
+      "titulo": "Memoria Ram Fury Beast Ddr4 Gamer Color Negro 8gb 1 Kingston Kf432c16bb/8",
+      "categoria": "C2",
+      "marca": "Kingston",
+      "modelo": "KF432C16BB/8",
+      "cantidad": 1,
+      "precio": 29715,
+      "imagen": "http://http2.mlstatic.com/D_805641-MLA74781352069_022024-I.jpg",
+      "eliminado": false
+    },
+    {
+      "id": "P10",
+      "codigoML": "MLA1434563363",
+      "titulo": "Memoria Ram Hiksemi Hiker 16gb Ddr4 3200mhz Sodimm",
+      "categoria": "C2",
+      "marca": "Hiksemi",
+      "modelo": "HSC416S32Z1",
+      "cantidad": 1,
+      "precio": 41999,
+      "imagen": "http://http2.mlstatic.com/D_954372-MLU73127093412_122023-I.jpg",
+      "eliminado": false
     }
   ]
 }
