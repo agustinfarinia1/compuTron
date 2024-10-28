@@ -16,22 +16,28 @@ import { FormsModule } from '@angular/forms';
 })
 export class ListaProductosComponent {
 
+  @Input() listaProductos : Producto[];
+  @Input() categoriaListado : string;
   listaCategorias : [];
 
   p:number =1 ;
 
   ordenSeleccionado = 'default';
 
-  @Input() listaProductos:Producto[];
-
   constructor(private categoriasServicio:CategoriasJsonServerService,private productosServicio:ProductosJsonServerService) {
     this.listaProductos = [];
     this.listaCategorias = [];
+    this.categoriaListado = "";
   }
 
   ngOnInit(): void {
     this.categoriasServicio.getCategorias().then((respuestaCategorias) => this.listaCategorias = respuestaCategorias);
-    this.productosServicio.getProductos().then((respuestaProductos) => this.listaProductos = respuestaProductos);
+    if(!this.categoriaListado){
+      this.productosServicio.getProductos().then((respuestaProductos) => this.listaProductos = respuestaProductos);
+    }
+    else{
+      this.productosServicio.getProductosPorCategoria(this.categoriaListado).then((respuestaProductos) => this.listaProductos = respuestaProductos);
+    }
   }
 
   ordenarProductos() {

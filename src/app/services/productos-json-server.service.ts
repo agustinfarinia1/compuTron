@@ -50,6 +50,17 @@ export class ProductosJsonServerService {
         }
   }
 
+  getProductosPorCategoria = async(categoria : string) => {
+    const url = `http://localhost:3000/stock?categoria=${categoria}&eliminado=false`;
+      try {
+          const respuesta = await fetch(url);
+          const datos = await respuesta.json();
+          return datos.map((item: any) => new Producto(item.codigo,item.titulo,item.categoria,item.marca,item.modelo,item.cantidad,item.precio,item.imagen,item.id));
+        } catch (error) {
+          console.error("Error al obtener los datos:", error);
+        }
+  }
+
   getCantidadProductos = async() => {
     const url = `http://localhost:3000/stock`;
       try {

@@ -62,7 +62,7 @@
     <div class="col-md-6">
       <label for="cantidad" class="form-label text-dark">Cantidad</label>
       <input id="cantidad" class="form-control bg-white" type="number" name="cantidad" placeholder="Cantidad producto"  formControlName="cantidad">
-      <span *ngIf="productoFormulario.get('modelo')?.invalid && productoFormulario.get('modelo')?.touched" class="text-danger">
+      <span *ngIf="productoFormulario.get('cantidad')?.invalid && productoFormulario.get('cantidad')?.touched" class="text-danger">
         Error-Cantidad : Dato Incorrecto
       </span>
     </div>
