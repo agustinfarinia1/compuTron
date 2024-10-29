@@ -258,74 +258,71 @@
       "nombre": "agustin",
       "apellido": "fariña",
       "direccion": "agustin123",
-      "carrito": [
-        {
-          "id": "P9",
-          "codigoML": "MLA1388318679",
-          "titulo": "Auriculares Hyperx Cloud Stinger 2 Wireless Dts X Sound Pc",
-          "categoria": "e66e",
-          "marca": "HyperX",
-          "modelo": "676a2aa",
-          "cantidad": 5,
-          "precio": 195203,
-          "imagen": "http://http2.mlstatic.com/D_835955-MLA71723357567_092023-I.jpg",
-          "eliminado": false
-        }
-      ],
       "id": "8711"
     }
   ],
   "carrito": [
-      {
-        "id": "asd123",
-        "idUsuario": "b751",
-        "carrito": [
-          {
-            "id": "P9",
-            "codigoML": "MLA1388318679",
-            "titulo": "Auriculares Hyperx Cloud Stinger 2 Wireless Dts X Sound Pc",
-            "categoria": "e66e",
-            "marca": "HyperX",
-            "modelo": "676a2aa",
-            "cantidad": 10,
-            "precio": 195203,
-            "imagen": "http://http2.mlstatic.com/D_835955-MLA71723357567_092023-I.jpg",
-            "eliminado": false
-          },
-          {
-            "id": "P10",
-            "codigoML": "MLA1663048848",
-            "titulo": "Level Up Hercules Gabinete Gamer Vidrio Templado X4 Fan Rgb Color Blanco",
-            "categoria": "87cb",
-            "marca": "Level Up",
-            "modelo": "Hércules",
-            "cantidad": 1,
-            "precio": 119000,
-            "imagen": "http://http2.mlstatic.com/D_693584-MLU75304691824_032024-I.jpg",
-            "eliminado": false
-          }
-        ]
-      },
-      {
-        "id": "qwe345",
-        "idUsuario": "8711",
-        "carrito": [
-          {
-            "id": "P8",
-            "codigoML": "MLA1732679638",
-            "titulo": "Placa De Video Nvidia Msi Ventus Xs Geforce Gtx 16 Series Gtx 1660 Super Geforce Gtx 1660 Super Ventus Xs Oc Oc Edition 6gb",
-            "categoria": "da6a",
-            "marca": "MSI",
-            "modelo": "GTX 1660 SUPER",
-            "cantidad": 1,
-            "precio": 353000,
-            "imagen": "http://http2.mlstatic.com/D_844032-MLU69958165034_062023-I.jpg",
-            "eliminado": false
-          }
-        ]
-      }
-    ]
-  ,
+    {
+      "id": "asd123",
+      "idUsuario": "b751",
+      "carrito": [
+        {
+          "id": "P2",
+          "codigoML": "MLA1117902383",
+          "titulo": "Memoria Ram Fury Beast Ddr4 Gamer Color Negro 8gb 1 Kingston Kf432c16bb/8",
+          "categoria": "C2",
+          "marca": "Kingston",
+          "modelo": "KF432C16BB/8",
+          "cantidad": 6,
+          "precio": 29715,
+          "imagen": "http://http2.mlstatic.com/D_805641-MLA74781352069_022024-I.jpg",
+          "eliminado": false
+        },
+        {
+          "id": "P5",
+          "codigoML": "MLA1902989746",
+          "titulo": "Procesador Amd Ryzen 7 5700g 100-100000263box De 8 Núcleos Y  4.6ghz De Frecuencia Con Gráfica Integrada",
+          "categoria": "C3",
+          "marca": "AMD",
+          "modelo": "5700G",
+          "cantidad": 6,
+          "precio": 304339,
+          "imagen": "http://http2.mlstatic.com/D_622790-MLU72699561931_112023-I.jpg",
+          "eliminado": false
+        },
+        {
+          "id": "P6",
+          "codigoML": "MLA1409347705",
+          "titulo": "Procesador Gamer Intel Core I9-14900k Bx8071514900k De 24 Núcleos Y  6ghz De Frecuencia Con Gráfica Integrada",
+          "categoria": "C3",
+          "marca": "Intel",
+          "modelo": "i9-14900K",
+          "cantidad": 2,
+          "precio": 856989,
+          "imagen": "http://http2.mlstatic.com/D_972763-MLU78939419339_092024-I.jpg",
+          "eliminado": false
+        }
+      ]
+    },
+    {
+      "id": "qwe345",
+      "idUsuario": "8711",
+      "carrito": [
+        {
+          "id": "P8",
+          "codigoML": "MLA1732679638",
+          "titulo": "Placa De Video Nvidia Msi Ventus Xs Geforce Gtx 16 Series Gtx 1660 Super Geforce Gtx 1660 Super Ventus Xs Oc Oc Edition 6gb",
+          "categoria": "da6a",
+          "marca": "MSI",
+          "modelo": "GTX 1660 SUPER",
+          "cantidad": 1,
+          "precio": 353000,
+          "imagen": "http://http2.mlstatic.com/D_844032-MLU69958165034_062023-I.jpg",
+          "eliminado": false
+        }
+      ]
+    }
+  ],
   "pedidos": [
     {
       "codigo": "P001",

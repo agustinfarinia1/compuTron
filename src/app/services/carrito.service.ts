@@ -26,19 +26,40 @@ export class CarritoService {
       return carrito;
   }
 
-  setCarritoServer = async(idUsuario:string, carrito:Carrito) => {
-    try{
-      const url = `http://localhost:3000/carrito?idUsuario=${idUsuario}`;
-      const respuesta = await fetch(url, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(carrito)
-      })
-    }
-    catch(error) {
+  setCarritoServer = async (idUsuario: string, carrito: Carrito) => {
+    try {
+      // Primero intenta hacer un GET para ver si el carrito ya existe
+      const urlGet = `http://localhost:3000/carrito?idUsuario=${idUsuario}`;
+      const respuestaGet = await fetch(urlGet);
+      const datos = await respuestaGet.json();
+  
+      if (datos.length > 0) {
+        // Si existe, actualiza con PUT usando el ID del carrito encontrado
+        const carritoId = datos[0].id; // Asumiendo que solo hay un carrito por usuario
+        const urlPut = `http://localhost:3000/carrito/${carritoId}`; // Cambia a PUT por ID
+        await fetch(urlPut, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(carrito)
+        });
+      } else {
+        // Si no existe, crea uno nuevo con POST
+        const urlPost = `http://localhost:3000/carrito`;
+        await fetch(urlPost, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ idUsuario, carrito: carrito.getCarrito() }) // Ajusta el cuerpo según tu estructura
+        });
+      }
+    } catch (error) {
       console.error('Error:', error);
     }
   }
+
+  
+  
 }
