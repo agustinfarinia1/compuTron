@@ -1,5 +1,6 @@
 <div class="login-container">
-  <h2>Iniciar Sesión</h2>
+  <img src="../../../assets/logo.png" class="img-fluid mx-auto d-block" alt="Imagen del producto" style="max-height: 200px; object-fit: contain;">
+  <h2 class="d-flex justify-content-center">Iniciar Sesión</h2>
   <form (ngSubmit)="iniciarSesion()" #loginForm="ngForm">
     <div class="form-group">
       <label for="usuario">Nombre de Usuario:</label>
@@ -7,8 +8,8 @@
         type="text"
         id="usuario"
         name="usuario"
-        [(ngModel)]="loginData.usuario"  
-        required 
+        [(ngModel)]="loginData.usuario"
+        required
         />
     </div>
 
@@ -18,8 +19,8 @@
         type="password"
         id="password"
         name="password"
-        [(ngModel)]="loginData.password"  
-        required  
+        [(ngModel)]="loginData.password"
+        required
       />
     </div>
 

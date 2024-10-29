@@ -6,11 +6,12 @@ import { CommonModule } from '@angular/common';
 import { ProductosJsonServerService } from './services/productos-json-server.service';
 import { CategoriasJsonServerService } from './services/categorias-json-server.service';
 import { HttpClientModule } from '@angular/common/http';
+import { FooterComponent } from "./components/herramientas/footer/footer.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,NavBarComponent,CommonModule,HttpClientModule],
+  imports: [RouterOutlet, NavBarComponent, CommonModule, HttpClientModule, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

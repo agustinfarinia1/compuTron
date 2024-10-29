@@ -38,4 +38,8 @@ export class HomeComponent implements OnInit{
       }
     }
   }
+
+  irAProductos() {
+    this.router.irAProductos();
+  }
 }
