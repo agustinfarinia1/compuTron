@@ -20,7 +20,6 @@ export class HomeComponent implements OnInit{
     if(!this.auth.isAuthenticated()){
       localStorage.setItem("token","");
       this.router.irALogin();
-      this.carritoService.cargainicialCarrito("b751");
     }
   }
 }

@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ListaProductosComponent } from "../lista-productos/lista-productos.component";
 import { CarritoService } from '../../../services/carrito.service';
+import { Carrito } from '../../../models/carrito.model';
 
 @Component({
   selector: 'app-detalle-producto',
@@ -21,6 +22,7 @@ export class DetalleProductoComponent implements OnInit{
   categorias : [];
   carritoFormulario : FormGroup;
   maximo : number;
+  carrito : Carrito;
 
   constructor(private productoService : ProductosJsonServerService,private carritoService:CarritoService,private categoriaService : CategoriasJsonServerService,private router : RouterService){
     this.producto = new Producto("","","","","",0,0,"");
@@ -29,12 +31,14 @@ export class DetalleProductoComponent implements OnInit{
     this.carritoFormulario = new FormGroup({
       cantidad : new FormControl(1,[Validators.required,Validators.min(1)]),
     })
+    this.carrito = new Carrito("","");
   }
 
   ngOnInit(): void {
     if(this.idProducto){
       this.productoService.consultarCodigo(this.idProducto).then((respuestaProducto) => this.producto = respuestaProducto[0]);
       this.categoriaService.getCategorias().then((respuestaCategorias) => this.categorias = respuestaCategorias);
+      this.carritoService.getCarritoServer("b751").then((respuestaCarrito) => this.carrito = respuestaCarrito);
     }
   }
 
@@ -53,8 +57,9 @@ export class DetalleProductoComponent implements OnInit{
 
   onSubmit () {
     let productoFinal = this.producto;
-    //console.log(this.carritoFormulario.get('cantidad')?.value)
     productoFinal.setCantidad(this.carritoFormulario.get('cantidad')?.value)
-    this.carritoService.setCarrito("b751", productoFinal);
+    this.carrito.cargarCarrito(productoFinal);
+    this.carrito.setIdUsuario("b751");
+    this.carritoService.setCarritoServer("b751", this.carrito);
   }
 }

@@ -1,5 +1,3 @@
-import { ProductosJsonServerService } from "../services/productos-json-server.service";
-
 export class Producto{
 
   private id : string;

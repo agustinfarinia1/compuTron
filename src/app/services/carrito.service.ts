@@ -7,44 +7,38 @@ import { Carrito } from '../models/carrito.model';
   providedIn: 'root'
 })
 export class CarritoService {
-  listaProductos: Carrito;
-  constructor() {
-    this.listaProductos=new Carrito();
-  }
+  constructor() {}
 
-  getCarrito = async(idUsuario:string) => {
-    const url = `http://localhost:3000/usuarios?id=${idUsuario}`;
+  getCarritoServer = async(idUsuario:string) => {
+    let carrito = new Carrito("","");
+    const url = `http://localhost:3000/carrito?idUsuario=${idUsuario}`;
+    //const url = `http://localhost:3000/carrito`;
       try {
           const respuesta = await fetch(url);
           const datos = await respuesta.json();
-          return datos[0].carrito.map((item: any) => new Producto(item.codigo,item.titulo,item.categoria,item.marca,item.modelo,item.cantidad,item.precio,item.imagen,item.id));
+          carrito.setId(datos[0].id);
+          carrito.setIdUsuario(datos[0].idUsuario);
+          carrito.setCarrito(datos[0].carrito);
+          // datos.map((item: any) => new Producto(item.codigo,item.titulo,item.categoria,item.marca,item.modelo,item.cantidad,item.precio,item.imagen,item.id));
         } catch (error) {
           console.error("Error al obtener los datos:", error);
         }
+      return carrito;
   }
-  
-  setCarrito = async(idUsuario:string, producto:Producto) => {
-   
-    this.listaProductos.cargarCarrito(producto);
+
+  setCarritoServer = async(idUsuario:string, carrito:Carrito) => {
     try{
-      const url = `http://localhost:3000/usuarios?id=${idUsuario}`;
+      const url = `http://localhost:3000/carrito?idUsuario=${idUsuario}`;
       const respuesta = await fetch(url, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(this.listaProductos.getCarrito())
+        body: JSON.stringify(carrito)
       })
     }
     catch(error) {
       console.error('Error:', error);
     }
   }
-    cargainicialCarrito(idUsuario:string){
-
-    this.getCarrito(idUsuario).then((respuestaGet)=>this.listaProductos=respuestaGet);
-    return this.listaProductos; 
-
-  }
-
 }
