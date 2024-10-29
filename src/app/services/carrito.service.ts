@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Producto } from '../models/producto.model';
+import { Carrito } from '../models/carrito.model';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class CarritoService {
-  listaProductos: Producto[];
+  listaProductos: Carrito;
   constructor() {
-    this.listaProductos=[];
+    this.listaProductos=new Carrito();
   }
 
   getCarrito = async(idUsuario:string) => {
@@ -21,7 +23,9 @@ export class CarritoService {
         }
   }
   
-  setCarrito = async(idUsuario:string, carrito:Producto[]) => {
+  setCarrito = async(idUsuario:string, producto:Producto) => {
+   
+    this.listaProductos.cargarCarrito(producto);
     try{
       const url = `http://localhost:3000/usuarios?id=${idUsuario}`;
       const respuesta = await fetch(url, {
@@ -29,14 +33,14 @@ export class CarritoService {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(carrito)
+        body: JSON.stringify(this.listaProductos.getCarrito())
       })
     }
     catch(error) {
       console.error('Error:', error);
     }
   }
-  cargarCarrito(idUsuario:string){
+    cargainicialCarrito(idUsuario:string){
 
     this.getCarrito(idUsuario).then((respuestaGet)=>this.listaProductos=respuestaGet);
     return this.listaProductos; 

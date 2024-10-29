@@ -24,4 +24,8 @@ export class CarritoComponent implements OnInit{
     //this.carritoService.getProductos("b751");
     this.carritoService.getCarrito("b751").then((respuestaCarrito)=>this.carrito=respuestaCarrito);
   }
+
+
+
+ 
 }

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <h2 class="text-center">Detalle Producto</h2>
-      <div class="col" *ngIf="producto.getCategoria()">
+      <div class="col" *ngIf="producto">
           <div class="card">
               <img [src]="producto.getImagen()" alt="Producto Único" class="card-img-top product-image" style="max-height: 200px; object-fit: contain;">
               <div class="card-body">
