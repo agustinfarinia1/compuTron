@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { RouterService } from '../../../services/router.service';
 import { AuthService } from '../../../services/auth.service';
-import { ContadorCarritoComponent } from '../../carrito/contador-carrito.component';
+import { ContadorCarritoComponent } from '../../carrito/contador-carrito/contador-carrito.component';
 
 @Component({
   selector: 'app-nav-bar',

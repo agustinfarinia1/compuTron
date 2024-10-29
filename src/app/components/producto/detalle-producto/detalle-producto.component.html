@@ -13,7 +13,7 @@
                   <form [formGroup]="carritoFormulario" (ngSubmit)="onSubmit()">
                     <div>
                       <label for="cantidad" class="form-label text-dark">Cantidad Carrito</label>
-                      <input id="cantidad" class="form-control bg-white" type="number" name="cantidad" placeholder="Cantidad producto" minlength="1" [max]="maximo" formControlName="cantidad">
+                      <input id="cantidad" class="form-control bg-white" type="number" name="cantidad" placeholder="Cantidad producto" min="1" [max]="producto.getCantidad()" formControlName="cantidad">
                       <span *ngIf="carritoFormulario.get('cantidad')?.invalid && carritoFormulario.get('cantidad')?.touched" class="text-danger">
                         Error-Cantidad : Dato Incorrecto
                       </span>

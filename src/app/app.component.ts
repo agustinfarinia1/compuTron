@@ -22,6 +22,8 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
     this.productos.getProductos().then((respuestaProductos) => localStorage.setItem("productos",respuestaProductos));
     this.categorias.getCategorias().then((respuestaProductos) => localStorage.setItem("categorias",respuestaProductos));
+    //localStorage.removeItem("cantidadCarrito");
+    //localStorage.setItem("cantidadCarrito","0");
   }
 
   verificarLogueo () {

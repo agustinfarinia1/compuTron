@@ -10,9 +10,9 @@
 
           <!-- Contenedor para la cantidad -->
           <div class="d-flex align-items-center mb-3">
-            <button (click)="cambiarCantidad(producto.getId(), -1)" class="btn btn-secondary btn-sm" [disabled]="producto.getCantidad() <= 1">-</button>
+            <button (click)="disminuirProducto(producto.getId())" class="btn btn-secondary btn-sm" [disabled]="producto.getCantidad() <= 1">-</button>
             <input type="number" class="form-control mx-2" [value]="producto.getCantidad()" min="1" readonly>
-            <button (click)="cambiarCantidad(producto.getId(), 1)" class="btn btn-secondary btn-sm">+</button>
+            <button (click)="incrementarProducto(producto.getId())" class="btn btn-secondary btn-sm">+</button>
           </div>
 
           <p class="card-text mb-3"><strong>Precio Total: {{ calcularPrecioTotal(producto) | currency }}</strong></p>

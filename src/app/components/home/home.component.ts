@@ -21,5 +21,21 @@ export class HomeComponent implements OnInit{
       localStorage.setItem("token","");
       this.router.irALogin();
     }
+    else{
+      let respuestaStorage = localStorage.getItem("usuario");
+      if(respuestaStorage){
+        let parseUsuario = JSON.parse(respuestaStorage);
+        if(parseUsuario){
+          this.carritoService.getCarritoServer(parseUsuario.id).then((respuestaCarrito) => {
+            let carrito = respuestaCarrito?.getCarrito();
+            if(carrito){
+              let suma = 0;
+              carrito.forEach((item) => suma = suma + item.getCantidad());
+              localStorage.setItem("cantidadCarrito",suma.toString());
+            }
+          });
+        }
+      }
+    }
   }
 }

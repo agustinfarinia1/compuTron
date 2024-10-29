@@ -21,13 +21,11 @@ export class DetalleProductoComponent implements OnInit{
   producto : Producto;
   categorias : [];
   carritoFormulario : FormGroup;
-  maximo : number;
   carrito: Carrito | null = null;
 
   constructor(private productoService : ProductosJsonServerService,private carritoService:CarritoService,private categoriaService : CategoriasJsonServerService,private router : RouterService){
     this.producto = new Producto("","","","","",0,0,"");
     this.categorias = [];
-    this.maximo = 2;
     this.carritoFormulario = new FormGroup({
       cantidad : new FormControl(1,[Validators.required,Validators.min(1)]),
     })
@@ -36,9 +34,15 @@ export class DetalleProductoComponent implements OnInit{
 
   ngOnInit(): void {
     if(this.idProducto){
-      this.productoService.consultarCodigo(this.idProducto).then((respuestaProducto) => this.producto = respuestaProducto[0]);
+      this.productoService.consultarCodigo(this.idProducto).then((respuestaProducto) => {
+        this.producto = respuestaProducto[0];
+      });
       this.categoriaService.getCategorias().then((respuestaCategorias) => this.categorias = respuestaCategorias);
-      this.carritoService.getCarritoServer("b751").then((respuestaCarrito) => this.carrito = respuestaCarrito);
+      let usuarioStorage = localStorage.getItem("usuario");
+      if(usuarioStorage){
+        let usuario = JSON.parse(usuarioStorage);
+        this.carritoService.getCarritoServer(usuario.id).then((respuestaCarrito) => this.carrito = respuestaCarrito);
+      }
     }
   }
 
@@ -56,16 +60,30 @@ export class DetalleProductoComponent implements OnInit{
 
 
   async onSubmit () {
+    let cantidad = 0;
+    let usuario;
     let productoFinal = this.producto;
-    productoFinal.setCantidad(this.carritoFormulario.get('cantidad')?.value)
+    productoFinal.setCantidad(this.carritoFormulario.get('cantidad')?.value);
     if (this.carrito) {
       this.carrito.cargarCarrito(productoFinal);
-      this.carrito.setIdUsuario("b751");
-      await this.carritoService.setCarritoServer("b751", this.carrito);
+      usuario = localStorage.getItem("usuario");
+      if(usuario){
+        usuario =JSON.parse(usuario);
+        this.carrito.setIdUsuario(usuario.id);
+        let respuestaCantidad = localStorage.getItem("cantidadCarrito");
+        if(respuestaCantidad){
+          cantidad = JSON.parse(respuestaCantidad)+productoFinal.getCantidad();
+        }
+        else{
+          cantidad = productoFinal.getCantidad();
+        }
+        localStorage.setItem("cantidadCarrito",cantidad.toString());
+        await this.carritoService.setCarritoServer(usuario.id, this.carrito);
+      }
   } else {
       console.error("El carrito es null. No se puede cargar el carrito.");
       // Puedes manejar el caso en que el carrito es null, por ejemplo, creando un nuevo carrito
   }
-  
+
   }
 }
