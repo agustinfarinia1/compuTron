@@ -23,4 +23,8 @@ export class RouterService {
   irAEliminarProducto (id : string) {
     this.router.navigateByUrl(`admin-productos/eliminar/${id}`);
   }
+
+  irAProductos () {
+    this.router.navigateByUrl(`productos`);
+  }
 }
