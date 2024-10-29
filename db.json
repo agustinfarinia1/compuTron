@@ -41,7 +41,7 @@
       "categoria": "C2",
       "marca": "Corsair",
       "modelo": "CMH32GX5M2B5200C40",
-      "cantidad": 1,
+      "cantidad": 5,
       "precio": 204938,
       "imagen": "http://http2.mlstatic.com/D_757994-MLU73551837907_122023-I.jpg",
       "eliminado": false
@@ -53,7 +53,7 @@
       "categoria": "C2",
       "marca": "Kingston",
       "modelo": "KF432C16BB/8",
-      "cantidad": 1,
+      "cantidad": 6,
       "precio": 29715,
       "imagen": "http://http2.mlstatic.com/D_805641-MLA74781352069_022024-I.jpg",
       "eliminado": false
@@ -65,7 +65,7 @@
       "categoria": "C2",
       "marca": "SK hynix",
       "modelo": "HMA81GS6AFR8N-UH",
-      "cantidad": 1,
+      "cantidad": 7,
       "precio": 36994,
       "imagen": "http://http2.mlstatic.com/D_835706-MLA74781908139_022024-I.jpg",
       "eliminado": false
@@ -77,7 +77,7 @@
       "categoria": "C3",
       "marca": "AMD",
       "modelo": "4600g",
-      "cantidad": 1,
+      "cantidad": 10,
       "precio": 180639,
       "imagen": "http://http2.mlstatic.com/D_921573-MLU79266660511_092024-I.jpg",
       "eliminado": false
@@ -89,7 +89,7 @@
       "categoria": "C3",
       "marca": "AMD",
       "modelo": "5700G",
-      "cantidad": 1,
+      "cantidad": 14,
       "precio": 304339,
       "imagen": "http://http2.mlstatic.com/D_622790-MLU72699561931_112023-I.jpg",
       "eliminado": false
@@ -101,7 +101,7 @@
       "categoria": "C3",
       "marca": "Intel",
       "modelo": "i9-14900K",
-      "cantidad": 1,
+      "cantidad": 16,
       "precio": 856989,
       "imagen": "http://http2.mlstatic.com/D_972763-MLU78939419339_092024-I.jpg",
       "eliminado": false
@@ -113,7 +113,7 @@
       "categoria": "C3",
       "marca": "Intel",
       "modelo": "i5-12400F",
-      "cantidad": 1,
+      "cantidad": 6,
       "precio": 209089,
       "imagen": "http://http2.mlstatic.com/D_618874-MLU77742070764_072024-I.jpg",
       "eliminado": false
@@ -125,7 +125,7 @@
       "categoria": "C4",
       "marca": "Asus",
       "modelo": "A320M-K",
-      "cantidad": 1,
+      "cantidad": 8,
       "precio": 186497,
       "imagen": "http://http2.mlstatic.com/D_923272-MLM43779520023_102020-I.jpg",
       "eliminado": false
@@ -137,7 +137,7 @@
       "categoria": "C4",
       "marca": "MSI",
       "modelo": "B650M GAMING PLUS WIFI",
-      "cantidad": 1,
+      "cantidad": 11,
       "precio": 252995.1,
       "imagen": "http://http2.mlstatic.com/D_662498-MLU76802482028_062024-I.jpg",
       "eliminado": false
@@ -149,7 +149,7 @@
       "categoria": "C8",
       "marca": "LG",
       "modelo": "24MS500-B",
-      "cantidad": 1,
+      "cantidad": 3,
       "precio": 192975,
       "imagen": "http://http2.mlstatic.com/D_818066-MLU78248919307_082024-I.jpg",
       "eliminado": false
@@ -161,7 +161,7 @@
       "categoria": "C8",
       "marca": "Razer",
       "modelo": "Blackshark V2 X",
-      "cantidad": 1,
+      "cantidad": 14,
       "precio": 115503,
       "imagen": "http://http2.mlstatic.com/D_647640-MLA45812997947_052021-I.jpg",
       "eliminado": false
@@ -173,7 +173,7 @@
       "categoria": "C8",
       "marca": "Logitech",
       "modelo": "M170",
-      "cantidad": 1,
+      "cantidad": 10,
       "precio": 9745,
       "imagen": "http://http2.mlstatic.com/D_969208-MLU72627875418_112023-I.jpg",
       "eliminado": false
@@ -185,7 +185,7 @@
       "categoria": "C5",
       "marca": "MSI",
       "modelo": "RTX 4060",
-      "cantidad": 1,
+      "cantidad": 9,
       "precio": 586653.5,
       "imagen": "http://http2.mlstatic.com/D_629071-MLA74986655372_032024-I.jpg",
       "eliminado": false
@@ -197,7 +197,7 @@
       "categoria": "C5",
       "marca": "XFX",
       "modelo": "RX 6650 XT",
-      "cantidad": 1,
+      "cantidad": 6,
       "precio": 419373.2,
       "imagen": "http://http2.mlstatic.com/D_799821-MLU78582995864_082024-I.jpg",
       "eliminado": false
@@ -209,7 +209,7 @@
       "categoria": "da6a",
       "marca": "MSI",
       "modelo": "GTX 1660 SUPER",
-      "cantidad": 1,
+      "cantidad": 10,
       "precio": 353000,
       "imagen": "http://http2.mlstatic.com/D_844032-MLU69958165034_062023-I.jpg",
       "eliminado": false
@@ -221,7 +221,7 @@
       "categoria": "e66e",
       "marca": "HyperX",
       "modelo": "676a2aa",
-      "cantidad": 1,
+      "cantidad": 10,
       "precio": 195203,
       "imagen": "http://http2.mlstatic.com/D_835955-MLA71723357567_092023-I.jpg",
       "eliminado": false
@@ -233,7 +233,7 @@
       "categoria": "87cb",
       "marca": "Level Up",
       "modelo": "Hércules",
-      "cantidad": 1,
+      "cantidad": 13,
       "precio": 119000,
       "imagen": "http://http2.mlstatic.com/D_693584-MLU75304691824_032024-I.jpg",
       "eliminado": false
@@ -248,8 +248,7 @@
       "nombre": "admin",
       "apellido": "admin",
       "direccion": "admin123",
-      "carrito": [],
-      "id": "b751"
+      "id": "0001"
     },
     {
       "codigo": "U002",
@@ -259,13 +258,19 @@
       "nombre": "agustin",
       "apellido": "fariña",
       "direccion": "agustin123",
-      "carrito": [
-        {
-          "codigo": "S002",
-          "cantidad": 1
-        }
-      ],
-      "id": "8711"
+      "id": "0002"
+    }
+  ],
+  "carrito": [
+    {
+      "id": "CR1",
+      "idUsuario": "0001",
+      "carrito": []
+    },
+    {
+      "id": "CR2",
+      "idUsuario": "0002",
+      "carrito": []
     }
   ],
   "pedidos": [

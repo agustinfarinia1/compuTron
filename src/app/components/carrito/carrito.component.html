@@ -1,0 +1,30 @@
+<div *ngIf="carrito">
+  <div *ngIf="cargaCarrito">
+    <div class="container col" *ngFor="let producto of carrito.getCarrito(); let i = index">
+      <div class="card h-100 shadow-sm">
+        <div class="card-img-top p-4">
+          <img [src]="producto.getImagen()" class="img-fluid mx-auto d-block" alt="Imagen del producto" style="max-height: 200px; object-fit: contain;">
+        </div>
+        <div class="card-body d-flex flex-column bg-warning">
+          <h5 class="card-title">{{ producto.getTitulo() }}</h5>
+
+          <!-- Contenedor para la cantidad -->
+          <div class="d-flex align-items-center mb-3">
+            <button (click)="disminuirProducto(producto.getId())" class="btn btn-secondary btn-sm" [disabled]="producto.getCantidad() <= 1">-</button>
+            <input type="number" class="form-control mx-2" [value]="producto.getCantidad()" min="1" readonly>
+            <button (click)="incrementarProducto(producto.getId())" class="btn btn-secondary btn-sm">+</button>
+          </div>
+
+          <p class="card-text mb-3"><strong>Precio Total: {{ calcularPrecioTotal(producto) | currency }}</strong></p>
+
+          <!-- Contenedor para el botón de eliminar -->
+          <div class="mt-auto d-flex justify-content-end">
+            <button (click)="eliminarDelCarrito(producto.getId())" class="btn btn-danger btn-sm">Eliminar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

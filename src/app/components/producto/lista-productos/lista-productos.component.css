@@ -4,14 +4,14 @@
     border-radius: 10px;
     padding: 20px;
   }
-  
+
   /* Selector de ordenamiento */
   .d-flex.justify-content-end.mb-3 label {
     color: #6c757d;
     font-weight: 500;
     font-size: 18px; /* Tamaño de letra más grande */
   }
-  
+
   select#orden {
     padding: 10px 15px; /* Mayor padding */
     font-size: 18px; /* Tamaño de letra más grande */
@@ -21,7 +21,7 @@
     color: #495057;
     transition: all 0.2s;
   }
-  
+
   select#orden:hover,
   select#orden:focus {
     border-color: #007bff;
@@ -30,15 +30,14 @@
   /* Paginación *//* Paginación *//* Paginación *//* Paginación */
 
   .my-pagination ::ng-deep .ngx-pagination .current {
-    background-color: yellow;
-    color: white;
-    padding: 20px 24px;
+    background-color:  #fec106;
+    color: black;
+    padding: 10px 12px;
     font-size: 20px;
     border: 1px solid #007bff;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
   }
-  
 
-  
+

@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { ListaProductosComponent } from "../producto/lista-productos/lista-productos.component";
 import { AuthService } from '../../services/auth.service';
 import { RouterService } from '../../services/router.service';
+import { CarritoService } from '../../services/carrito.service';
 
 @Component({
   selector: 'app-home',
@@ -13,12 +14,28 @@ import { RouterService } from '../../services/router.service';
 })
 export class HomeComponent implements OnInit{
 
-  constructor(private auth:AuthService,private router:RouterService){}
+  constructor(private auth:AuthService,private router:RouterService, private carritoService:CarritoService){}
 
   ngOnInit(): void {
     if(!this.auth.isAuthenticated()){
       localStorage.setItem("token","");
       this.router.irALogin();
+    }
+    else{
+      let respuestaStorage = localStorage.getItem("usuario");
+      if(respuestaStorage){
+        let parseUsuario = JSON.parse(respuestaStorage);
+        if(parseUsuario){
+          this.carritoService.getCarritoServer(parseUsuario.id).then((respuestaCarrito) => {
+            let carrito = respuestaCarrito?.getCarrito();
+            if(carrito){
+              let suma = 0;
+              carrito.forEach((item) => suma = suma + item.getCantidad());
+              localStorage.setItem("cantidadCarrito",suma.toString());
+            }
+          });
+        }
+      }
     }
   }
 }

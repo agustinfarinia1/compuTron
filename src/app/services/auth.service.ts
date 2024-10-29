@@ -12,7 +12,6 @@ interface Usuario {
   nombre: string;
   apellido: string;
   direccion: string;
-  carrito: any[];
   id: string;
 }
 

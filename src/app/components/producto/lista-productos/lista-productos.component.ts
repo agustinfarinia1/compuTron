@@ -19,6 +19,7 @@ export class ListaProductosComponent {
   @Input() listaProductos : Producto[];
   @Input() categoriaListado : string;
   listaCategorias : [];
+  cargaLista : boolean;
 
   p:number =1 ;
 
@@ -28,6 +29,7 @@ export class ListaProductosComponent {
     this.listaProductos = [];
     this.listaCategorias = [];
     this.categoriaListado = "";
+    this.cargaLista = false;
   }
 
   ngOnInit(): void {
@@ -38,6 +40,7 @@ export class ListaProductosComponent {
     else{
       this.productosServicio.getProductosPorCategoria(this.categoriaListado).then((respuestaProductos) => this.listaProductos = respuestaProductos);
     }
+    this.cargaLista = true;
   }
 
   ordenarProductos() {
