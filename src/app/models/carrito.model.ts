@@ -24,6 +24,9 @@ export class Carrito{
       this.carrito.push(producto);
     }
   }
+  getTotalProductos(): number {
+    return this.carrito.reduce((total, producto) => total + producto.getCantidad(), 0);
+  }
 
   setId = (newId : string) => {
     this.id = newId;

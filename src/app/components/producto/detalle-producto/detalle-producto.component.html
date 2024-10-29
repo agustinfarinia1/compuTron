@@ -9,7 +9,7 @@
                   <p class="card-text">Marca: {{producto.getMarca()}}</p>
                   <p class="card-text">Modelo: {{producto.getModelo()}}</p>
                   <p class="card-text">Categoria: {{buscarCategoria(producto.getCategoria())}}</p>
-                  <p class="card-text">Precio: ${{producto.getPrecio()}}</p>
+                  <p class="card-text">Precio: ${{producto.getPrecio()  | currency }}</p>
                   <form [formGroup]="carritoFormulario" (ngSubmit)="onSubmit()">
                     <div>
                       <label for="cantidad" class="form-label text-dark">Cantidad Carrito</label>

@@ -9,56 +9,54 @@ import { Carrito } from '../../models/carrito.model';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './carrito.component.html',
-  styleUrl: './carrito.component.css'
+  styleUrls: ['./carrito.component.css'], // Corrige 'styleUrl' a 'styleUrls'
 })
-export class CarritoComponent implements OnInit{
+export class CarritoComponent implements OnInit {
+  carrito: Carrito | null = null; // Permitir que sea null
+  cargaCarrito: boolean = false; // Define como false por defecto
 
-  carrito : Carrito;
-  cargaCarrito : boolean;
-
-  constructor(private carritoService:CarritoService){
-    this.carrito = new Carrito("","");
-    this.cargaCarrito = false;
+  constructor(private carritoService: CarritoService) {
+    // No es necesario inicializar carrito aquí, se obtiene del servidor
   }
+
   ngOnInit(): void {
-
-
-    this.carritoService.getCarritoServer("b751").then((respuestaCarrito) => {
-      this.carrito = respuestaCarrito;
-      this.cargaCarrito = true; // Cambiado aquí
-    });
-
-    // //this.carritoService.getProductos("b751");
-    // this.carritoService.getCarritoServer("b751").then((respuestaCarrito) => this.carrito = respuestaCarrito);
-    // this.cargaCarrito = true;
+    this.obtenerCarrito();
   }
 
-
-  eliminarDelCarrito(productId: string) {
-    const indiceProducto = this.carrito.getCarrito().findIndex(producto => producto.getId() === productId);
-    
-    if (indiceProducto >= 0) {
-      this.carrito.getCarrito().splice(indiceProducto, 1); // Elimina el producto del carrito
-      this.carritoService.setCarritoServer(this.carrito.getIdUsuario(), this.carrito); // Actualiza el carrito en el servidor
+  async obtenerCarrito() {
+    try {
+      this.carrito = await this.carritoService.getCarritoServer("b751");
+      this.cargaCarrito = this.carrito !== null; // Cambiado aquí
+    } catch (error) {
+      console.error("Error al obtener el carrito:", error);
     }
   }
-  
-  cambiarCantidad(productId: string, delta: number) {
-    const producto = this.carrito.getCarrito().find(p => p.getId() === productId);
-    if (producto) {
-      let nuevaCantidad = producto.getCantidad() + delta;
-      if (nuevaCantidad >= 1) {
-        producto.setCantidad(nuevaCantidad);
-        this.carritoService.setCarritoServer(this.carrito.getIdUsuario(), this.carrito);
+
+  eliminarDelCarrito(productId: string) {
+    if (this.carrito) { // Verifica si carrito no es null
+      const indiceProducto = this.carrito.getCarrito().findIndex(producto => producto.getId() === productId);
+      
+      if (indiceProducto >= 0) {
+        this.carrito.getCarrito().splice(indiceProducto, 1); // Elimina el producto del carrito
+        this.carritoService.setCarritoServer(this.carrito.getIdUsuario(), this.carrito); // Actualiza el carrito en el servidor
       }
     }
   }
-  // carrito.component.ts
+
+  cambiarCantidad(productId: string, delta: number) {
+    if (this.carrito) { // Verifica si carrito no es null
+      const producto = this.carrito.getCarrito().find(p => p.getId() === productId);
+      if (producto) {
+        let nuevaCantidad = producto.getCantidad() + delta;
+        if (nuevaCantidad >= 1) {
+          producto.setCantidad(nuevaCantidad);
+          this.carritoService.setCarritoServer(this.carrito.getIdUsuario(), this.carrito);
+        }
+      }
+    }
+  }
 
   calcularPrecioTotal(producto: Producto): number {
     return producto.getPrecio() * producto.getCantidad();
   }
-
-  
-
 }

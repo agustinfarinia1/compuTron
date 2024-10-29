@@ -267,39 +267,39 @@
       "idUsuario": "b751",
       "carrito": [
         {
-          "id": "P2",
-          "codigoML": "MLA1117902383",
-          "titulo": "Memoria Ram Fury Beast Ddr4 Gamer Color Negro 8gb 1 Kingston Kf432c16bb/8",
-          "categoria": "C2",
-          "marca": "Kingston",
-          "modelo": "KF432C16BB/8",
-          "cantidad": 6,
-          "precio": 29715,
-          "imagen": "http://http2.mlstatic.com/D_805641-MLA74781352069_022024-I.jpg",
-          "eliminado": false
-        },
-        {
-          "id": "P5",
-          "codigoML": "MLA1902989746",
-          "titulo": "Procesador Amd Ryzen 7 5700g 100-100000263box De 8 Núcleos Y  4.6ghz De Frecuencia Con Gráfica Integrada",
-          "categoria": "C3",
-          "marca": "AMD",
-          "modelo": "5700G",
-          "cantidad": 6,
-          "precio": 304339,
-          "imagen": "http://http2.mlstatic.com/D_622790-MLU72699561931_112023-I.jpg",
-          "eliminado": false
-        },
-        {
-          "id": "P6",
-          "codigoML": "MLA1409347705",
-          "titulo": "Procesador Gamer Intel Core I9-14900k Bx8071514900k De 24 Núcleos Y  6ghz De Frecuencia Con Gráfica Integrada",
+          "id": "P7",
+          "codigoML": "MLA1456936255",
+          "titulo": "Procesador Gamer Intel Core I5-12400f Bx8071512400f De 6 Núcleos Y  4.4ghz De Frecuencia",
           "categoria": "C3",
           "marca": "Intel",
-          "modelo": "i9-14900K",
-          "cantidad": 2,
-          "precio": 856989,
-          "imagen": "http://http2.mlstatic.com/D_972763-MLU78939419339_092024-I.jpg",
+          "modelo": "i5-12400F",
+          "cantidad": 1,
+          "precio": 209089,
+          "imagen": "http://http2.mlstatic.com/D_618874-MLU77742070764_072024-I.jpg",
+          "eliminado": false
+        },
+        {
+          "id": "P9",
+          "codigoML": "MLA1443111943",
+          "titulo": "Placa Madre Msi B650m Gaming Plus Wifi Am5 B650 Matx Ddr5 Negra",
+          "categoria": "C4",
+          "marca": "MSI",
+          "modelo": "B650M GAMING PLUS WIFI",
+          "cantidad": 1,
+          "precio": 252995.1,
+          "imagen": "http://http2.mlstatic.com/D_662498-MLU76802482028_062024-I.jpg",
+          "eliminado": false
+        },
+        {
+          "id": "P8",
+          "codigoML": "MLA1699447682",
+          "titulo": "Motherboard Asus Prime A320m-k Am4 Ddr4 Usb 3.0 Hdmi A320 Color Negro",
+          "categoria": "C4",
+          "marca": "Asus",
+          "modelo": "A320M-K",
+          "cantidad": 1,
+          "precio": 186497,
+          "imagen": "http://http2.mlstatic.com/D_923272-MLM43779520023_102020-I.jpg",
           "eliminado": false
         }
       ]

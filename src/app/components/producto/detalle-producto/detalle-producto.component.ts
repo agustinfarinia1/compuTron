@@ -22,7 +22,7 @@ export class DetalleProductoComponent implements OnInit{
   categorias : [];
   carritoFormulario : FormGroup;
   maximo : number;
-  carrito : Carrito;
+  carrito: Carrito | null = null;
 
   constructor(private productoService : ProductosJsonServerService,private carritoService:CarritoService,private categoriaService : CategoriasJsonServerService,private router : RouterService){
     this.producto = new Producto("","","","","",0,0,"");
@@ -55,11 +55,17 @@ export class DetalleProductoComponent implements OnInit{
   }
 
 
-  onSubmit () {
+  async onSubmit () {
     let productoFinal = this.producto;
     productoFinal.setCantidad(this.carritoFormulario.get('cantidad')?.value)
-    this.carrito.cargarCarrito(productoFinal);
-    this.carrito.setIdUsuario("b751");
-    this.carritoService.setCarritoServer("b751", this.carrito);
+    if (this.carrito) {
+      this.carrito.cargarCarrito(productoFinal);
+      this.carrito.setIdUsuario("b751");
+      await this.carritoService.setCarritoServer("b751", this.carrito);
+  } else {
+      console.error("El carrito es null. No se puede cargar el carrito.");
+      // Puedes manejar el caso en que el carrito es null, por ejemplo, creando un nuevo carrito
+  }
+  
   }
 }
