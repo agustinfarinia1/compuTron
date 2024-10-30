@@ -237,6 +237,54 @@
       "precio": 119000,
       "imagen": "http://http2.mlstatic.com/D_693584-MLU75304691824_032024-I.jpg",
       "eliminado": false
+    },
+    {
+      "id": "P18",
+      "codigoML": "MLA1450811676",
+      "titulo": "Monitor 27 Pulgadas Para E-sports Benq Zowie Xl2731 144 Hz F Color Negro",
+      "categoria": "C8",
+      "marca": "BenQ",
+      "modelo": "XL2731",
+      "cantidad": 1,
+      "precio": 1077110,
+      "imagen": "http://http2.mlstatic.com/D_703083-MLA44692848241_012021-I.jpg",
+      "eliminado": false
+    },
+    {
+      "id": "P19",
+      "codigoML": "MLA1451288309",
+      "titulo": "Monitor Philips V 193v5lhsb2/77 Lcd Hd Negro 18,5",
+      "categoria": "C8",
+      "marca": "Philips",
+      "modelo": "193V5LHSB2",
+      "cantidad": 5,
+      "precio": 150999,
+      "imagen": "http://http2.mlstatic.com/D_640006-MLU78043969365_072024-I.jpg",
+      "eliminado": false
+    },
+    {
+      "id": "P20",
+      "codigoML": "MLA1388641289",
+      "titulo": "Motherboard Asus Prime H510m K R2.0 Intel 10ma 11va Lga1200 Color Negro",
+      "categoria": "C4",
+      "marca": "Asus",
+      "modelo": "PRIME H510M-K R2.0",
+      "cantidad": 9,
+      "precio": 112999,
+      "imagen": "http://http2.mlstatic.com/D_865300-MLU70743000283_072023-I.jpg",
+      "eliminado": false
+    },
+    {
+      "id": "P21",
+      "codigoML": "MLA1457551481",
+      "titulo": "Teclado Hyperx Alloy Origins 60 Mecánico Switch Red Hx Color Del Teclado Negro",
+      "categoria": "C8",
+      "marca": "HyperX",
+      "modelo": "Origins 60",
+      "cantidad": 5,
+      "precio": 166369,
+      "imagen": "http://http2.mlstatic.com/D_629040-MLU79290721363_092024-I.jpg",
+      "eliminado": false
     }
   ],
   "usuarios": [
@@ -265,7 +313,32 @@
     {
       "id": "CR1",
       "idUsuario": "0001",
-      "carrito": []
+      "carrito": [
+        {
+          "id": "P2",
+          "codigoML": "MLA1117902383",
+          "titulo": "Memoria Ram Fury Beast Ddr4 Gamer Color Negro 8gb 1 Kingston Kf432c16bb/8",
+          "categoria": "C2",
+          "marca": "Kingston",
+          "modelo": "KF432C16BB/8",
+          "cantidad": 2,
+          "precio": 29715,
+          "imagen": "http://http2.mlstatic.com/D_805641-MLA74781352069_022024-I.jpg",
+          "eliminado": false
+        },
+        {
+          "id": "P5",
+          "codigoML": "MLA1902989746",
+          "titulo": "Procesador Amd Ryzen 7 5700g 100-100000263box De 8 Núcleos Y  4.6ghz De Frecuencia Con Gráfica Integrada",
+          "categoria": "C3",
+          "marca": "AMD",
+          "modelo": "5700G",
+          "cantidad": 1,
+          "precio": 304339,
+          "imagen": "http://http2.mlstatic.com/D_622790-MLU72699561931_112023-I.jpg",
+          "eliminado": false
+        }
+      ]
     },
     {
       "id": "CR2",
