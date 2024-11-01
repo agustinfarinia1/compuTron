@@ -285,6 +285,18 @@
       "precio": 166369,
       "imagen": "http://http2.mlstatic.com/D_629040-MLU79290721363_092024-I.jpg",
       "eliminado": false
+    },
+    {
+      "id": "P22",
+      "codigoML": "MLA1315360947",
+      "titulo": "Mouse Genius Dx-120 Elegant White",
+      "categoria": "C8",
+      "marca": "Genius",
+      "modelo": "DX-120",
+      "cantidad": 10,
+      "precio": 4821,
+      "imagen": "http://http2.mlstatic.com/D_917606-MLA32845594879_112019-I.jpg",
+      "eliminado": false
     }
   ],
   "usuarios": [
@@ -313,32 +325,7 @@
     {
       "id": "CR1",
       "idUsuario": "0001",
-      "carrito": [
-        {
-          "id": "P2",
-          "codigoML": "MLA1117902383",
-          "titulo": "Memoria Ram Fury Beast Ddr4 Gamer Color Negro 8gb 1 Kingston Kf432c16bb/8",
-          "categoria": "C2",
-          "marca": "Kingston",
-          "modelo": "KF432C16BB/8",
-          "cantidad": 2,
-          "precio": 29715,
-          "imagen": "http://http2.mlstatic.com/D_805641-MLA74781352069_022024-I.jpg",
-          "eliminado": false
-        },
-        {
-          "id": "P5",
-          "codigoML": "MLA1902989746",
-          "titulo": "Procesador Amd Ryzen 7 5700g 100-100000263box De 8 Núcleos Y  4.6ghz De Frecuencia Con Gráfica Integrada",
-          "categoria": "C3",
-          "marca": "AMD",
-          "modelo": "5700G",
-          "cantidad": 1,
-          "precio": 304339,
-          "imagen": "http://http2.mlstatic.com/D_622790-MLU72699561931_112023-I.jpg",
-          "eliminado": false
-        }
-      ]
+      "carrito": []
     },
     {
       "id": "CR2",
