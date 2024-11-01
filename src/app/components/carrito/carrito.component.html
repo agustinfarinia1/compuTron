@@ -7,6 +7,7 @@
         </div>
         <div class="card-body d-flex flex-column bg-warning">
           <h5 class="card-title">{{ producto.getTitulo() }}</h5>
+          <p *ngIf="consultarStockProducto(producto) === undefined"><span class="badge bg-dark">Agotado</span></p>
 
           <!-- Contenedor para la cantidad -->
           <div class="d-flex align-items-center mb-3">
@@ -14,14 +15,18 @@
             <input type="number" class="form-control mx-2" [value]="producto.getCantidad()" min="1" readonly>
             <button (click)="incrementarProducto(producto.getId())" class="btn btn-secondary btn-sm">+</button>
           </div>
-
-          <p class="card-text mb-3"><strong>Precio Total: {{ calcularPrecioTotal(producto) | currency }}</strong></p>
-
+          <p class="card-text mb-3"><strong>Precio Total Producto: {{ calcularPrecioProducto(producto) | currency }}</strong></p>
           <!-- Contenedor para el botón de eliminar -->
           <div class="mt-auto d-flex justify-content-end">
             <button (click)="eliminarDelCarrito(producto.getId())" class="btn btn-danger btn-sm">Eliminar</button>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="container">
+      <p class="card-text"><strong>Precio Total Carrito: {{ getTotalCarrito() | currency }}</strong></p>
+      <div class="d-flex justify-content-center">
+        <button class="btn btn-danger btn-sm" (click)="continuarCarrito()">Continuar</button>
       </div>
     </div>
   </div>

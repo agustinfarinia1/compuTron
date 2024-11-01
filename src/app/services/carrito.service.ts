@@ -22,7 +22,7 @@ export class CarritoService {
       if (datos.length > 0) {
         this.carrito = new Carrito(datos[0].id, datos[0].idUsuario);
         this.carrito.setCarrito(datos[0].carrito);
-        this.actualizarCantidadTotal(); // Actualiza la cantidad total al obtener el carrito
+        this.actualizarCantidadTotal();
       }
     } catch (error) {
       console.error('Error al obtener los datos:', error);

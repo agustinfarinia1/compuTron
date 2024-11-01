@@ -13,24 +13,36 @@ import { ProductosJsonServerService } from '../../services/productos-json-server
   styleUrls: ['./carrito.component.css'], // Corrige 'styleUrl' a 'styleUrls'
 })
 export class CarritoComponent implements OnInit {
-  carrito: Carrito | null = null; // Permitir que sea null
-  cargaCarrito: boolean = false; // Define como false por defecto
+  carrito: Carrito | null;
+  cargaCarrito: boolean;
   productos : Producto [];
+  precioTotal : number;
 
   constructor(private carritoService: CarritoService,private productosService : ProductosJsonServerService) {
+    this.carrito = null;
+    this.cargaCarrito = false;
     this.productos = [];
+    this.precioTotal = 0;
     // No es necesario inicializar carrito aquí, se obtiene del servidor
   }
 
   ngOnInit(): void {
     this.obtenerCarrito();
-    this.productosService.getProductos().then((respuestaProductos) => this.productos = respuestaProductos);
+    this.productosService.getProductos().then((respuestaProductos) => {
+      this.productos = respuestaProductos});
   }
 
   async obtenerCarrito() {
+    let usuario;
     try {
-      this.carrito = await this.carritoService.getCarritoServer("b751");
-      this.cargaCarrito = this.carrito !== null; // Cambiado aquí
+      usuario = localStorage.getItem("usuario");
+      if(usuario){
+        usuario = JSON.parse(usuario);
+        this.carrito = await this.carritoService.getCarritoServer(usuario.id);
+        if(this.carrito){
+          this.cargaCarrito = true;
+        }
+      }
     } catch (error) {
       console.error("Error al obtener el carrito:", error);
     }
@@ -89,7 +101,44 @@ export class CarritoComponent implements OnInit {
     }
   }
 
-  calcularPrecioTotal(producto: Producto): number {
+  calcularPrecioProducto(producto: Producto): number {
+    this.precioTotal = this.precioTotal + (producto.getPrecio() * producto.getCantidad());
     return producto.getPrecio() * producto.getCantidad();
+  }
+
+  getTotalCarrito () {
+    let precio = 0;
+    this.carrito?.getCarrito().forEach(productoCarrito => {
+      precio = precio + this.calcularPrecioProducto(productoCarrito);
+    });
+    return precio;
+  }
+
+  continuarCarrito() {
+    let productosSinStock : any[]= [];
+    let verificacionCarrito = false;
+    if(this.carrito){
+      this.carrito.getCarrito().forEach(carritoItem => {
+        let producto = this.consultarStockProducto(carritoItem);
+        if(!producto){
+          verificacionCarrito = true;
+          productosSinStock.push(carritoItem.getTitulo());
+        }
+      });
+      if(verificacionCarrito){
+        if(productosSinStock.length > 0){
+          productosSinStock.forEach((productoSinStock) =>{
+            alert(`Error-El producto ${productoSinStock} se encuentra sin stock, por favor busque una alternativa para continuar`);
+          }) 
+        }
+      }
+      else{
+        console.log("exito");
+      }
+    }
+  }
+
+  consultarStockProducto (productoConsulta : Producto) {
+    return this.productos.find(producto => producto.getId() === productoConsulta.getId());
   }
 }

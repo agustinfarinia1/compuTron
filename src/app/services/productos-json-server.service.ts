@@ -40,11 +40,11 @@ export class ProductosJsonServerService {
   }
 
   getProductos = async() => {
-    const url = `http://localhost:3000/stock?eliminado=false`;
+    const url = `http://localhost:3000/stock?cantidad_gt=0&eliminado=false`;
       try {
           const respuesta = await fetch(url);
           const datos = await respuesta.json();
-          return datos.map((item: any) => new Producto(item.codigo,item.titulo,item.categoria,item.marca,item.modelo,item.cantidad,item.precio,item.imagen,item.id));
+          return datos.map((item: any) => new Producto(item.codigoML,item.titulo,item.categoria,item.marca,item.modelo,item.cantidad,item.precio,item.imagen,item.id));
         } catch (error) {
           console.error("Error al obtener los datos:", error);
         }
@@ -55,7 +55,7 @@ export class ProductosJsonServerService {
       try {
           const respuesta = await fetch(url);
           const datos = await respuesta.json();
-          return datos.map((item: any) => new Producto(item.codigo,item.titulo,item.categoria,item.marca,item.modelo,item.cantidad,item.precio,item.imagen,item.id));
+          return datos.map((item: any) => new Producto(item.codigoML,item.titulo,item.categoria,item.marca,item.modelo,item.cantidad,item.precio,item.imagen,item.id));
         } catch (error) {
           console.error("Error al obtener los datos:", error);
         }
