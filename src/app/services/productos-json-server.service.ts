@@ -51,7 +51,7 @@ export class ProductosJsonServerService {
   }
 
   getProductosPorCategoria = async(categoria : string) => {
-    const url = `http://localhost:3000/stock?categoria=${categoria}&eliminado=false`;
+    const url = `http://localhost:3000/stock?categoria=${categoria}&cantidad_gt=0&eliminado=false`;
       try {
           const respuesta = await fetch(url);
           const datos = await respuesta.json();

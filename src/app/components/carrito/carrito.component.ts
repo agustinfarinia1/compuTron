@@ -139,11 +139,6 @@ export class CarritoComponent implements OnInit {
   }
 
   consultarStockProducto (productoConsulta : Producto) {
-    let respuesta = true;
-    let producto = this.productos.find(producto => producto.getId() === productoConsulta.getId());
-    if(producto){
-      respuesta = false;
-    }
-    return respuesta;
+    return  this.productos.find(producto => producto.getId() === productoConsulta.getId());
   }
 }
