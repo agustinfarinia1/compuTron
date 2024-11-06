@@ -379,17 +379,25 @@
   ],
   "pedidos": [
     {
-      "codigo": "P001",
-      "usuario": "U002",
-      "fechaCreacion": "18/10/2024",
-      "fechaFinEstimada": "25/10/2024",
-      "listaProductos": [
+      "id": "PE1",
+      "idUsuario": "0001",
+      "fechaCreacion": "2024-11-06T19:44:34.358Z",
+      "precioFinal": 214938,
+      "listaPedido": [
         {
-          "codigo": "S001",
-          "cantidad": "1"
+          "id": "P1",
+          "cantidad": 1
         }
       ],
-      "id": "8a9f"
+      "idMetodoDePago": "M4",
+      "direccionEnvio": {
+        "calle": "luro",
+        "numero": 1,
+        "piso": 2,
+        "departamento": "C"
+      },
+      "estadoPedido": "a confirmar",
+      "finalizado": false
     }
   ]
 }

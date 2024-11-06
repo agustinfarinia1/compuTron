@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterService } from '../../../services/router.service';
+import { Pedido } from '../../../models/pedido.model';
+import { Direccion } from '../../../models/direccion.model';
 
 @Component({
   selector: 'app-confirmar-pedido',
@@ -96,13 +98,7 @@ export class ConfirmarPedidoComponent implements OnInit{
       let nombreDireccionAlternativa = this.pedidoFormulario.get('nombreDireccionAlternativa');
       let numeroDireccionAlternativa = this.pedidoFormulario.get('numeroDireccionAlternativa');
       if(nombreDireccionAlternativa?.value && numeroDireccionAlternativa?.value){
-        let pedidoAlternativo = {
-          precioFinal: this.precioFinal + this.precioEnvio,
-          nombreDireccion : nombreDireccionAlternativa.value,
-          numeroDireccion : numeroDireccionAlternativa.value,
-          pisoDireccion : this.pedidoFormulario.get('pisoDireccionAlternativa')?.value,
-          departamentoDireccion : this.pedidoFormulario.get('departamentoDireccionAlternativa')?.value
-        };
+        let pedidoAlternativo = new Pedido("","",new Date(),this.precioFinal + this.precioEnvio,"",new Direccion(nombreDireccionAlternativa.value,numeroDireccionAlternativa.value,this.pedidoFormulario.get('pisoDireccionAlternativa')?.value,this.pedidoFormulario.get('departamentoDireccionAlternativa')?.value));
         localStorage.setItem("pedido",JSON.stringify(pedidoAlternativo));
         this.router.irAPagarPedido();
       }
@@ -114,13 +110,7 @@ export class ConfirmarPedidoComponent implements OnInit{
       let nombreDireccionUsuario = this.pedidoFormulario.get('nombreDireccionUsuario');
       let numeroDireccionUsuario = this.pedidoFormulario.get('numeroDireccionUsuario');
       if(nombreDireccionUsuario?.value && numeroDireccionUsuario?.value){
-        let pedidoUsuario = {
-          precioFinal: this.precioFinal + this.precioEnvio,
-          nombreDireccion : nombreDireccionUsuario.value,
-          numeroDireccion : numeroDireccionUsuario.value,
-          pisoDireccion : this.pedidoFormulario.get('pisoDireccionUsuario')?.value,
-          departamentoDireccion : this.pedidoFormulario.get('departamentoDireccionUsuario')?.value
-        };
+        let pedidoUsuario = new Pedido("","",new Date(),this.precioFinal + this.precioEnvio,"",new Direccion(nombreDireccionUsuario.value,numeroDireccionUsuario.value,this.pedidoFormulario.get('pisoDireccionUsuario')?.value,this.pedidoFormulario.get('departamentoDireccionUsuario')?.value));
         localStorage.setItem("pedido",JSON.stringify(pedidoUsuario));
         this.router.irAPagarPedido();
       }

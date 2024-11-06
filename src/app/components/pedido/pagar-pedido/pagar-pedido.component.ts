@@ -8,6 +8,8 @@ import { Carrito } from '../../../models/carrito.model';
 import { CarritoService } from '../../../services/carrito.service';
 import { ProductoLista } from '../../../models/productoLista.model';
 import { MetodosDePagoService } from '../../../services/metodosDePago.service';
+import { Direccion } from '../../../models/direccion.model';
+import { PedidoService } from '../../../services/pedido.service';
 
 @Component({
   selector: 'app-pagar-pedido',
@@ -19,27 +21,27 @@ import { MetodosDePagoService } from '../../../services/metodosDePago.service';
 export class PagarPedidoComponent implements OnInit{
 
   usuario;
-  respuestaPedido;
+  pedido : Pedido | null;
   pagarPedidoForm : FormGroup;
   metodosDePago : MetodoDePago[];
   carrito : Carrito | null;
 
-  constructor(private metodosDePagoService : MetodosDePagoService,private router : RouterService,private carritoService : CarritoService){
+  constructor(private metodosDePagoService : MetodosDePagoService,private router : RouterService,private carritoService : CarritoService,private pedidoService : PedidoService){
     this.usuario = {};
-    this.respuestaPedido = {
-      precioFinal : 0
-    };
+    this.pedido = null;
     this.carrito = null;
     this.pagarPedidoForm = new FormGroup({
       metodoDePago : new FormControl("",[Validators.required])
     })
     this.metodosDePago = [];
     let respuestaUsuario = localStorage.getItem("usuario");
-    if(respuestaUsuario){
+    let respuestaJsonPedido = localStorage.getItem("pedido");
+    if(respuestaUsuario && respuestaJsonPedido){
       this.usuario = JSON.parse(respuestaUsuario);
-      let respuestaJsonPedido = localStorage.getItem("pedido");
-      if(respuestaJsonPedido){
-        this.respuestaPedido = JSON.parse(respuestaJsonPedido);
+      let respuestaPedido  = JSON.parse(respuestaJsonPedido);
+      if(respuestaPedido){
+        let respuestaDireccion = new Direccion(respuestaPedido.direccionEnvio.calle,respuestaPedido.direccionEnvio.numero,respuestaPedido.direccionEnvio.piso,respuestaPedido.direccionEnvio.departamento);
+        this.pedido = new Pedido("PE1",this.usuario.id,new Date(),respuestaPedido.precioFinal,"",respuestaDireccion);
       }
       else{
         this.router.irAHome();
@@ -56,19 +58,16 @@ export class PagarPedidoComponent implements OnInit{
   }
 
   cargarPedido(){
-    if(this.carrito){
+    if(this.carrito && this.pedido){
       let metodoDePago = this.pagarPedidoForm.get("metodoDePago")?.value;
       if(metodoDePago){
         metodoDePago = this.metodosDePago[metodoDePago];
-        let fecha = new Date();
-        let pedido = new Pedido("PE1",this.usuario.id,fecha,this.respuestaPedido.precioFinal,metodoDePago.id);
         this.carrito.getCarrito().forEach((itemCarrito) => {
-          let itemLista = new ProductoLista(itemCarrito.getId(),itemCarrito.getCantidad())
-          pedido.getListaPedido().push(itemLista);
+          let itemLista = new ProductoLista(itemCarrito.getId(),itemCarrito.getCantidad());
+          this.pedido?.getListaPedido().push(itemLista);
         })
-        //console.log(this.respuestaPedido);
-        //console.log(pedido);
-        // Falta agregar el modelo direccion dentro del pedido para poder saber donde enviarlo
+        this.pedido.setIdMetodoDePago(metodoDePago.id);
+        this.pedidoService.setNewPedido(this.pedido);
       }
     }
   }

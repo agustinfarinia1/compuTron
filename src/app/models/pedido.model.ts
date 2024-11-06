@@ -1,3 +1,4 @@
+import { Direccion } from "./direccion.model";
 import { ProductoLista } from "./productoLista.model";
 
 export class Pedido{
@@ -8,16 +9,20 @@ export class Pedido{
   private precioFinal : number;
   private listaPedido : ProductoLista[];
   private idMetodoDePago : string;
+  private direccionEnvio : Direccion;
   private estadoPedido : string;
+  private finalizado : boolean;
 
-  constructor(newId : string,newIdUsuario : string,newFechaCreacion : Date,newPrecioFinal : number,newIdMetodoDePago : string){
+  constructor(newId : string,newIdUsuario : string,newFechaCreacion : Date,newPrecioFinal : number,newIdMetodoDePago : string,newDireccionEnvio : Direccion){
     this.id = newId;
     this.idUsuario = newIdUsuario;
     this.fechaCreacion = newFechaCreacion;
     this.precioFinal = newPrecioFinal;
     this.listaPedido = [];
     this.idMetodoDePago = newIdMetodoDePago;
+    this.direccionEnvio = newDireccionEnvio;
     this.estadoPedido = "a confirmar";
+    this.finalizado = false;
   }
 
   setId = (newId : string) => {
@@ -40,6 +45,14 @@ export class Pedido{
     this.listaPedido = [];
   }
 
+  setIdMetodoDePago(newIdMetodoDePago : string){
+    this.idMetodoDePago = newIdMetodoDePago;
+  }
+
+  setDireccionEnvio(newDireccionEnvio : Direccion){
+    this.direccionEnvio = newDireccionEnvio;
+  }
+
   setEstadoAConfirmado(){
     this.estadoPedido = "Confirmado";
   }
@@ -50,6 +63,7 @@ export class Pedido{
 
   setEstadoAFinalizado(){
     this.estadoPedido = "Finalizado";
+    this.finalizado = true;
   }
 
   getId(){
@@ -76,8 +90,16 @@ export class Pedido{
     return this.idMetodoDePago;
   }
 
+  getDireccionEnvio(){
+    return this.direccionEnvio;
+  }
+
   getEstadoPedido() {
     return this.estadoPedido;
+  }
+
+  getFinalizado(){
+    return this.finalizado;
   }
 }
 
