@@ -33,6 +33,24 @@
       "valor": "Perifericos"
     }
   ],
+  "metodosDePago": [
+    {
+      "id": "M1",
+      "valor": "Tarjeta de Debito"
+    },
+    {
+      "id": "M2",
+      "valor": "Tarjeta de Credito"
+    },
+    {
+      "id": "M3",
+      "valor": "Cuenta DNI"
+    },
+    {
+      "id": "M4",
+      "valor": "Mercado Pago"
+    }
+  ],
   "stock": [
     {
       "id": "P1",
@@ -336,18 +354,6 @@
           "cantidad": 1,
           "precio": 204938,
           "imagen": "http://http2.mlstatic.com/D_757994-MLU73551837907_122023-I.jpg",
-          "eliminado": false
-        },
-        {
-          "id": "P3",
-          "codigoML": "MLA1455799859",
-          "titulo": "Memoria Ram Standard Gamer Color Verde 8gb 1 Sk Hynix Hma81gs6afr8n-uh",
-          "categoria": "C2",
-          "marca": "SK hynix",
-          "modelo": "HMA81GS6AFR8N-UH",
-          "cantidad": 1,
-          "precio": 36994,
-          "imagen": "http://http2.mlstatic.com/D_835706-MLA74781908139_022024-I.jpg",
           "eliminado": false
         }
       ]

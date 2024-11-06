@@ -9,6 +9,8 @@ import { DetalleProductoComponent } from './components/producto/detalle-producto
 import { authGuard } from './guards/auth.guard';
 import { EliminarProductoComponent } from './components/producto/eliminar-producto/eliminar-producto.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
+import { ConfirmarPedidoComponent } from './components/pedido/confirmar-pedido/confirmar-pedido.component';
+import { PagarPedidoComponent } from './components/pedido/pagar-pedido/pagar-pedido.component';
 import { NoAuthGuard } from './services/noauth.service';
 
 export const routes: Routes = [
@@ -17,6 +19,8 @@ export const routes: Routes = [
   {path:"inicio",component:HomeComponent,canActivate:[authGuard]},
   {path:"productos",component:ListaProductosComponent,canActivate:[authGuard]},
   {path:"carrito",component:CarritoComponent,canActivate:[authGuard]},
+  {path:"confirmar-pedido",component:ConfirmarPedidoComponent,canActivate:[authGuard]},
+  {path:"pagar-pedido",component:PagarPedidoComponent,canActivate:[authGuard]},
   {path:"productos/:id",component:DetalleProductoComponent,canActivate:[authGuard]},
   {path:"admin-productos",component:GestionProductoComponent,canActivate:[authGuard]},
   {path:"admin-productos/cargar",component:FormularioProductoComponent,canActivate:[authGuard]},
