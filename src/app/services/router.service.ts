@@ -13,7 +13,7 @@ export class RouterService {
   }
 
   irALogin () {
-    this.router.navigateByUrl("/");
+    this.router.navigateByUrl("/login");
   }
 
   irAEditarProducto (id : string) {

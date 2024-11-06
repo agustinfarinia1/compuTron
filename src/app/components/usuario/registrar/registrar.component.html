@@ -1,1 +1,129 @@
-<p>registrar works!</p>
+<div class="container">
+    <h2>Registro de Usuario</h2>
+    <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input 
+          type="email" 
+          id="email" 
+          formControlName="email"
+          (blur)="verificarDisponibilidad()"
+        >
+        <span class="error" *ngIf="mensajeError.email">
+          {{ mensajeError.email }}
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label for="nombreUsuario">Nombre de Usuario:</label>
+        <input 
+          type="text" 
+          id="nombreUsuario" 
+          formControlName="nombreUsuario"
+          (blur)="verificarDisponibilidad()"
+        >
+        <span class="error" *ngIf="mensajeError.nombreUsuario">
+          {{ mensajeError.nombreUsuario }}
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" formControlName="nombre">
+      </div>
+
+      <div class="form-group">
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" formControlName="apellido">
+      </div>
+
+      <div class="form-group">
+        <label for="contrasena">Contraseña:</label>
+        <input 
+          type="password" 
+          id="contrasena" 
+          formControlName="contrasena">
+        
+        <!-- Mostrar el mensaje de error solo si el campo ha sido tocado y es inválido -->
+        <span class="error" *ngIf="registroForm.controls['contrasena'].touched && registroForm.controls['contrasena'].hasError('required')">
+          La contraseña es requerida.
+        </span>
+        
+        <span class="error" *ngIf="registroForm.controls['contrasena'].touched && registroForm.controls['contrasena'].hasError('minlength')">
+          La contraseña debe tener al menos 8 caracteres.
+        </span>
+        
+        <span class="error" *ngIf="registroForm.controls['contrasena'].touched && registroForm.controls['contrasena'].hasError('maxlength')">
+          La contraseña no puede exceder los 16 caracteres.
+        </span>
+      
+        <span class="error" *ngIf="registroForm.controls['contrasena'].touched && registroForm.controls['contrasena'].hasError('alfanumerica')">
+          La contraseña debe contener al menos una letra y un número.
+        </span>
+      </div>
+      
+      
+      
+      
+
+      <div class="form-group">
+        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+        <input type="date" id="fechaNacimiento" formControlName="fechaNacimiento">
+      </div>
+
+      <div class="form-group">
+        <label for="codigoPostal">Código Postal:</label>
+        <input type="number" id="codigoPostal" formControlName="codigoPostal">
+      </div>
+
+      <div formGroupName="direccion" class="direccion-section">
+        <h3>Dirección</h3>
+        <div class="form-group">
+          <label for="calle">Calle:</label>
+          <input 
+            type="text" 
+            id="calle" 
+            formControlName="calle"
+            placeholder="Ingrese la calle"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="numero">Número:</label>
+          <input 
+            type="number" 
+            id="numero" 
+            formControlName="numero"
+            placeholder="Ingrese el número"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="piso">Piso (opcional):</label>
+          <input 
+            type="text" 
+            id="piso" 
+            formControlName="piso"
+            placeholder="Ingrese el piso"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="departamento">Departamento (opcional):</label>
+          <input 
+            type="text" 
+            id="departamento" 
+            formControlName="departamento"
+            placeholder="Ingrese el departamento"
+          >
+        </div>
+      </div>
+
+      <button class="nav-link" [routerLink]="['/login']" type="submit" [disabled]="registroForm.invalid || !datosDisponibles">
+        Registrar
+      </button>
+      <div *ngIf="mensaje" class="alert alert-info mt-3">
+        {{ mensaje }}
+      </div>
+    </form>
+  </div>

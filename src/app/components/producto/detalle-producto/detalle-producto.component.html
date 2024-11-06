@@ -19,7 +19,7 @@
                       </span>
                     </div>
                     <div class="text-center mt-4">
-                      <button type="submit" class="btn btn-dark" [disabled]="carritoFormulario.invalid">Agregar a Carrito</button>
+                      <button (click)="agregarCarrito()" class="btn btn-dark" [disabled]="carritoFormulario.invalid">Agregar a Carrito</button>
                     </div>
                   </form>
               </div>
