@@ -10,6 +10,7 @@ import { ProductoLista } from '../../../models/productoLista.model';
 import { MetodosDePagoService } from '../../../services/metodosDePago.service';
 import { Direccion } from '../../../models/direccion.model';
 import { PedidoService } from '../../../services/pedido.service';
+import { ProductosService } from '../../../services/productos.service';
 
 @Component({
   selector: 'app-pagar-pedido',
@@ -26,7 +27,7 @@ export class PagarPedidoComponent implements OnInit{
   metodosDePago : MetodoDePago[];
   carrito : Carrito | null;
 
-  constructor(private metodosDePagoService : MetodosDePagoService,private router : RouterService,private carritoService : CarritoService,private pedidoService : PedidoService){
+  constructor(private metodosDePagoService : MetodosDePagoService,private router : RouterService,private carritoService : CarritoService,private pedidoService : PedidoService,private productoService : ProductosService){
     this.usuario = {};
     this.pedido = null;
     this.carrito = null;
@@ -57,7 +58,42 @@ export class PagarPedidoComponent implements OnInit{
     this.metodosDePagoService.getMetodosDePago().then((respuestaMetodosDePago) => this.metodosDePago = respuestaMetodosDePago);
   }
 
-  cargarPedido(){
+  async obtenerCarrito() {
+    try {
+      if(this.usuario){
+        this.carrito = await this.carritoService.getCarritoServer(this.usuario.id);
+      }
+    } catch (error) {
+      console.error("Error al obtener el carrito:", error);
+    }
+  }
+
+  async actualizarEstados(){
+    if(this.pedido){
+      let carrito = await this.carritoService.getCarritoServer(this.usuario.id);
+      if(carrito){
+        carrito.vaciarCarrito();
+        localStorage.setItem("cantidadCarrito","0");
+        localStorage.removeItem("totalCarrito");
+        localStorage.removeItem("pedido");
+        carrito.getCarrito().forEach(async(itemCarrito) => {
+          console.log("edita");
+          let producto = await this.productoService.consultarCodigo(itemCarrito.getId());
+          producto = producto[0];
+          let productoCarrito = carrito.getCarrito().find((busquedaProducto) => busquedaProducto.getId() === producto.getId());
+          if(productoCarrito){
+            producto.setCantidad(producto.getCantidad() - productoCarrito.getCantidad());
+            this.productoService.editarProducto(producto);
+            console.log("edita efectivamente");
+          }
+        });
+        this.pedidoService.setNewPedido(this.pedido);
+        this.carritoService.setCarritoServer(this.usuario.id,carrito);
+      } 
+    }
+  }
+
+  async cargarPedido(){
     if(this.carrito && this.pedido){
       let metodoDePago = this.pagarPedidoForm.get("metodoDePago")?.value;
       if(metodoDePago){
@@ -67,18 +103,10 @@ export class PagarPedidoComponent implements OnInit{
           this.pedido?.getListaPedido().push(itemLista);
         })
         this.pedido.setIdMetodoDePago(metodoDePago.id);
-        this.pedidoService.setNewPedido(this.pedido);
+        this.actualizarEstados();
+        alert("pedido creado exitosamente");
+        //this.router.irAHome();
       }
-    }
-  }
-  
-  async obtenerCarrito() {
-    try {
-      if(this.usuario){
-        this.carrito = await this.carritoService.getCarritoServer(this.usuario.id);
-      }
-    } catch (error) {
-      console.error("Error al obtener el carrito:", error);
     }
   }
 }

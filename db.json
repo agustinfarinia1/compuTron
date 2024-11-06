@@ -343,20 +343,7 @@
     {
       "id": "CR1",
       "idUsuario": "0001",
-      "carrito": [
-        {
-          "id": "P1",
-          "codigoML": "MLA1455439633",
-          "titulo": "Memoria Corsair Vengeance Rgb Ddr5 32 Gb(2x16) 5200mhz Intel",
-          "categoria": "C2",
-          "marca": "Corsair",
-          "modelo": "CMH32GX5M2B5200C40",
-          "cantidad": 1,
-          "precio": 204938,
-          "imagen": "http://http2.mlstatic.com/D_757994-MLU73551837907_122023-I.jpg",
-          "eliminado": false
-        }
-      ]
+      "carrito": []
     },
     {
       "id": "CR2",
@@ -381,7 +368,7 @@
     {
       "id": "PE1",
       "idUsuario": "0001",
-      "fechaCreacion": "2024-11-06T19:44:34.358Z",
+      "fechaCreacion": "2024-11-06T21:39:03.591Z",
       "precioFinal": 214938,
       "listaPedido": [
         {
@@ -389,12 +376,58 @@
           "cantidad": 1
         }
       ],
+      "idMetodoDePago": "M3",
+      "direccionEnvio": {
+        "calle": "luro",
+        "numero": 1,
+        "piso": "",
+        "departamento": ""
+      },
+      "estadoPedido": "a confirmar",
+      "finalizado": false
+    },
+    {
+      "id": "PE1",
+      "idUsuario": "0001",
+      "fechaCreacion": "2024-11-06T21:40:15.502Z",
+      "precioFinal": 419876,
+      "listaPedido": [
+        {
+          "id": "P1",
+          "cantidad": 2
+        }
+      ],
       "idMetodoDePago": "M4",
       "direccionEnvio": {
         "calle": "luro",
         "numero": 1,
-        "piso": 2,
-        "departamento": "C"
+        "piso": "",
+        "departamento": ""
+      },
+      "estadoPedido": "a confirmar",
+      "finalizado": false
+    },
+    {
+      "id": "PE1",
+      "idUsuario": "0001",
+      "fechaCreacion": "2024-11-06T21:40:15.502Z",
+      "precioFinal": 419876,
+      "listaPedido": [
+        {
+          "id": "P1",
+          "cantidad": 2
+        },
+        {
+          "id": "P1",
+          "cantidad": 2
+        }
+      ],
+      "idMetodoDePago": "M4",
+      "direccionEnvio": {
+        "calle": "luro",
+        "numero": 1,
+        "piso": "",
+        "departamento": ""
       },
       "estadoPedido": "a confirmar",
       "finalizado": false

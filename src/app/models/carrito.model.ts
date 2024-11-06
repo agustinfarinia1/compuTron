@@ -50,5 +50,9 @@ export class Carrito{
   getCarrito () {
     return this.carrito;
   }
+
+  vaciarCarrito () {
+    this.carrito.length = 0;
+  }
 }
 

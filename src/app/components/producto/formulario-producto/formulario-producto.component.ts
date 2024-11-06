@@ -3,9 +3,9 @@ import { Producto } from '../../../models/producto.model';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ApiMlService } from '../../../services/api-ml.service';
 import { CommonModule } from '@angular/common';
-import { CategoriasJsonServerService } from '../../../services/categorias-json-server.service';
-import { ProductosJsonServerService } from '../../../services/productos-json-server.service';
 import { RouterService } from '../../../services/router.service';
+import { ProductosService } from '../../../services/productos.service';
+import { CategoriasService } from '../../../services/categorias.service';
 
 @Component({
   selector: 'app-formulario-producto',
@@ -26,7 +26,7 @@ export class FormularioProductoComponent{
   modoFormulario : number;
   cartelExito : boolean;
 
-  constructor(private servicioMl:ApiMlService,private categoriasServicio: CategoriasJsonServerService,private productosServicio: ProductosJsonServerService,private router : RouterService){
+  constructor(private servicioMl:ApiMlService,private categoriasServicio: CategoriasService,private productosServicio: ProductosService,private router : RouterService){
     this.cantidadProductos = 0;
     this.modoFormulario = 0;
     this.cartelExito = false;
