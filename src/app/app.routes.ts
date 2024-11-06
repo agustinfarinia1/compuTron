@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { LogueoComponent } from './components/usuario/logueo/logueo.component';
-import { RegistrarComponent } from './components/usuario/registrar/registrar.component';
+import { RegistroComponent } from './components/usuario/registrar/registrar.component';
 import { HomeComponent } from './components/home/home.component';
 import { GestionProductoComponent } from './components/producto/gestion-producto/gestion-producto.component';
 import { FormularioProductoComponent } from './components/producto/formulario-producto/formulario-producto.component';
@@ -11,10 +11,11 @@ import { EliminarProductoComponent } from './components/producto/eliminar-produc
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { ConfirmarPedidoComponent } from './components/pedido/confirmar-pedido/confirmar-pedido.component';
 import { PagarPedidoComponent } from './components/pedido/pagar-pedido/pagar-pedido.component';
+import { NoAuthGuard } from './services/noauth.service';
 
 export const routes: Routes = [
-  {path:"login",component:LogueoComponent},
-  {path:"registrar",component:RegistrarComponent},
+  {path:"login",component:LogueoComponent,canActivate:[NoAuthGuard]},
+  {path:"registrar",component:RegistroComponent,canActivate:[NoAuthGuard]},
   {path:"inicio",component:HomeComponent,canActivate:[authGuard]},
   {path:"productos",component:ListaProductosComponent,canActivate:[authGuard]},
   {path:"carrito",component:CarritoComponent,canActivate:[authGuard]},
