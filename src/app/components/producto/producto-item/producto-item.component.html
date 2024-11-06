@@ -7,7 +7,7 @@
     <p class="card-text mb-1"><small class="text-muted">{{producto.getMarca()}}</small></p>
     <p class="card-text mb-1">{{producto.getModelo()}}</p>
     <p class="card-text mb-1"><span class="badge bg-dark">{{this.getCategoriaPorValor(this.producto.getCategoria())}}</span></p>
-    <p class="card-text mb-3"><strong>{{producto.getPrecio() }}</strong></p>
+    <p class="card-text mb-3"><strong>{{producto.getPrecio() | currency }}</strong></p>
     <a class="btn btn-dark mt-auto" [routerLink]="['/productos/',producto.getId()]">Detalle Producto</a>
   </div>
 </div>

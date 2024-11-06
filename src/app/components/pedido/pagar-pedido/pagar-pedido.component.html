@@ -1,0 +1,32 @@
+<div class="container mt-4" *ngIf="metodosDePago">
+    <div class="card shadow">
+        <div class="card-header bg-warning">
+            <h3 class="mb-0 text-center">Pagar Pedido</h3>
+        </div>
+        <form class="card-body" [formGroup]="pagarPedidoForm" (ngSubmit)="cargarPedido()">
+            <div class="mb-4">
+            <h5 class="card-title">Datos de envío:</h5>
+            <p class="card-text"><strong>Nombre Calle:</strong> {{respuestaPedido.nombreDireccion}}</p>
+            <p class="card-text"><strong>Numero Calle:</strong> {{respuestaPedido.numeroDireccion}}</p>
+            <p class="card-text"><strong>Piso Domicilio:</strong> {{respuestaPedido.pisoDireccion}}</p>
+            <p class="card-text"><strong>Numero Departamento:</strong> {{respuestaPedido.departamentoDireccion}}</p>
+            </div>
+            <div class="mb-4">
+            <h5 class="card-title">Precio total pedido: {{respuestaPedido.precioFinal | currency}}</h5>
+            </div>
+            <div class="mb-3">
+            <label for="seleccionMetodoDePago" class="form-label">Método de pago</label>
+            <select id="seleccionMetodoDePago" class="form-select" formControlName="metodoDePago">
+                <option value="">Seleccione método de pago</option>
+                <option [value]="i" *ngFor="let metodo of metodosDePago;let i = index">{{metodo.getValor()}}</option>
+            </select>
+            <span *ngIf="pagarPedidoForm.get('metodoDePago')?.invalid && pagarPedidoForm.get('metodoDePago')?.touched" class="text-danger">
+                Error : Metodo de pago Necesario
+                </span>
+            </div>
+            <div class="d-grid">
+            <button type="submit" class="btn btn-dark" [disabled]="pagarPedidoForm.invalid">Pagar</button>
+            </div>
+        </form>
+    </div>
+</div>

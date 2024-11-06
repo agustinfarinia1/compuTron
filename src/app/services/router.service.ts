@@ -27,4 +27,12 @@ export class RouterService {
   irAProductos () {
     this.router.navigateByUrl(`productos`);
   }
+
+  irAConfirmarPedido(){
+    this.router.navigateByUrl("confirmar-pedido");
+  }
+
+  irAPagarPedido(){
+    this.router.navigateByUrl("pagar-pedido");
+  }
 }

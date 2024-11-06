@@ -1,0 +1,60 @@
+<div class="container">
+    <form class="container  bg-warning rounded shadow-sm  mb-3" [formGroup]="pedidoFormulario" (ngSubmit)="cargarPedido()">
+        <h3 class="text-center text-dark mt-3">Confirmar Pedido</h3>
+        <p>Precio de Compra: {{precioFinal | currency}}</p>
+        <p>Precio de Envio: {{precioEnvio | currency}}</p>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label for="nombreCalleUsuario" class="form-label text-dark">Nombre Calle</label>
+                <input id="nombreCalleUsuario" class="form-control bg-white" type="text" name="nombreCalleUsuario" placeholder="Nombre Calle" formControlName="nombreDireccionUsuario">
+                <span *ngIf="pedidoFormulario.get('nombreDireccionUsuario')?.invalid && pedidoFormulario.get('nombreDireccionUsuario')?.touched" class="text-danger">
+                    Error-Nombre-Calle-Usuario: Dato Incorrecto
+                </span>
+            </div>
+            <div class="col-md-6">
+                <label for="numeroCalleUsuario" class="form-label text-dark">Numero Calle</label>
+                <input id="numeroCalleUsuario" class="form-control bg-white" type="number" name="numeroCalleUsuario" placeholder="Numero Calle" formControlName="numeroDireccionUsuario">
+                <span *ngIf="pedidoFormulario.get('numeroDireccionUsuario')?.invalid && pedidoFormulario.get('numeroDireccionUsuario')?.touched" class="text-danger">
+                    Error-Numero-Calle-Usuario: Dato Incorrecto
+                </span>
+            </div>
+            <div class="col-md-6">
+                <label for="pisoUsuario" class="form-label text-dark">Piso</label>
+                <input id="pisoUsuario" class="form-control bg-white" type="number" name="pisoUsuario" placeholder="Piso Departamento" formControlName="pisoDireccionUsuario">
+            </div>
+            <div class="col-md-6">
+                <label for="departamentoUsuario" class="form-label text-dark">Numero Departamento</label>
+                <input id="departamentoUsuario" class="form-control bg-white" type="text" name="departamento" placeholder="Departamento" formControlName="departamentoDireccionUsuario">
+            </div>
+        </div>
+        <div class="row g-3 mt-1">
+            <label for="opcionAlternativa" class="form-label text-dark">Direccion Alternativa</label>
+            <div class="col-md-6">
+                <label for="nombreCalleAlternativa" class="form-label text-dark">Nombre Calle</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend bg-white d-flex align-item-center">
+                        <div class="input-group-text">
+                            <input id="opcionAlternativa" type="checkbox" aria-label="Checkbox for following text input" formControlName="opcionDireccionAlternativa" (click)="cambiarDireccionAlternativa()">
+                        </div>
+                    </div>
+                    <input id="nombreCalleAlternativa" type="text" class="form-control bg-white" placeholder="Nombre Dirección Alternativa" formControlName="nombreDireccionAlternativa">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="numeroCalleUsuario" class="form-label text-dark">Numero Calle</label>
+                <input id="numeroCalleUsuario" class="form-control bg-white" type="number" name="numeroCalleUsuario" placeholder="Numero Calle Alternativa" formControlName="numeroDireccionAlternativa">
+            </div>
+            <div class="col-md-6">
+                <label for="pisoAlternativa" class="form-label text-dark">Piso</label>
+                <input id="pisoAlternativa" class="form-control bg-white" type="number" name="pisoAlternativa" placeholder="Piso Departamento" formControlName="pisoDireccionAlternativa">
+            </div>
+            <div class="col-md-6">
+                <label for="departamentoAlternativa" class="form-label text-dark">Numero Departamento</label>
+                <input id="departamentoAlternativa" class="form-control bg-white" type="text" name="departamentoAlternativa" placeholder="Departamento" formControlName="departamentoDireccionAlternativa">
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-dark mt-3 mb-3" [disabled]="pedidoFormulario.invalid">Cargar Pedido</button>
+        </div>
+    </form>
+</div>
