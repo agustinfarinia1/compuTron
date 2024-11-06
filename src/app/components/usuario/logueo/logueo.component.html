@@ -9,7 +9,8 @@
         name="usuario"
         [(ngModel)]="loginData.usuario"  
         required 
-        />
+        class="form-control"
+      />
     </div>
 
     <div class="form-group">
@@ -20,9 +21,17 @@
         name="password"
         [(ngModel)]="loginData.password"  
         required  
+        class="form-control"
       />
     </div>
 
     <button type="submit" class="btn btn-dark" [disabled]="!loginForm.valid">Iniciar Sesión</button> <!-- Deshabilita el botón si el formulario es inválido -->
+
+    <!-- Botón de registro pequeño -->
+    <div class="mt-3 text-center">
+      <a class="nav-link" [routerLink]="['/registrar']" class="btn btn-link p-0" style="font-size: 14px;">
+        ¿No tienes cuenta? Regístrate
+      </a>
+    </div>
   </form>
 </div>

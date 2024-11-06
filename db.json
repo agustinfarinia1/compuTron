@@ -257,15 +257,243 @@
       "password": "agustin123",
       "nombre": "agustin",
       "apellido": "fariña",
-      "direccion": "agustin123",
+      "fechaNacimiento": "1985-05-15",
+      "codigoPostal": "7600",
+      "direccion": {
+        "calle": "Av. Siempre Viva",
+        "numero": 742,
+        "piso": "3",
+        "departamento": "B"
+      },
       "id": "0002"
+    },
+    {
+      "id": "af0e",
+      "email": "theirsha17@gmail.com",
+      "nombre": "ciro",
+      "apellido": "lopez",
+      "nombreUsuario": "Ciro1234",
+      "contrasena": "Ciro1234",
+      "fechaNacimiento": "2001-12-26",
+      "codigoPostal": "7600",
+      "direccion": {
+        "calle": "Mariano Acosta",
+        "numero": 1965
+      }
+    },
+    {
+      "id": "",
+      "email": "lucio@sadf.com",
+      "nombre": "lucio",
+      "apellido": "lopez",
+      "nombreUsuario": "lucio1234",
+      "contrasena": "lucio1234",
+      "fechaNacimiento": "2222-02-22",
+      "codigoPostal": "7600",
+      "direccion": {
+        "calle": "julio",
+        "numero": 2,
+        "piso": "2",
+        "departamento": "1"
+      }
+    },
+    {
+      "email": "usuario1@example.com",
+      "nombreUsuario": "usuario1",
+      "nombre": "Usuario Uno",
+      "apellido": "Apellido Uno",
+      "fechaNacimiento": "2000-01-01",
+      "direccion": {
+        "calle": "Calle Ejemplo",
+        "numero": "123",
+        "piso": "1",
+        "departamento": "A",
+        "codigoPostal": "12345"
+      },
+      "id": "6a7b"
+    },
+    {
+      "email": "usuario2@example.com",
+      "nombreUsuario": "usuario2",
+      "nombre": "Usuario Dos",
+      "apellido": "Apellido Dos",
+      "fechaNacimiento": "2001-02-02",
+      "direccion": {
+        "calle": "Calle Ejemplo 2",
+        "numero": "456",
+        "piso": "2",
+        "departamento": "B",
+        "codigoPostal": "67890"
+      },
+      "id": "0d6f"
+    },
+    {
+      "id": "",
+      "email": "l.a.construccion@hotmail.com",
+      "nombre": "cisad",
+      "apellido": "afa",
+      "nombreUsuario": "fer22222",
+      "contrasena": "asdadasddasd",
+      "fechaNacimiento": "2024-11-06",
+      "codigoPostal": "7600",
+      "direccion": {
+        "calle": "julio",
+        "numero": 2,
+        "piso": null,
+        "departamento": null
+      }
+    },
+    {
+      "id": "",
+      "email": "theirsha17@gmail.com3333",
+      "nombre": "ciro",
+      "apellido": "222",
+      "nombreUsuario": "Ciro12342",
+      "contrasena": "admin1232222",
+      "fechaNacimiento": "2024-11-08",
+      "codigoPostal": "7600",
+      "direccion": {
+        "calle": "Mariano Acosta",
+        "numero": 2,
+        "piso": "",
+        "departamento": ""
+      }
+    },
+    {
+      "id": "[object Promise]",
+      "email": "sd@sada",
+      "nombre": "as",
+      "apellido": "as",
+      "nombreUsuario": "asdasdfa",
+      "contrasena": "asasda2222",
+      "fechaNacimiento": "0022-02-22",
+      "codigoPostal": 2,
+      "direccion": {
+        "calle": "2",
+        "numero": 2,
+        "piso": "2",
+        "departamento": "2"
+      }
+    },
+    {
+      "id": "[object Promise]",
+      "email": "sa@12",
+      "nombre": "w",
+      "apellido": "w",
+      "nombreUsuario": "www2",
+      "contrasena": "weawea222",
+      "fechaNacimiento": "0002-02-02",
+      "codigoPostal": 2,
+      "direccion": {
+        "calle": "2",
+        "numero": 2,
+        "piso": "2",
+        "departamento": "2"
+      }
+    },
+    {
+      "id": "11",
+      "email": "s2@23",
+      "nombre": "f",
+      "apellido": "f",
+      "nombreUsuario": "2222fffff",
+      "contrasena": "fffffff2222ff",
+      "fechaNacimiento": "0002-02-22",
+      "codigoPostal": 22,
+      "direccion": {
+        "calle": "2",
+        "numero": 2,
+        "piso": "",
+        "departamento": ""
+      }
+    },
+    {
+      "id": "12",
+      "email": "ciro@gmail",
+      "nombre": "cirin",
+      "apellido": "lop",
+      "nombreUsuario": "ciro1",
+      "contrasena": "ciro1234",
+      "fechaNacimiento": "2010-02-20",
+      "codigoPostal": 10,
+      "direccion": {
+        "calle": "10",
+        "numero": 10,
+        "piso": "",
+        "departamento": ""
+      }
+    },
+    {
+      "id": "13",
+      "email": "c@sss",
+      "nombre": "s",
+      "apellido": "s",
+      "nombreUsuario": "ssssss",
+      "contrasena": "aeadc2342323",
+      "fechaNacimiento": "2024-11-15",
+      "codigoPostal": 7600,
+      "direccion": {
+        "calle": "1",
+        "numero": 1,
+        "piso": "",
+        "departamento": ""
+      }
     }
   ],
   "carrito": [
     {
       "id": "CR1",
       "idUsuario": "0001",
-      "carrito": []
+      "carrito": [
+        {
+          "id": "P6",
+          "codigoML": "MLA1409347705",
+          "titulo": "Procesador Gamer Intel Core I9-14900k Bx8071514900k De 24 Núcleos Y  6ghz De Frecuencia Con Gráfica Integrada",
+          "categoria": "C3",
+          "marca": "Intel",
+          "modelo": "i9-14900K",
+          "cantidad": 1,
+          "precio": 856989,
+          "imagen": "http://http2.mlstatic.com/D_972763-MLU78939419339_092024-I.jpg",
+          "eliminado": false
+        },
+        {
+          "id": "P8",
+          "codigoML": "MLA1699447682",
+          "titulo": "Motherboard Asus Prime A320m-k Am4 Ddr4 Usb 3.0 Hdmi A320 Color Negro",
+          "categoria": "C4",
+          "marca": "Asus",
+          "modelo": "A320M-K",
+          "cantidad": 1,
+          "precio": 186497,
+          "imagen": "http://http2.mlstatic.com/D_923272-MLM43779520023_102020-I.jpg",
+          "eliminado": false
+        },
+        {
+          "id": "P2",
+          "codigoML": "MLA1117902383",
+          "titulo": "Memoria Ram Fury Beast Ddr4 Gamer Color Negro 8gb 1 Kingston Kf432c16bb/8",
+          "categoria": "C2",
+          "marca": "Kingston",
+          "modelo": "KF432C16BB/8",
+          "cantidad": 2,
+          "precio": 29715,
+          "imagen": "http://http2.mlstatic.com/D_805641-MLA74781352069_022024-I.jpg",
+          "eliminado": false
+        },
+        {
+          "id": "P10",
+          "codigoML": "MLA1930438716",
+          "titulo": "Monitor LG 24 Gamer Led 100hz 1920x1080 Ips Gtg Color Negro",
+          "categoria": "C8",
+          "marca": "LG",
+          "modelo": "24MS500-B",
+          "cantidad": 1,
+          "precio": 192975,
+          "imagen": "http://http2.mlstatic.com/D_818066-MLU78248919307_082024-I.jpg",
+          "eliminado": false
+        }
+      ]
     },
     {
       "id": "CR2",

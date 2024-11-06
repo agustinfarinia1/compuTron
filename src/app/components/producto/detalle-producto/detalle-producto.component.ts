@@ -58,6 +58,10 @@ export class DetalleProductoComponent implements OnInit{
     this.router.irAHome();
   }
 
+  agregarCarrito(): void {  
+    alert('Se a agregado al carrito. Cantidad: ' + this.carritoFormulario.get('cantidad')?.value);
+  }
+
 
   async onSubmit () {
     let cantidad = 0;

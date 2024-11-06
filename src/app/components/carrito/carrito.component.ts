@@ -92,4 +92,18 @@ export class CarritoComponent implements OnInit {
   calcularPrecioTotal(producto: Producto): number {
     return producto.getPrecio() * producto.getCantidad();
   }
+  // Método para calcular el total del carrito
+  calcularTotalCarrito(): number {
+    if (!this.carrito || !this.carrito.getCarrito()) return 0; // Verifica que this.carrito y getCarrito() no sean null
+    return this.carrito.getCarrito().reduce((total, producto) => 
+      total + (producto.getPrecio() * producto.getCantidad()), 0);
+  }
+
+  // Método para manejar el pago del carrito
+  pagarCarrito(): void {
+    // Aquí puedes implementar la lógica de pago
+    alert('Gracias por tu compra. Total pagado: ' + this.calcularTotalCarrito());
+    //this.carrito.vaciarCarrito(); // si tienes una función para vaciar el carrito después del pago
+  }
+
 }
