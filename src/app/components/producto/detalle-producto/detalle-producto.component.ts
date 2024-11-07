@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Producto } from '../../../models/producto.model';
 import { RouterService } from '../../../services/router.service';
 import { CommonModule } from '@angular/common';
@@ -16,20 +16,50 @@ import { CategoriasService } from '../../../services/categorias.service';
   templateUrl: './detalle-producto.component.html',
   styleUrls: ['./detalle-producto.component.css']
 })
-export class DetalleProductoComponent implements OnInit {
+export class DetalleProductoComponent implements OnInit,OnChanges {
   @Input("id") idProducto!: string;
-  producto: Producto;
+  producto: Producto | null;
   categorias: any[] = [];
   carritoFormulario: FormGroup;
   carrito: Carrito | null = null;
   private currentUserId: string = '';
 
   constructor(private productoService : ProductosService,private carritoService:CarritoService,private categoriaService : CategoriasService,private router : RouterService){
-    this.producto = new Producto("","","","","",0,0,"");
+    this.producto = null;
     this.categorias = [];
     this.carritoFormulario = new FormGroup({
       cantidad: new FormControl(1, [Validators.required, Validators.min(1)]),
     });
+  }
+
+  async ngOnInit(): Promise<void> {
+    if(this.idProducto){
+      this.cargarProducto();
+    }
+  }
+
+  ngOnChanges(): void {
+    if(this.idProducto){
+      this.cargarProducto();
+      this.carritoFormulario.get("cantidad")?.setValue(1);
+    }
+  }
+
+  async cargarProducto(){
+    if (this.idProducto) {
+      await Promise.all([
+        this.productoService.consultarCodigo(this.idProducto).then((respuestaProducto) => {
+          this.producto = respuestaProducto[0];
+        }),
+        this.categoriaService.getCategorias().then((respuestaCategorias) => this.categorias = respuestaCategorias)
+      ]);
+
+      const usuarioStorage = localStorage.getItem("usuario");
+      if (usuarioStorage) {
+        const usuario = JSON.parse(usuarioStorage);
+        await this.initializeUserCart(usuario.id);
+      }
+    }
   }
 
   private async clearCartData() {
@@ -76,23 +106,6 @@ export class DetalleProductoComponent implements OnInit {
     }
   }
 
-  async ngOnInit(): Promise<void> {
-    if (this.idProducto) {
-      await Promise.all([
-        this.productoService.consultarCodigo(this.idProducto).then((respuestaProducto) => {
-          this.producto = respuestaProducto[0];
-        }),
-        this.categoriaService.getCategorias().then((respuestaCategorias) => this.categorias = respuestaCategorias)
-      ]);
-
-      const usuarioStorage = localStorage.getItem("usuario");
-      if (usuarioStorage) {
-        const usuario = JSON.parse(usuarioStorage);
-        await this.initializeUserCart(usuario.id);
-      }
-    }
-  }
-
   buscarCategoria(idCategoria: string) {
     const categoria = this.categorias.find((busquedaCategoria: any) => busquedaCategoria.id === idCategoria);
     return categoria ? categoria.valor : null;
@@ -112,46 +125,31 @@ export class DetalleProductoComponent implements OnInit {
 
   private async onSubmit() {
     const usuarioStorage = localStorage.getItem("usuario");
-    if (!usuarioStorage) {
-      alert("Debe iniciar sesión para agregar productos al carrito");
-      return;
+    if (usuarioStorage) {
+      const usuario = JSON.parse(usuarioStorage);
+      if(usuario && this.carrito){
+        if(this.producto){
+          const cantidadNueva = this.carritoFormulario.get('cantidad')?.value || 0;
+          const productoFinal = new Producto(
+            this.producto.getCodigoML(),
+            this.producto.getTitulo(),
+            this.producto.getCategoria(),
+            this.producto.getMarca(),
+            this.producto.getModelo(),
+            cantidadNueva,
+            this.producto.getPrecio(),
+            this.producto.getImagen(),
+            this.producto.getId()
+          );
+      
+          this.carrito.cargarCarrito(productoFinal);
+          const cantidadTotal = this.carrito.getTotalProductos();
+          localStorage.setItem('cantidadCarrito', cantidadTotal.toString());
+      
+          await this.carritoService.setCarritoServer(usuario.id, this.carrito);
+          alert('Producto agregado al carrito exitosamente');
+        }
+      }
     }
-
-    const usuario = JSON.parse(usuarioStorage);
-
-    // Verificamos si el usuario actual cambió
-    if (this.currentUserId !== usuario.id) {
-      await this.initializeUserCart(usuario.id);
-    }
-
-    if (!this.carrito) {
-      alert("Error: No se pudo inicializar el carrito");
-      return;
-    }
-
-    // Verificamos que el carrito pertenezca al usuario actual
-    if (this.carrito.getIdUsuario() !== usuario.id) {
-      await this.initializeUserCart(usuario.id);
-    }
-
-    const cantidadNueva = this.carritoFormulario.get('cantidad')?.value || 0;
-    const productoFinal = new Producto(
-      this.producto.getCodigoML(),
-      this.producto.getTitulo(),
-      this.producto.getCategoria(),
-      this.producto.getMarca(),
-      this.producto.getModelo(),
-      cantidadNueva,
-      this.producto.getPrecio(),
-      this.producto.getImagen(),
-      this.producto.getId()
-    );
-
-    this.carrito.cargarCarrito(productoFinal);
-    const cantidadTotal = this.carrito.getTotalProductos();
-    localStorage.setItem('cantidadCarrito', cantidadTotal.toString());
-
-    await this.carritoService.setCarritoServer(usuario.id, this.carrito);
-    alert('Producto agregado al carrito exitosamente');
   }
 }

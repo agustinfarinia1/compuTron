@@ -367,48 +367,6 @@
       }
     }
   ],
-  "carrito": [
-    {
-      "idUsuario": "1",
-      "carrito": [
-        {
-          "id": "P1",
-          "codigoML": "MLA1455439633",
-          "titulo": "Memoria Corsair Vengeance Rgb Ddr5 32 Gb(2x16) 5200mhz Intel",
-          "categoria": "C2",
-          "marca": "Corsair",
-          "modelo": "CMH32GX5M2B5200C40",
-          "cantidad": 2,
-          "precio": 204938,
-          "imagen": "http://http2.mlstatic.com/D_757994-MLU73551837907_122023-I.jpg",
-          "eliminado": false
-        }
-      ],
-      "id": "f119"
-    },
-    {
-      "idUsuario": "2",
-      "carrito": [
-        {
-          "id": "P2",
-          "codigoML": "MLA1117902383",
-          "titulo": "Memoria Ram Fury Beast Ddr4 Gamer Color Negro 8gb 1 Kingston Kf432c16bb/8",
-          "categoria": "C2",
-          "marca": "Kingston",
-          "modelo": "KF432C16BB/8",
-          "cantidad": 3,
-          "precio": 29715,
-          "imagen": "http://http2.mlstatic.com/D_805641-MLA74781352069_022024-I.jpg",
-          "eliminado": false
-        }
-      ],
-      "id": "c17b"
-    },
-    {
-      "id": "898a",
-      "idUsuario": "3",
-      "carrito": []
-    }
-  ],
+  "carrito": [],
   "pedidos": []
 }
