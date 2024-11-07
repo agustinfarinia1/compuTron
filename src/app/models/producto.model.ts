@@ -1,17 +1,26 @@
-export class Producto{
+export class Producto {
+  private id: string;
+  private codigoML: string;
+  private titulo: string;
+  private categoria: string;
+  private marca: string;
+  private modelo: string;
+  private cantidad: number;
+  private precio: number;
+  private imagen: string;
+  private eliminado: boolean;
 
-  private id : string;
-  private codigoML : string;
-  private titulo : string;
-  private categoria : string;
-  private marca : string;
-  private modelo : string;
-  private cantidad : number;
-  private precio : number;
-  private imagen : string;
-  private eliminado : boolean;
-
-  constructor(newCodigoML : string,newTitulo : string,newCategoria : string,newMarca : string,newModelo : string,newCantidad : number,newPrecio : number,newImagen : string,newId : string = ""){
+  constructor(
+    newCodigoML: string,
+    newTitulo: string,
+    newCategoria: string,
+    newMarca: string,
+    newModelo: string,
+    newCantidad: number,
+    newPrecio: number,
+    newImagen: string,
+    newId: string = ""
+  ) {
     this.id = newId;
     this.codigoML = newCodigoML;
     this.titulo = newTitulo;
@@ -24,43 +33,43 @@ export class Producto{
     this.eliminado = false;
   }
 
-  setId = (newId : string) => {
+  setId = (newId: string) => {
     this.id = newId;
   }
 
-  setCodigoML = (newCodigoML : string) => {
+  setCodigoML = (newCodigoML: string) => {
     this.codigoML = newCodigoML;
   }
 
-  setTitulo = (newTitulo : string) => {
+  setTitulo = (newTitulo: string) => {
     this.titulo = newTitulo;
   }
 
-  setCategoria = (newCategoria : string) => {
+  setCategoria = (newCategoria: string) => {
     this.categoria = newCategoria;
   }
 
-  setMarca = (newMarca : string) => {
+  setMarca = (newMarca: string) => {
     this.marca = newMarca;
   }
 
-  setModelo = (newModelo : string) => {
+  setModelo = (newModelo: string) => {
     this.modelo = newModelo;
   }
 
-  setCantidad = (newCantidad : number) => {
+  setCantidad = (newCantidad: number) => {
     this.cantidad = newCantidad;
   }
 
-  setPrecio = (newPrecio : number) => {
+  setPrecio = (newPrecio: number) => {
     this.precio = newPrecio;
   }
 
-  setImagen = (newImagen : string) => {
+  setImagen = (newImagen: string) => {
     this.imagen = newImagen;
   }
 
-  setEliminado = (newEliminado : boolean) => {
+  setEliminado = (newEliminado: boolean) => {
     this.eliminado = newEliminado;
   }
 
@@ -68,11 +77,11 @@ export class Producto{
     return this.id;
   }
 
-  getCodigoML = ()  => {
+  getCodigoML = () => {
     return this.codigoML;
   }
 
-  getTitulo = ()  => {
+  getTitulo = () => {
     return this.titulo;
   }
 

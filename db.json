@@ -303,8 +303,8 @@
     {
       "codigo": "U001",
       "email": "admin@admin.com",
-      "usuario": "admin",
-      "password": "admin123",
+      "nombreUsuario": "admin",
+      "contrasena": "admin123",
       "nombre": "admin",
       "apellido": "admin",
       "direccion": "admin123",
@@ -313,62 +313,151 @@
     {
       "codigo": "U002",
       "email": "agustin@agustin.com",
-      "usuario": "agustin",
-      "password": "agustin123",
+      "nombreUsuario": "agustin",
+      "contrasena": "agustin123",
       "nombre": "agustin",
       "apellido": "fariña",
       "direccion": "agustin123",
       "id": "0002"
+    },
+    {
+      "id": "3",
+      "email": "theirsha17@gmail.com",
+      "nombre": "ciro",
+      "apellido": "lopez",
+      "nombreUsuario": "ciro1",
+      "contrasena": "ciro1234",
+      "fechaNacimiento": "2024-11-13",
+      "codigoPostal": 2,
+      "direccion": {
+        "calle": "2",
+        "numero": 2,
+        "piso": "",
+        "departamento": ""
+      }
+    },
+    {
+      "id": "4",
+      "email": "victoriareliz@gmail.com",
+      "nombre": "rita",
+      "apellido": "reliz",
+      "nombreUsuario": "rita123",
+      "contrasena": "rita123456",
+      "fechaNacimiento": "0022-02-22",
+      "codigoPostal": 2,
+      "direccion": {
+        "calle": "2",
+        "numero": 2,
+        "piso": "",
+        "departamento": ""
+      }
+    },
+    {
+      "id": "5",
+      "email": "l.a.construccion@hotmail.com",
+      "nombre": "fe",
+      "apellido": "fe",
+      "nombreUsuario": "fer22222",
+      "contrasena": "asdasdas34a34",
+      "fechaNacimiento": "2024-11-14",
+      "codigoPostal": 7600,
+      "direccion": {
+        "calle": "2",
+        "numero": 2,
+        "piso": "",
+        "departamento": ""
+      }
+    },
+    {
+      "id": "6",
+      "email": "ciroelvikingo@hotmail.com",
+      "nombre": "sd",
+      "apellido": "sd",
+      "nombreUsuario": "sad222222",
+      "contrasena": "231f243rws4r",
+      "fechaNacimiento": "2024-11-15",
+      "codigoPostal": 3,
+      "direccion": {
+        "calle": "3",
+        "numero": 2,
+        "piso": "",
+        "departamento": ""
+      }
+    },
+    {
+      "id": "7",
+      "email": "234da@fdasd",
+      "nombre": "1",
+      "apellido": "1",
+      "nombreUsuario": "dasd22313sd",
+      "contrasena": "121223434578yg",
+      "fechaNacimiento": "2024-11-06",
+      "codigoPostal": 2,
+      "direccion": {
+        "calle": "2",
+        "numero": 2,
+        "piso": "",
+        "departamento": ""
+      }
+    },
+    {
+      "id": "8",
+      "email": "prueba1@ho.com",
+      "nombre": "prueba1@ho.com",
+      "apellido": "prueba1@ho.com",
+      "nombreUsuario": "prueba1@ho.com",
+      "contrasena": "prueba1@ho.com",
+      "fechaNacimiento": "2024-11-01",
+      "codigoPostal": 1,
+      "direccion": {
+        "calle": "1",
+        "numero": 1,
+        "piso": "",
+        "departamento": ""
+      }
     }
   ],
   "carrito": [
     {
-      "id": "CR1",
-      "idUsuario": "0001",
+      "id": "6ccc",
+      "idUsuario": "3",
       "carrito": [
         {
-          "id": "P1",
-          "codigoML": "MLA1455439633",
-          "titulo": "Memoria Corsair Vengeance Rgb Ddr5 32 Gb(2x16) 5200mhz Intel",
-          "categoria": "C2",
-          "marca": "Corsair",
-          "modelo": "CMH32GX5M2B5200C40",
+          "id": "P6",
+          "codigoML": "MLA1409347705",
+          "titulo": "Procesador Gamer Intel Core I9-14900k Bx8071514900k De 24 Núcleos Y  6ghz De Frecuencia Con Gráfica Integrada",
+          "categoria": "C3",
+          "marca": "Intel",
+          "modelo": "i9-14900K",
           "cantidad": 1,
-          "precio": 204938,
-          "imagen": "http://http2.mlstatic.com/D_757994-MLU73551837907_122023-I.jpg",
-          "eliminado": false
-        },
-        {
-          "id": "P3",
-          "codigoML": "MLA1455799859",
-          "titulo": "Memoria Ram Standard Gamer Color Verde 8gb 1 Sk Hynix Hma81gs6afr8n-uh",
-          "categoria": "C2",
-          "marca": "SK hynix",
-          "modelo": "HMA81GS6AFR8N-UH",
-          "cantidad": 1,
-          "precio": 36994,
-          "imagen": "http://http2.mlstatic.com/D_835706-MLA74781908139_022024-I.jpg",
+          "precio": 856989,
+          "imagen": "http://http2.mlstatic.com/D_972763-MLU78939419339_092024-I.jpg",
           "eliminado": false
         }
       ]
     },
     {
-      "id": "CR2",
-      "idUsuario": "0002",
+      "id": "3d6f",
+      "idUsuario": "0001",
+      "carrito": []
+    },
+    {
+      "idUsuario": "8",
       "carrito": [
         {
-          "id": "P4",
-          "codigoML": "MLA1442188071",
-          "titulo": "Microprocesador Pc Amd Ryzen 5 4600g 8mb 3.7ghz Socket Am4 100-100000147box 6 Nucleos 12 Hilos",
-          "categoria": "C3",
-          "marca": "AMD",
-          "modelo": "4600g",
+          "id": "P2",
+          "codigoML": "MLA1117902383",
+          "titulo": "Memoria Ram Fury Beast Ddr4 Gamer Color Negro 8gb 1 Kingston Kf432c16bb/8",
+          "categoria": "C2",
+          "marca": "Kingston",
+          "modelo": "KF432C16BB/8",
           "cantidad": 1,
-          "precio": 180639,
-          "imagen": "http://http2.mlstatic.com/D_921573-MLU79266660511_092024-I.jpg",
+          "precio": 29715,
+          "imagen": "http://http2.mlstatic.com/D_805641-MLA74781352069_022024-I.jpg",
           "eliminado": false
         }
-      ]
+      ],
+      "id": "8854"
     }
   ],
   "pedidos": [
