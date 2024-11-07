@@ -343,6 +343,7 @@
     {
       "id": "CR1",
       "idUsuario": "0001",
+<<<<<<< HEAD
       "carrito": [
         {
           "id": "P1",
@@ -357,24 +358,14 @@
           "eliminado": false
         }
       ]
+=======
+      "carrito": []
+>>>>>>> main
     },
     {
       "id": "CR2",
       "idUsuario": "0002",
-      "carrito": [
-        {
-          "id": "P4",
-          "codigoML": "MLA1442188071",
-          "titulo": "Microprocesador Pc Amd Ryzen 5 4600g 8mb 3.7ghz Socket Am4 100-100000147box 6 Nucleos 12 Hilos",
-          "categoria": "C3",
-          "marca": "AMD",
-          "modelo": "4600g",
-          "cantidad": 1,
-          "precio": 180639,
-          "imagen": "http://http2.mlstatic.com/D_921573-MLU79266660511_092024-I.jpg",
-          "eliminado": false
-        }
-      ]
+      "carrito": []
     }
   ],
   "pedidos": [
