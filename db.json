@@ -33,6 +33,24 @@
       "valor": "Perifericos"
     }
   ],
+  "metodosDePago": [
+    {
+      "id": "M1",
+      "valor": "Tarjeta de Debito"
+    },
+    {
+      "id": "M2",
+      "valor": "Tarjeta de Credito"
+    },
+    {
+      "id": "M3",
+      "valor": "Cuenta DNI"
+    },
+    {
+      "id": "M4",
+      "valor": "Mercado Pago"
+    }
+  ],
   "stock": [
     {
       "id": "P1",
@@ -301,20 +319,24 @@
   ],
   "usuarios": [
     {
-      "codigo": "U001",
-      "email": "admin@admin.com",
-      "usuario": "admin",
-      "password": "admin123",
+      "id": "1",
+      "email": "admin@gmail.com",
       "nombre": "admin",
       "apellido": "admin",
-      "direccion": "admin123",
-      "id": "0001"
+      "nombreUsuario": "admin",
+      "contrasena": "admin123",
+      "fechaNacimiento": "2000-01-01",
+      "codigoPostal": 7600,
+      "direccion": {
+        "calle": "luro",
+        "numero": 1515,
+        "piso": "1",
+        "departamento": "C"
+      }
     },
     {
-      "codigo": "U002",
-      "email": "agustin@agustin.com",
-      "usuario": "agustin",
-      "password": "agustin123",
+      "id": "2",
+      "email": "agustin.farinia@gmail.com",
       "nombre": "agustin",
       "apellido": "fariña",
       "direccion": "agustin123",

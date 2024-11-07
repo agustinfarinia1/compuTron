@@ -10,4 +10,20 @@ export class Direccion {
     this.piso = piso;
     this.departamento = departamento;
   }
+
+  getCalle(){
+    return this.calle;
+  }
+
+  getNumero(){
+    return this.numero;
+  }
+
+  getPiso(){
+    return this.piso;
+  }
+
+  getDepartamento(){
+    return this.departamento;
+  }
 }

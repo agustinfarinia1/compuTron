@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ProductosJsonServerService } from '../../../services/productos-json-server.service';
 import { Producto } from '../../../models/producto.model';
 import { CommonModule } from '@angular/common';
 import { RouterService } from '../../../services/router.service';
-import { CategoriasJsonServerService } from '../../../services/categorias-json-server.service';
+import { ProductosService } from '../../../services/productos.service';
+import { CategoriasService } from '../../../services/categorias.service';
 
 @Component({
   selector: 'app-eliminar-producto',
@@ -18,7 +18,7 @@ export class EliminarProductoComponent implements OnInit{
 
   producto : Producto;
 
-  constructor(private productoService : ProductosJsonServerService,private router: RouterService,private categoriaService : CategoriasJsonServerService){
+  constructor(private productoService : ProductosService,private router: RouterService,private categoriaService : CategoriasService){
     this.producto = new Producto("","","","","",0,0,"");
     this.categorias = [];
   }

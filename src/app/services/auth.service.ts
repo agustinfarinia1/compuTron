@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { Persona } from '../models/persona.model';
 
 interface Usuario {
   codigo: string;
@@ -23,33 +24,44 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  login(usuario: string, password: string): Promise<boolean> {
-    return this.http.get<Usuario[]>(this.apiUrl).pipe(
+  login(nombreUsuario: string, contrasena: string): Promise<boolean> {
+    return this.http.get<Persona[]>(this.apiUrl).pipe(
       catchError(error => {
         console.error('Error al obtener usuarios:', error);
         return of([]); // Retorna un array vacío en caso de error
       })
     ).toPromise().then(usuarios => {
-      if (!usuarios) {
-        return false; // No hay usuarios
-      }
+      if (!usuarios) return false;
 
-      const user = usuarios.find(u => u.usuario === usuario && u.password === password);
+      const user = usuarios.find(u => u.nombreUsuario === nombreUsuario && u.contrasena === contrasena);
       if (user) {
         localStorage.setItem('usuario', JSON.stringify(user));
-        return true; // Inicio de sesión exitoso
+        return true;
       } else {
-        return false; // Fallo en el inicio de sesión
+        return false;
       }
     });
   }
 
   logout() {
     localStorage.removeItem('usuario');
+    localStorage.removeItem('cantidadCarrito');
     this.router.navigate(['/login']);
   }
 
   isAuthenticated(): boolean {
-    return !!localStorage.getItem('usuario'); // Cambia aquí de isAuth a isAuthenticated
+    return !!localStorage.getItem('usuario');
+  }
+
+  consultarUsuario = async(email : string) => {
+    const url = `http://localhost:3000/usuarios?email=${email}`;
+    try {
+        const respuesta = await fetch(url);
+        const datos = await respuesta.json();
+        return datos;
+      }
+    catch (error) {
+      console.error("Error al obtener los datos:", error);
+    }
   }
 }

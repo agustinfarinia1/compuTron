@@ -5,6 +5,9 @@ import { Persona } from '../../../models/persona.model';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { RouterService } from '../../../services/router.service';
+import { CarritoService } from '../../../services/carrito.service';
+import { AuthService } from '../../../services/auth.service';
+import { Carrito } from '../../../models/carrito.model';
 
 @Component({
   selector: 'app-registrar',
@@ -22,7 +25,9 @@ export class RegistroComponent {
   constructor(
     private fb: FormBuilder,
     private registroService: RegistroService,
-    private router: RouterService
+    private router: RouterService,
+    private carritoService : CarritoService,
+    private authService : AuthService
   ) {
     this.registroForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -77,14 +82,18 @@ export class RegistroComponent {
     if (this.registroForm.valid && this.datosDisponibles) {
       const { email, nombre, apellido, nombreUsuario, contrasena, fechaNacimiento, codigoPostal, direccion } = this.registroForm.value;
       const usuario = new Persona(email, nombre, apellido, nombreUsuario, contrasena, fechaNacimiento, codigoPostal, direccion);
-  
       (await this.registroService.registrarUsuario(usuario)).subscribe({
         next: (response) => {
           this.mensaje = 'Usuario registrado exitosamente'; // Asignar el mensaje al componente
           this.router.irALogin();
-          console.log('Usuario registrado exitosamente', response);
           this.registroForm.reset();
           this.datosDisponibles = false;
+          this.authService.consultarUsuario(email).then((respuestaUsuario) => {
+            this.carritoService.getCantidadCarritos().then((respuestaCantidad) => {
+              let carritoUsuario = new Carrito(respuestaCantidad,respuestaUsuario[0].id);
+              this.carritoService.setCarritoServer(respuestaUsuario[0].id,carritoUsuario);
+            })
+          })
         },
         error: (error) => {
           console.error('Error al registrar usuario:', error.message);

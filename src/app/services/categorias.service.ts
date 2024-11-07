@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoriasJsonServerService {
+export class CategoriasService {
   getCategorias = async() => {
     const url = `http://localhost:3000/categorias`;
       try {
