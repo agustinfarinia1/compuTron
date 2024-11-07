@@ -76,17 +76,6 @@ export class PagarPedidoComponent implements OnInit{
         localStorage.setItem("cantidadCarrito","0");
         localStorage.removeItem("totalCarrito");
         localStorage.removeItem("pedido");
-        carrito.getCarrito().forEach(async(itemCarrito) => {
-          console.log("edita");
-          let producto = await this.productoService.consultarCodigo(itemCarrito.getId());
-          producto = producto[0];
-          let productoCarrito = carrito.getCarrito().find((busquedaProducto) => busquedaProducto.getId() === producto.getId());
-          if(productoCarrito){
-            producto.setCantidad(producto.getCantidad() - productoCarrito.getCantidad());
-            this.productoService.editarProducto(producto);
-            console.log("edita efectivamente");
-          }
-        });
         this.pedidoService.setNewPedido(this.pedido);
         this.carritoService.setCarritoServer(this.usuario.id,carrito);
       } 
@@ -105,7 +94,7 @@ export class PagarPedidoComponent implements OnInit{
         this.pedido.setIdMetodoDePago(metodoDePago.id);
         this.actualizarEstados();
         alert("pedido creado exitosamente");
-        //this.router.irAHome();
+        this.router.irAHome();
       }
     }
   }
