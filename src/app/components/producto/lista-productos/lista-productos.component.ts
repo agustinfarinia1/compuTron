@@ -2,10 +2,10 @@ import { Component, Input } from '@angular/core';
 import { Producto } from '../../../models/producto.model';
 import { CommonModule } from '@angular/common';
 import { ProductoItemComponent } from "../producto-item/producto-item.component";
-import { CategoriasJsonServerService } from '../../../services/categorias-json-server.service';
-import { ProductosJsonServerService } from '../../../services/productos-json-server.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
+import { ProductosService } from '../../../services/productos.service';
+import { CategoriasService } from '../../../services/categorias.service';
 
 @Component({
   selector: 'app-lista-productos',
@@ -25,7 +25,7 @@ export class ListaProductosComponent {
 
   ordenSeleccionado = 'default';
 
-  constructor(private categoriasServicio:CategoriasJsonServerService,private productosServicio:ProductosJsonServerService) {
+  constructor(private categoriasServicio:CategoriasService,private productosServicio:ProductosService) {
     this.listaProductos = [];
     this.listaCategorias = [];
     this.categoriaListado = "";

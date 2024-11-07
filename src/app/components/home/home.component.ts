@@ -22,18 +22,21 @@ export class HomeComponent implements OnInit{
       this.router.irALogin();
     }
     else{
-      let respuestaStorage = localStorage.getItem("usuario");
-      if(respuestaStorage){
-        let parseUsuario = JSON.parse(respuestaStorage);
-        if(parseUsuario){
-          this.carritoService.getCarritoServer(parseUsuario.id).then((respuestaCarrito) => {
-            let carrito = respuestaCarrito?.getCarrito();
-            if(carrito){
-              let suma = 0;
-              carrito.forEach((item) => suma = suma + item.getCantidad());
-              localStorage.setItem("cantidadCarrito",suma.toString());
-            }
-          });
+      let respuestaUsuario = localStorage.getItem("usuario");
+      if(respuestaUsuario){
+        let usuario = JSON.parse(respuestaUsuario);
+        if(usuario){
+          if(!localStorage.getItem("cantidadCarrito")){ 
+            // Si es la primera vez que ingresa al sistema, se crea en el localStorage la cantidad de carrito que aparece en en navbar
+            this.carritoService.getCarritoServer(usuario.id).then((respuestaCarrito) => {
+              let carrito = respuestaCarrito?.getCarrito();
+              if(carrito){
+                let totalCarrito = 0;
+                carrito.forEach((item) => totalCarrito = totalCarrito + item.getCantidad());
+                localStorage.setItem("cantidadCarrito",totalCarrito.toString());
+              }
+            });
+          }
         }
       }
     }

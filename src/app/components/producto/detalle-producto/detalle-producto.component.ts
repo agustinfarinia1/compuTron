@@ -1,13 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Producto } from '../../../models/producto.model';
-import { ProductosJsonServerService } from '../../../services/productos-json-server.service';
-import { CategoriasJsonServerService } from '../../../services/categorias-json-server.service';
 import { RouterService } from '../../../services/router.service';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ListaProductosComponent } from "../lista-productos/lista-productos.component";
 import { CarritoService } from '../../../services/carrito.service';
 import { Carrito } from '../../../models/carrito.model';
+import { ProductosService } from '../../../services/productos.service';
+import { CategoriasService } from '../../../services/categorias.service';
 
 @Component({
   selector: 'app-detalle-producto',
@@ -24,13 +24,9 @@ export class DetalleProductoComponent implements OnInit {
   carrito: Carrito | null = null;
   private currentUserId: string = '';
 
-  constructor(
-    private productoService: ProductosJsonServerService,
-    private carritoService: CarritoService,
-    private categoriaService: CategoriasJsonServerService,
-    private router: RouterService
-  ) {
-    this.producto = new Producto("", "", "", "", "", 0, 0, "");
+  constructor(private productoService : ProductosService,private carritoService:CarritoService,private categoriaService : CategoriasService,private router : RouterService){
+    this.producto = new Producto("","","","","",0,0,"");
+    this.categorias = [];
     this.carritoFormulario = new FormGroup({
       cantidad: new FormControl(1, [Validators.required, Validators.min(1)]),
     });

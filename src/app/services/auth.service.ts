@@ -52,4 +52,16 @@ export class AuthService {
   isAuthenticated(): boolean {
     return !!localStorage.getItem('usuario');
   }
+
+  consultarUsuario = async(email : string) => {
+    const url = `http://localhost:3000/usuarios?email=${email}`;
+    try {
+        const respuesta = await fetch(url);
+        const datos = await respuesta.json();
+        return datos;
+      }
+    catch (error) {
+      console.error("Error al obtener los datos:", error);
+    }
+  }
 }

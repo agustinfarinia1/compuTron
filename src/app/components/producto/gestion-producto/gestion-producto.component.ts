@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from '../../../models/producto.model';
-import { ProductosJsonServerService } from '../../../services/productos-json-server.service';
 import { RouterLink } from '@angular/router';
 import { ListaProductoAdminComponent } from "../lista-producto-admin/lista-producto-admin.component";
+import { ProductosService } from '../../../services/productos.service';
 
 @Component({
   selector: 'app-gestion-producto',
@@ -15,7 +15,7 @@ export class GestionProductoComponent implements OnInit {
 
   listaProductos: Producto[];
 
-  constructor(private productosServicio: ProductosJsonServerService) {
+  constructor(private productosServicio: ProductosService) {
     this.listaProductos = [];
 
   }

@@ -54,6 +54,7 @@ export class RegistroService {
       })
     );
   }
+  
   getCantidadUsuarios = async (): Promise<number> => {
     try {
       const respuesta = await fetch(this.apiUrl);  // Obtener los usuarios

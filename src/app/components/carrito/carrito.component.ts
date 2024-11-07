@@ -3,8 +3,8 @@ import { CarritoService } from '../../services/carrito.service';
 import { Producto } from '../../models/producto.model';
 import { CommonModule } from '@angular/common';
 import { Carrito } from '../../models/carrito.model';
-import { ProductosJsonServerService } from '../../services/productos-json-server.service';
 import { RouterService } from '../../services/router.service';
+import { ProductosService } from '../../services/productos.service';
 
 @Component({
   selector: 'app-carrito',
@@ -19,7 +19,7 @@ export class CarritoComponent implements OnInit {
   productos : Producto [];
   precioTotal : number;
 
-  constructor(private carritoService: CarritoService,private productosService : ProductosJsonServerService,private router:RouterService) {
+  constructor(private carritoService: CarritoService,private productosService : ProductosService,private router:RouterService) {
     this.carrito = null;
     this.cargaCarrito = false;
     this.productos = [];

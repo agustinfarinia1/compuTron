@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductosJsonServerService } from '../../../services/productos-json-server.service';
 import { Producto } from '../../../models/producto.model';
 import { CommonModule } from '@angular/common';
-import { CategoriasJsonServerService } from '../../../services/categorias-json-server.service';
-import { RouterService } from '../../../services/router.service';
 import { RouterLink } from '@angular/router';
+import { ProductosService } from '../../../services/productos.service';
+import { CategoriasService } from '../../../services/categorias.service';
 
 @Component({
   selector: 'app-lista-producto-admin',
@@ -18,7 +17,7 @@ export class ListaProductoAdminComponent implements OnInit{
   listaProductos : Producto[];
   listaCategorias : [];
 
-  constructor(private productosService : ProductosJsonServerService,private categoriasService : CategoriasJsonServerService){
+  constructor(private productosService : ProductosService,private categoriasService : CategoriasService){
     this.listaProductos = [];
     this.listaCategorias = [];
   }

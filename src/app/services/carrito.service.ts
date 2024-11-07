@@ -92,4 +92,16 @@ export class CarritoService {
       this.cantidadTotalSubject.next(0); // Si no hay carrito, la cantidad es 0
     }
   }
+
+  getCantidadCarritos = async() => {
+    const url = `http://localhost:3000/carrito`;
+      try {
+          const respuesta = await fetch(url);
+          const datos = await respuesta.json();
+          return datos.length + 1;
+        } catch (error) {
+          console.error("Error al obtener los datos:", error);
+        }
+    return 0;
+  }
 }

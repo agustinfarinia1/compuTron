@@ -319,30 +319,57 @@
   ],
   "usuarios": [
     {
-      "codigo": "U001",
-      "email": "admin@admin.com",
-      "usuario": "admin",
-      "password": "admin123",
+      "id": "1",
+      "email": "admin@gmail.com",
       "nombre": "admin",
       "apellido": "admin",
-      "direccion": "admin123",
-      "id": "0001"
+      "nombreUsuario": "admin",
+      "contrasena": "admin123",
+      "fechaNacimiento": "2000-01-01",
+      "codigoPostal": 7600,
+      "direccion": {
+        "calle": "luro",
+        "numero": 1515,
+        "piso": "1",
+        "departamento": "C"
+      }
     },
     {
-      "codigo": "U002",
-      "email": "agustin@agustin.com",
-      "usuario": "agustin",
-      "password": "agustin123",
+      "id": "2",
+      "email": "agustin.farinia@gmail.com",
       "nombre": "agustin",
       "apellido": "fariña",
-      "direccion": "agustin123",
-      "id": "0002"
+      "nombreUsuario": "agustin",
+      "contrasena": "agustin123",
+      "fechaNacimiento": "2000-04-14",
+      "codigoPostal": 7600,
+      "direccion": {
+        "calle": "carasa",
+        "numero": 1515,
+        "piso": "2",
+        "departamento": "A"
+      }
+    },
+    {
+      "id": "3",
+      "email": "prueba@gmail.com",
+      "nombre": "ernesto",
+      "apellido": "copa",
+      "nombreUsuario": "prueba",
+      "contrasena": "prueba123",
+      "fechaNacimiento": "2001-11-11",
+      "codigoPostal": 7600,
+      "direccion": {
+        "calle": "colon",
+        "numero": 4545,
+        "piso": "4",
+        "departamento": "C"
+      }
     }
   ],
   "carrito": [
     {
-      "id": "CR1",
-      "idUsuario": "0001",
+      "idUsuario": "1",
       "carrito": [
         {
           "id": "P1",
@@ -351,53 +378,37 @@
           "categoria": "C2",
           "marca": "Corsair",
           "modelo": "CMH32GX5M2B5200C40",
-          "cantidad": 1,
+          "cantidad": 2,
           "precio": 204938,
           "imagen": "http://http2.mlstatic.com/D_757994-MLU73551837907_122023-I.jpg",
           "eliminado": false
         }
-      ]
+      ],
+      "id": "f119"
     },
     {
-      "id": "CR2",
-      "idUsuario": "0002",
+      "idUsuario": "2",
       "carrito": [
         {
-          "id": "P4",
-          "codigoML": "MLA1442188071",
-          "titulo": "Microprocesador Pc Amd Ryzen 5 4600g 8mb 3.7ghz Socket Am4 100-100000147box 6 Nucleos 12 Hilos",
-          "categoria": "C3",
-          "marca": "AMD",
-          "modelo": "4600g",
-          "cantidad": 1,
-          "precio": 180639,
-          "imagen": "http://http2.mlstatic.com/D_921573-MLU79266660511_092024-I.jpg",
+          "id": "P2",
+          "codigoML": "MLA1117902383",
+          "titulo": "Memoria Ram Fury Beast Ddr4 Gamer Color Negro 8gb 1 Kingston Kf432c16bb/8",
+          "categoria": "C2",
+          "marca": "Kingston",
+          "modelo": "KF432C16BB/8",
+          "cantidad": 3,
+          "precio": 29715,
+          "imagen": "http://http2.mlstatic.com/D_805641-MLA74781352069_022024-I.jpg",
           "eliminado": false
         }
-      ]
+      ],
+      "id": "c17b"
+    },
+    {
+      "id": "898a",
+      "idUsuario": "3",
+      "carrito": []
     }
   ],
-  "pedidos": [
-    {
-      "id": "PE1",
-      "idUsuario": "0001",
-      "fechaCreacion": "2024-11-06T19:44:34.358Z",
-      "precioFinal": 214938,
-      "listaPedido": [
-        {
-          "id": "P1",
-          "cantidad": 1
-        }
-      ],
-      "idMetodoDePago": "M4",
-      "direccionEnvio": {
-        "calle": "luro",
-        "numero": 1,
-        "piso": 2,
-        "departamento": "C"
-      },
-      "estadoPedido": "a confirmar",
-      "finalizado": false
-    }
-  ]
+  "pedidos": []
 }
