@@ -47,20 +47,13 @@ export class ConfirmarPedidoComponent implements OnInit{
     if(respuestaUsuario){    
       let usuario = JSON.parse(respuestaUsuario);
       if(usuario){
-        // Tiene que cargar la direccion que esta asignada al usuario cuando se hace el registro.
-        // Ahora voy a hacer un modelo de prueba para poder seguir el proceso.
-        let modeloDireccion = {
-          "nombreDireccion" : "luro",
-          "numeroDireccion" : 1,
-          "pisoDireccion" : null,
-          "departamentoDireccion" : null};
-        this.pedidoFormulario.get("nombreDireccionUsuario")?.setValue(modeloDireccion.nombreDireccion);
-        this.pedidoFormulario.get("numeroDireccionUsuario")?.setValue(modeloDireccion.numeroDireccion);
-        if(modeloDireccion.pisoDireccion){
-          this.pedidoFormulario.get("pisoDireccionUsuario")?.setValue(modeloDireccion.pisoDireccion);
+        this.pedidoFormulario.get("nombreDireccionUsuario")?.setValue(usuario.direccion.calle);
+        this.pedidoFormulario.get("numeroDireccionUsuario")?.setValue(usuario.direccion.numero);
+        if(usuario.direccion.piso){
+          this.pedidoFormulario.get("pisoDireccionUsuario")?.setValue(usuario.direccion.piso);
         }
-        if(modeloDireccion.departamentoDireccion){
-          this.pedidoFormulario.get("departamentoDireccionUsuario")?.setValue(modeloDireccion.departamentoDireccion);
+        if(usuario.direccion.departamento){
+          this.pedidoFormulario.get("departamentoDireccionUsuario")?.setValue(usuario.direccion.departamento);
         }
       }
       else{
