@@ -35,28 +35,35 @@ export class CarritoService {
       const urlGet = `http://localhost:3000/carrito?idUsuario=${idUsuario}`;
       const respuestaGet = await fetch(urlGet);
       const datos = await respuestaGet.json();
-
+  
       if (datos.length > 0) {
         const carritoId = datos[0].id; // Asumiendo que solo hay un carrito por usuario
         const urlPut = `http://localhost:3000/carrito/${carritoId}`; // Cambia a PUT por ID
+        // Aquí, extraemos solo los datos necesarios del carrito, como el array de productos
+        const carritoData = {
+          idUsuario,
+          carrito: carrito.getCarrito(), // Asegúrate de que esto sea un array de productos simple
+        };
         await fetch(urlPut, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(carrito),
+          body: JSON.stringify(carritoData),
         });
       } else {
         const urlPost = `http://localhost:3000/carrito`;
+        // Asegúrate de enviar solo los datos necesarios
+        const carritoData = {
+          idUsuario,
+          carrito: carrito.getCarrito(),
+        };
         await fetch(urlPost, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({
-            idUsuario,
-            carrito: carrito.getCarrito(),
-          }), // Ajusta el cuerpo según tu estructura
+          body: JSON.stringify(carritoData),
         });
       }
       this.carrito = carrito; // Actualiza el carrito en el servicio
@@ -65,6 +72,7 @@ export class CarritoService {
       console.error('Error:', error);
     }
   };
+  
 
   cambiarCantidad(productoId: string, cantidad: number): void {
     if (this.carrito) {
