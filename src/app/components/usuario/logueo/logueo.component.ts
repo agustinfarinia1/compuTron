@@ -15,12 +15,12 @@ import { RouterLink } from '@angular/router';
   styleUrl: './logueo.component.css'
 })
 export class LogueoComponent {
-  loginData = { usuario: '', password: '' };
+  loginData = { nombreUsuario: '', contrasena: '' };
 
   constructor(private authService: AuthService, private router: RouterService) {}
 
   iniciarSesion() {
-    this.authService.login(this.loginData.usuario, this.loginData.password)
+    this.authService.login(this.loginData.nombreUsuario, this.loginData.contrasena)
       .then(success => {
         if (success) {
           alert('Inicio de sesión exitoso');
