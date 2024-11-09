@@ -11,6 +11,14 @@ export class Direccion {
     this.departamento = departamento;
   }
 
+  setPiso(newPiso : string){
+    this.piso = newPiso;
+  }
+
+  setDepartamento(newDepartamento : string){
+    this.departamento = newDepartamento;
+  }
+
   getCalle(){
     return this.calle;
   }

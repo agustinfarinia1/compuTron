@@ -12,6 +12,7 @@ import { CarritoComponent } from './components/carrito/carrito.component';
 import { ConfirmarPedidoComponent } from './components/pedido/confirmar-pedido/confirmar-pedido.component';
 import { PagarPedidoComponent } from './components/pedido/pagar-pedido/pagar-pedido.component';
 import { NoAuthGuard } from './services/noauth.service';
+import { GestionPedidoAdminComponent } from './components/pedido/gestion-pedido-admin/gestion-pedido-admin.component';
 
 export const routes: Routes = [
   {path:"login",component:LogueoComponent,canActivate:[NoAuthGuard]},
@@ -26,6 +27,7 @@ export const routes: Routes = [
   {path:"admin-productos/cargar",component:FormularioProductoComponent,canActivate:[authGuard]},
   {path:"admin-productos/editar/:id",component:FormularioProductoComponent,canActivate:[authGuard]},
   {path:"admin-productos/eliminar/:id",component:EliminarProductoComponent,canActivate:[authGuard]},
+  {path:"admin-pedidos",component:GestionPedidoAdminComponent,canActivate:[authGuard]},
   {path:"",redirectTo:"login",pathMatch:"full"},
   {path:"**",component:HomeComponent}
 ];

@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { ListaProductosComponent } from "../producto/lista-productos/lista-productos.component";
 import { AuthService } from '../../services/auth.service';
 import { RouterService } from '../../services/router.service';
 import { CarritoService } from '../../services/carrito.service';
+import { CategoriasService } from '../../services/categorias.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, ListaProductosComponent],
+  imports: [ListaProductosComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

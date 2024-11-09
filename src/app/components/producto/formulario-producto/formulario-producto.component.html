@@ -2,7 +2,7 @@
   <strong>¡Éxito!</strong> Tu operación se ha completado correctamente.
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
-<form class="container py-4 px-3 bg-warning rounded shadow-sm" [formGroup]="productoFormulario" (ngSubmit)="onSubmit()">
+<form class="container py-4 px-3 bg-warning rounded shadow-sm" [formGroup]="productoFormulario" (ngSubmit)="onSubmit()" *ngIf="categorias">
   <h3 class="text-center mb-4 text-dark">{{tituloFormulario}}</h3>
   <div class="mb-3">
     <label for="busqueda" class="form-label text-dark">Búsqueda producto</label>
@@ -39,7 +39,7 @@
       <label for="seleccionCategoria" class="form-label text-dark">Categoría producto</label>
       <select id="seleccionCategoria" class="form-select bg-white" name="seleccionCategoria" (change)="seleccionCategoria($event)" formControlName="categoria">
         <option selected>Seleccione categoría</option>
-        <option [value]="i" *ngFor="let categoria of respuestaCategorias;let i = index">{{categoria["valor"]}}</option>
+        <option [value]="i" *ngFor="let categoria of categorias;let i = index">{{categoria.getValor()}}</option>
       </select>
       <span *ngIf="productoFormulario.get('categoria')?.invalid && productoFormulario.get('categoria')?.touched" class="text-danger">
         Error : Categoria Necesaria

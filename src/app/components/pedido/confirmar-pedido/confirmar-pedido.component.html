@@ -1,5 +1,5 @@
 <div class="container">
-    <form class="container  bg-warning rounded shadow-sm  mb-3" [formGroup]="pedidoFormulario" (ngSubmit)="cargarPedido()">
+    <form class="container  bg-warning rounded shadow-sm  mb-3" [formGroup]="pedidoFormulario" (ngSubmit)="onSubmit()">
         <h3 class="text-center text-dark mt-3">Confirmar Pedido</h3>
         <p>Precio de Compra: {{precioFinal | currency}}</p>
         <p>Precio de Envio: {{precioEnvio | currency}}</p>

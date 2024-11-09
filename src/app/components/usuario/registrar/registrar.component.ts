@@ -3,7 +3,6 @@ import { AbstractControl, FormBuilder, FormGroup, FormsModule, ReactiveFormsModu
 import { RegistroService } from '../../../services/registrar.service';
 import { Persona } from '../../../models/persona.model';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
 import { RouterService } from '../../../services/router.service';
 import { CarritoService } from '../../../services/carrito.service';
 import { AuthService } from '../../../services/auth.service';
@@ -12,7 +11,7 @@ import { Carrito } from '../../../models/carrito.model';
 @Component({
   selector: 'app-registrar',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './registrar.component.html',
   styleUrl: './registrar.component.css'
 })

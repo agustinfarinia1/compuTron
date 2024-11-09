@@ -10,7 +10,6 @@ import { ProductoLista } from '../../../models/productoLista.model';
 import { MetodosDePagoService } from '../../../services/metodosDePago.service';
 import { Direccion } from '../../../models/direccion.model';
 import { PedidoService } from '../../../services/pedido.service';
-import { ProductosService } from '../../../services/productos.service';
 
 @Component({
   selector: 'app-pagar-pedido',
@@ -26,23 +25,26 @@ export class PagarPedidoComponent implements OnInit{
   pagarPedidoForm : FormGroup;
   metodosDePago : MetodoDePago[];
   carrito : Carrito | null;
+  direccion : Direccion | null;
 
-  constructor(private metodosDePagoService : MetodosDePagoService,private router : RouterService,private carritoService : CarritoService,private pedidoService : PedidoService,private productoService : ProductosService){
+  constructor(private metodosDePagoService : MetodosDePagoService,private router : RouterService,private carritoService : CarritoService,private pedidoService : PedidoService){
     this.usuario = {};
     this.pedido = null;
     this.carrito = null;
+    this.direccion = null;
     this.pagarPedidoForm = new FormGroup({
       metodoDePago : new FormControl("",[Validators.required])
     })
     this.metodosDePago = [];
     let respuestaUsuario = localStorage.getItem("usuario");
-    let respuestaJsonPedido = localStorage.getItem("pedido");
-    if(respuestaUsuario && respuestaJsonPedido){
+    let respuestaJsonDireccion = localStorage.getItem("direccionPedido");
+    let respuestaJsonPrecio = localStorage.getItem("precioPedido");
+    if(respuestaUsuario && respuestaJsonDireccion && respuestaJsonPrecio){
       this.usuario = JSON.parse(respuestaUsuario);
-      let respuestaPedido  = JSON.parse(respuestaJsonPedido);
-      if(respuestaPedido){
-        let respuestaDireccion = new Direccion(respuestaPedido.direccionEnvio.calle,respuestaPedido.direccionEnvio.numero,respuestaPedido.direccionEnvio.piso,respuestaPedido.direccionEnvio.departamento);
-        this.pedido = new Pedido("PE1",this.usuario.id,new Date(),respuestaPedido.precioFinal,"",respuestaDireccion);
+      let respuestaDireccion  = JSON.parse(respuestaJsonDireccion);
+      let respuestaPrecio  = JSON.parse(respuestaJsonPrecio);
+      if(respuestaDireccion && respuestaPrecio){
+        this.pedido = new Pedido("",this.usuario.id,new Date(),respuestaPrecio,"",new Direccion(respuestaDireccion.calle,respuestaDireccion.numero,respuestaDireccion.piso,respuestaDireccion.departamento),"1");
       }
       else{
         this.router.irAHome();
@@ -56,6 +58,11 @@ export class PagarPedidoComponent implements OnInit{
   ngOnInit(): void {
     this.obtenerCarrito();
     this.metodosDePagoService.getMetodosDePago().then((respuestaMetodosDePago) => this.metodosDePago = respuestaMetodosDePago);
+    this.pedidoService.getCantidadPedidos().then((respuestaCantidad) =>  {
+        if(this.pedido){
+          this.pedido.setId(`${respuestaCantidad}`);
+        }
+    });
   }
 
   async obtenerCarrito() {

@@ -33,7 +33,7 @@
       "valor": "Perifericos"
     }
   ],
-  "metodosDePago": [
+  "metodos-de-pago": [
     {
       "id": "M1",
       "valor": "Tarjeta de Debito"
@@ -49,6 +49,24 @@
     {
       "id": "M4",
       "valor": "Mercado Pago"
+    }
+  ],
+  "estado-pedido": [
+    {
+      "id": "1",
+      "valor": "A confirmar"
+    },
+    {
+      "id": "2",
+      "valor": "Confirmado"
+    },
+    {
+      "id": "3",
+      "valor": "Enviado"
+    },
+    {
+      "id": "4",
+      "valor": "Finalizado"
     }
   ],
   "stock": [
@@ -315,6 +333,18 @@
       "precio": 4821,
       "imagen": "http://http2.mlstatic.com/D_917606-MLA32845594879_112019-I.jpg",
       "eliminado": false
+    },
+    {
+      "id": "P23",
+      "codigoML": "MLA1772771438",
+      "titulo": "Teclado Genius Slimstar Q200 Delgado Multimedia Teclas Redondas Español Ñ Color Negro",
+      "categoria": "C8",
+      "marca": "Genius",
+      "modelo": "SLIMSTAR Q200",
+      "cantidad": 1,
+      "precio": 14900,
+      "imagen": "http://http2.mlstatic.com/D_922991-MLA78327691274_082024-I.jpg",
+      "eliminado": false
     }
   ],
   "usuarios": [
@@ -339,21 +369,146 @@
       "email": "agustin.farinia@gmail.com",
       "nombre": "agustin",
       "apellido": "fariña",
-      "direccion": "agustin123",
-      "id": "0002"
+      "nombreUsuario": "agustin",
+      "contrasena": "agustin123",
+      "fechaNacimiento": "2000-01-01",
+      "codigoPostal": 7600,
+      "direccion": {
+        "calle": "carasa",
+        "numero": 1515,
+        "piso": "2",
+        "departamento": "A"
+      }
+    },
+    {
+      "id": "3",
+      "email": "prueba@gmail.com",
+      "nombre": "ernesto",
+      "apellido": "copa",
+      "nombreUsuario": "prueba",
+      "contrasena": "prueba123",
+      "fechaNacimiento": "2000-12-10",
+      "codigoPostal": 7600,
+      "direccion": {
+        "calle": "constitucion",
+        "numero": 5686,
+        "piso": "2",
+        "departamento": "C"
+      }
     }
   ],
   "carrito": [
     {
-      "id": "CR1",
-      "idUsuario": "0001",
-      "carrito": []
+      "idUsuario": "1",
+      "carrito": [],
+      "id": "CR1"
     },
     {
       "id": "CR2",
-      "idUsuario": "0002",
+      "idUsuario": "2",
       "carrito": []
+    },
+    {
+      "idUsuario": "3",
+      "carrito": [],
+      "id": "b3f0"
     }
   ],
-  "pedidos": []
+  "pedidos": [
+    {
+      "id": "1",
+      "idUsuario": "1",
+      "fechaCreacion": "2024-11-09T17:29:07.501Z",
+      "precioFinal": 214938,
+      "listaPedido": [],
+      "idMetodoDePago": "M2",
+      "direccionEnvio": {
+        "calle": "luro",
+        "numero": 1515,
+        "piso": "1",
+        "departamento": "C"
+      },
+      "idEstadoPedido": "1"
+    },
+    {
+      "id": "2",
+      "idUsuario": "1",
+      "fechaCreacion": "2024-11-09T18:35:26.691Z",
+      "precioFinal": 214938,
+      "listaPedido": [
+        {
+          "id": "P1",
+          "cantidad": 1
+        }
+      ],
+      "idMetodoDePago": "M4",
+      "direccionEnvio": {
+        "calle": "luro",
+        "numero": 1515,
+        "piso": "1",
+        "departamento": "C"
+      },
+      "idEstadoPedido": "2"
+    },
+    {
+      "id": "3",
+      "idUsuario": "1",
+      "fechaCreacion": "2024-11-09T18:35:26.691Z",
+      "precioFinal": 214938,
+      "listaPedido": [
+        {
+          "id": "P1",
+          "cantidad": 1
+        }
+      ],
+      "idMetodoDePago": "M4",
+      "direccionEnvio": {
+        "calle": "luro",
+        "numero": 1515,
+        "piso": "1",
+        "departamento": "C"
+      },
+      "idEstadoPedido": "3"
+    },
+    {
+      "id": "4",
+      "idUsuario": "1",
+      "fechaCreacion": "2024-11-09T18:35:26.691Z",
+      "precioFinal": 214938,
+      "listaPedido": [
+        {
+          "id": "P1",
+          "cantidad": 1
+        }
+      ],
+      "idMetodoDePago": "M4",
+      "direccionEnvio": {
+        "calle": "luro",
+        "numero": 1515,
+        "piso": "1",
+        "departamento": "C"
+      },
+      "idEstadoPedido": "4"
+    },
+    {
+      "id": "5",
+      "idUsuario": "1",
+      "fechaCreacion": "2024-11-09T18:35:26.691Z",
+      "precioFinal": 214938,
+      "listaPedido": [
+        {
+          "id": "P1",
+          "cantidad": 1
+        }
+      ],
+      "idMetodoDePago": "M4",
+      "direccionEnvio": {
+        "calle": "luro",
+        "numero": 1515,
+        "piso": "1",
+        "departamento": "C"
+      },
+      "idEstadoPedido": "1"
+    }
+  ]
 }
