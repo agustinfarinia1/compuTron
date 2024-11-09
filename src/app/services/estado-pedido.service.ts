@@ -1,37 +1,39 @@
 import { Injectable } from '@angular/core';
-import { Categoria } from '../models/categoria.model';
+import { EstadoPedido } from '../models/estadoPedido.model ';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CategoriasService {
+export class EstadoPedidoService {
 
-  setNewCategoria = async(newCategoria : Categoria) => {
+  constructor() { }
+
+  setNewEstadoPedido = async(newEstadoPedido : EstadoPedido) => {
     try{
-      const url = `http://localhost:3000/categorias`;
+      const url = `http://localhost:3000/estado-pedido`;
       const respuesta = await fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(newCategoria)
+        body: JSON.stringify(newEstadoPedido)
       })
-      return this.getCantidadCategorias();
+      return this.getCantidadEstadoPedido();
     }
     catch(error) {
       console.error('Error:', error);
     }
   }
 
-  editarCategoria = async(categoria : Categoria) => {
+  editarEstadoPedido = async(estadoPedido : EstadoPedido) => {
     try{
-      const url = `http://localhost:3000/categorias/${categoria.getId()}`;
+      const url = `http://localhost:3000/estado-pedido/${estadoPedido.getId()}`;
       const respuesta = await fetch(url, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(categoria)
+        body: JSON.stringify(estadoPedido)
       })
     }
     catch(error) {
@@ -39,19 +41,19 @@ export class CategoriasService {
     }
   }
 
-  getCategorias = async() => {
-    const url = `http://localhost:3000/categorias`;
+  getEstadoPedido = async() => {
+    const url = `http://localhost:3000/estado-pedido`;
       try {
           const respuesta = await fetch(url);
           const datos = await respuesta.json();
-          return datos.map((estadoPedido : any) => new Categoria(estadoPedido.id,estadoPedido.valor));
+          return datos.map((estadoPedido : any) => new EstadoPedido(estadoPedido.id,estadoPedido.valor));
         } catch (error) {
           console.error("Error al obtener los datos:", error);
         }
   }
 
-  getCantidadCategorias = async() => {
-    const url = `http://localhost:3000/categorias`;
+  getCantidadEstadoPedido = async() => {
+    const url = `http://localhost:3000/estado-pedido`;
       try {
           const respuesta = await fetch(url);
           const datos = await respuesta.json();

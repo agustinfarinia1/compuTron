@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { RouterService } from '../../../services/router.service';
 import { ProductosService } from '../../../services/productos.service';
 import { CategoriasService } from '../../../services/categorias.service';
+import { Categoria } from '../../../models/categoria.model';
 
 @Component({
   selector: 'app-formulario-producto',
@@ -19,17 +20,18 @@ export class FormularioProductoComponent{
 
   productoFormulario : FormGroup;
   respuestaBusqueda : [] = [];
-  respuestaCategorias = [];
+  categorias : Categoria[] | null;
   tituloFormulario = "Carga Productos";
   textoBoton = "Cargar";
   cantidadProductos : number;
   modoFormulario : number;
   cartelExito : boolean;
 
-  constructor(private servicioMl:ApiMlService,private categoriasServicio: CategoriasService,private productosServicio: ProductosService,private router : RouterService){
+  constructor(private servicioMl:ApiMlService,private productosServicio: ProductosService,private router : RouterService,private categoriaService : CategoriasService){
     this.cantidadProductos = 0;
     this.modoFormulario = 0;
     this.cartelExito = false;
+    this.categorias = null;
     this.productoFormulario = new FormGroup({
       busqueda : new FormControl(),
       codigoML : new FormControl("",[Validators.required,Validators.minLength(3)],),
@@ -44,7 +46,7 @@ export class FormularioProductoComponent{
   }
 
   ngOnInit(): void {
-    this.categoriasServicio.getCategorias().then((respuesta) => this.respuestaCategorias = respuesta);
+    this.categoriaService.getCategorias().then((respuestaCategorias) => this.categorias = respuestaCategorias);
     this.productosServicio.getCantidadProductos().then((respuestaCantidad) => this.cantidadProductos = respuestaCantidad);
     if(this.idProducto){
       this.productosServicio.consultarCodigo(this.idProducto).then((respuestaConsultaId) => {
@@ -53,8 +55,8 @@ export class FormularioProductoComponent{
           this.modoFormulario = 1;
           this.tituloFormulario = "Editar Producto";
           this.textoBoton = "Editar";
-          if(this.respuestaCategorias){
-            let numeroCategoria = this.respuestaCategorias.findIndex((respuestaASADSD:any) => respuestaConsultaId[0].categoria === respuestaASADSD.id);
+          if(this.categorias){
+            let numeroCategoria = this.categorias.findIndex((busquedaCategoria : Categoria) => respuestaConsultaId[0].categoria === busquedaCategoria.getId());
             this.productoFormulario.get("categoria")?.setValue(numeroCategoria);
           }
           this.productoFormulario.get("codigoML")?.patchValue(respuestaProducto.codigoML);
@@ -110,20 +112,22 @@ export class FormularioProductoComponent{
   }
 
   submitFormulario = () =>{
-    let producto : Producto = new Producto(this.productoFormulario.get("codigoML")?.value,this.productoFormulario.get("titulo")?.value,this.productoFormulario.get("categoria")?.value,this.productoFormulario.get("marca")?.value,this.productoFormulario.get("modelo")?.value,this.productoFormulario.get("cantidad")?.value,this.productoFormulario.get("precio")?.value,this.productoFormulario.get("imagen")?.value);
-    let indexCategoria =  this.productoFormulario.get("categoria")?.value;
-    if(indexCategoria){
-      this.cartelExito = true;
-      producto.setCategoria(this.respuestaCategorias[indexCategoria]["id"]);
-      if(this.modoFormulario === 1){
-        producto.setId(this.idProducto);
-        this.productosServicio.editarProducto(producto);
+    if(this.categorias){
+      let producto : Producto = new Producto(this.productoFormulario.get("codigoML")?.value,this.productoFormulario.get("titulo")?.value,this.productoFormulario.get("categoria")?.value,this.productoFormulario.get("marca")?.value,this.productoFormulario.get("modelo")?.value,this.productoFormulario.get("cantidad")?.value,this.productoFormulario.get("precio")?.value,this.productoFormulario.get("imagen")?.value);
+      let indexCategoria =  this.productoFormulario.get("categoria")?.value;
+      if(indexCategoria){
+        this.cartelExito = true;
+        producto.setCategoria(this.categorias[indexCategoria]["id"]);
+        if(this.modoFormulario === 1){
+          producto.setId(this.idProducto);
+          this.productosServicio.editarProducto(producto);
+        }
+        else{
+          producto.setId(`P${this.cantidadProductos}`);
+          this.productosServicio.setNewProducto(producto);
+        }
+        this.router.irAHome();
       }
-      else{
-        producto.setId(`P${this.cantidadProductos}`);
-        this.productosServicio.setNewProducto(producto);
-      }
-      this.router.irAHome();
     }
   }
 }

@@ -29,6 +29,7 @@ export class ConfirmarPedidoComponent implements OnInit{
     }
     else{
       this.precioFinal = JSON.parse(respuestaPrecio);
+      localStorage.setItem("precioPedido",(this.precioFinal + this.precioEnvio).toString());
       //Obtengo el precioFinal del carrito para seguir el proceso
     }
 
@@ -86,13 +87,30 @@ export class ConfirmarPedidoComponent implements OnInit{
     }
   }
 
-  cargarPedido(){
+  cargarDireccion(campo : string){
+    let nombreDireccion = this.pedidoFormulario.get(`nombreDireccion${campo}`);
+    let numeroDireccion = this.pedidoFormulario.get(`numeroDireccion${campo}`);
+    if(nombreDireccion?.value && numeroDireccion?.value){
+      let direccion = new Direccion(nombreDireccion.value,numeroDireccion.value);
+      
+      let pisoAlternativa = this.pedidoFormulario.get(`pisoDireccion${campo}`)?.value;
+      if(pisoAlternativa){
+        direccion.setPiso(pisoAlternativa);
+      }
+      let departamentoAlternativa = this.pedidoFormulario.get(`departamentoDireccion${campo}`)?.value;
+      if(departamentoAlternativa){
+        direccion.setDepartamento(departamentoAlternativa);
+      }
+      return direccion;
+    }
+    return null;
+  }
+
+  onSubmit(){
     if(this.validacionAlternativa){
-      let nombreDireccionAlternativa = this.pedidoFormulario.get('nombreDireccionAlternativa');
-      let numeroDireccionAlternativa = this.pedidoFormulario.get('numeroDireccionAlternativa');
-      if(nombreDireccionAlternativa?.value && numeroDireccionAlternativa?.value){
-        let pedidoAlternativo = new Pedido("","",new Date(),this.precioFinal + this.precioEnvio,"",new Direccion(nombreDireccionAlternativa.value,numeroDireccionAlternativa.value,this.pedidoFormulario.get('pisoDireccionAlternativa')?.value,this.pedidoFormulario.get('departamentoDireccionAlternativa')?.value));
-        localStorage.setItem("pedido",JSON.stringify(pedidoAlternativo));
+      let direccion = this.cargarDireccion("Alternativa");
+      if(direccion){
+        localStorage.setItem("direccionPedido",JSON.stringify(direccion));
         this.router.irAPagarPedido();
       }
       else{
@@ -100,11 +118,9 @@ export class ConfirmarPedidoComponent implements OnInit{
       }
     }
     else{
-      let nombreDireccionUsuario = this.pedidoFormulario.get('nombreDireccionUsuario');
-      let numeroDireccionUsuario = this.pedidoFormulario.get('numeroDireccionUsuario');
-      if(nombreDireccionUsuario?.value && numeroDireccionUsuario?.value){
-        let pedidoUsuario = new Pedido("","",new Date(),this.precioFinal + this.precioEnvio,"",new Direccion(nombreDireccionUsuario.value,numeroDireccionUsuario.value,this.pedidoFormulario.get('pisoDireccionUsuario')?.value,this.pedidoFormulario.get('departamentoDireccionUsuario')?.value));
-        localStorage.setItem("pedido",JSON.stringify(pedidoUsuario));
+      let direccion = this.cargarDireccion("Usuario");
+      if(direccion){
+        localStorage.setItem("direccionPedido",JSON.stringify(direccion));
         this.router.irAPagarPedido();
       }
       else{

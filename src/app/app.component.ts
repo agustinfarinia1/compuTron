@@ -4,14 +4,13 @@ import { NavBarComponent } from './components/herramientas/nav-bar/nav-bar.compo
 import { AuthService } from './services/auth.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { FooterComponent } from "./components/herramientas/footer/footer.component";
 import { ProductosService } from './services/productos.service';
 import { CategoriasService } from './services/categorias.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavBarComponent, CommonModule, HttpClientModule, FooterComponent],
+  imports: [RouterOutlet, NavBarComponent, CommonModule, HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
