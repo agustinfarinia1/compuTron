@@ -36,6 +36,8 @@ export class AuthService {
       const user = usuarios.find(u => u.nombreUsuario === nombreUsuario && u.contrasena === contrasena);
       if (user) {
         localStorage.setItem('usuario', JSON.stringify(user));
+        localStorage.setItem('rol', user.role); // Guardar el rol en el localStorage
+        return true;
         return true;
       } else {
         return false;

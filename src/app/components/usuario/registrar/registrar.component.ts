@@ -80,7 +80,7 @@ export class RegistroComponent {
   async onSubmit() {
     if (this.registroForm.valid && this.datosDisponibles) {
       const { email, nombre, apellido, nombreUsuario, contrasena, fechaNacimiento, codigoPostal, direccion } = this.registroForm.value;
-      const usuario = new Persona(email, nombre, apellido, nombreUsuario, contrasena, fechaNacimiento, codigoPostal, direccion);
+      const usuario = new Persona(email, nombre, apellido, nombreUsuario, contrasena, fechaNacimiento, codigoPostal, direccion, 'user');
       (await this.registroService.registrarUsuario(usuario)).subscribe({
         next: (response) => {
           this.mensaje = 'Usuario registrado exitosamente'; // Asignar el mensaje al componente

@@ -10,6 +10,7 @@ export class Persona {
   fechaNacimiento: Date; // Formato 'YYYY-MM-DD'
   codigoPostal: string;
   direccion: Direccion; // Referencia al modelo Direccion
+  role: 'user' | 'admin'; // Agregado el rol
 
   constructor(
     email: string,
@@ -20,6 +21,7 @@ export class Persona {
     fechaNacimiento: Date,
     codigoPostal: string,
     direccion: Direccion, // Ahora acepta un objeto Direccion
+    role: 'user' | 'admin', // Añadir el campo 'role'
     id: string = ""
   ) {
     this.id = id;
@@ -31,5 +33,6 @@ export class Persona {
     this.fechaNacimiento = fechaNacimiento;
     this.codigoPostal = codigoPostal;
     this.direccion = direccion; // Inicializa con el objeto Direccion
+    this.role = role; // Inicializa el rol
   }
 }
