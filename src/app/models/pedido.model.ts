@@ -12,15 +12,15 @@ export class Pedido{
   private direccionEnvio : Direccion;
   private idEstadoPedido : string;
 
-  constructor(newId : string,newIdUsuario : string,newFechaCreacion : Date,newPrecioFinal : number,newIdMetodoDePago : string,newDireccionEnvio : Direccion,newIdEstadoPedido : string){
+  constructor(newId : string,newIdUsuario : string,newFechaCreacion : Date,newPrecioFinal : number,newIdMetodoDePago : string,newDireccionEnvio : Direccion,newIdEstadoPedido : string,newListaPedido : ProductoLista[] = []){
     this.id = newId;
     this.idUsuario = newIdUsuario;
     this.fechaCreacion = newFechaCreacion;
     this.precioFinal = newPrecioFinal;
-    this.listaPedido = [];
     this.idMetodoDePago = newIdMetodoDePago;
     this.direccionEnvio = newDireccionEnvio;
     this.idEstadoPedido = newIdEstadoPedido;
+    this.listaPedido = newListaPedido;
   }
 
   setId = (newId : string) => {

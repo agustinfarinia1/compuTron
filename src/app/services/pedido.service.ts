@@ -47,7 +47,8 @@ export class PedidoService {
     try {
         const respuesta = await fetch(url);
         const datos = await respuesta.json();
-        return datos.map((respuesta : any) => new Pedido(respuesta.id,respuesta.idUsuario,respuesta.fechaCreacion,respuesta.precioFinal,respuesta.idMetodoDePago,new Direccion(respuesta.direccionEnvio.calle,respuesta.direccionEnvio.numero,respuesta.direccionEnvio.piso,respuesta.direccionEnvio.departamento),respuesta.idEstadoPedido));
+        let newPedido = datos.map((respuesta : any) => new Pedido(respuesta.id,respuesta.idUsuario,respuesta.fechaCreacion,respuesta.precioFinal,respuesta.idMetodoDePago,new Direccion(respuesta.direccionEnvio.calle,respuesta.direccionEnvio.numero,respuesta.direccionEnvio.piso,respuesta.direccionEnvio.departamento),respuesta.idEstadoPedido,respuesta.listaPedido));
+        return newPedido;
       } 
     catch (error) {
       console.error("Error al obtener los datos:", error);
