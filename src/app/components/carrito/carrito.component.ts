@@ -116,7 +116,14 @@ export class CarritoComponent implements OnInit {
   }
 
   consultarStockProducto (productoConsulta : Producto) {
-    return  this.productos.find(producto => producto.getId() === productoConsulta.getId());
+    let respuesta = true;
+    let producto = this.productos.find(producto => producto.getId() === productoConsulta.getId());
+    if(producto){
+      if(productoConsulta.getCantidad() > producto.getCantidad()){
+        respuesta = false;
+      }
+    }
+    return respuesta;
   }
 
   continuarCarrito() {
@@ -125,7 +132,7 @@ export class CarritoComponent implements OnInit {
     if(this.carrito){
       this.carrito.getCarrito().forEach(carritoItem => {
         let producto = this.consultarStockProducto(carritoItem);
-        if(!producto){
+        if(producto === false){
           verificacionCarrito = true;
           productosSinStock.push(carritoItem.getTitulo());
         }
@@ -133,7 +140,7 @@ export class CarritoComponent implements OnInit {
       if(verificacionCarrito){
         if(productosSinStock.length > 0){
           productosSinStock.forEach((productoSinStock) =>{
-            alert(`Error-El producto ${productoSinStock} se encuentra sin stock, por favor busque una alternativa para continuar`);
+            alert(`Error-El producto ${productoSinStock} se encuentra sin stock, por favor reduzca la cantidad o producto similar.`);
           }) 
         }
       }

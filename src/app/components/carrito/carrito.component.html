@@ -7,7 +7,7 @@
         </div>
         <div class="card-body d-flex flex-column bg-warning">
           <h5 class="card-title">{{ producto.getTitulo() }}</h5>
-          <p *ngIf="consultarStockProducto(producto)== undefined"><span class="badge bg-dark">Agotado</span></p>
+          <p *ngIf="consultarStockProducto(producto)== false"><span class="badge bg-dark">Agotado</span></p>
 
           <!-- Contenedor para la cantidad -->
           <div class="d-flex align-items-center mb-3">
