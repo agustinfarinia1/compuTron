@@ -13,21 +13,29 @@ import { ConfirmarPedidoComponent } from './components/pedido/confirmar-pedido/c
 import { PagarPedidoComponent } from './components/pedido/pagar-pedido/pagar-pedido.component';
 import { NoAuthGuard } from './services/noauth.service';
 import { GestionPedidoAdminComponent } from './components/pedido/gestion-pedido-admin/gestion-pedido-admin.component';
+import { AdminGuard } from './guards/admin.guard';
 
 export const routes: Routes = [
-  {path:"login",component:LogueoComponent,canActivate:[NoAuthGuard]},
-  {path:"registrar",component:RegistroComponent,canActivate:[NoAuthGuard]},
-  {path:"inicio",component:HomeComponent,canActivate:[authGuard]},
-  {path:"productos",component:ListaProductosComponent,canActivate:[authGuard]},
-  {path:"carrito",component:CarritoComponent,canActivate:[authGuard]},
-  {path:"confirmar-pedido",component:ConfirmarPedidoComponent,canActivate:[authGuard]},
-  {path:"pagar-pedido",component:PagarPedidoComponent,canActivate:[authGuard]},
-  {path:"productos/:id",component:DetalleProductoComponent,canActivate:[authGuard]},
-  {path:"admin-productos",component:GestionProductoComponent,canActivate:[authGuard]},
-  {path:"admin-productos/cargar",component:FormularioProductoComponent,canActivate:[authGuard]},
-  {path:"admin-productos/editar/:id",component:FormularioProductoComponent,canActivate:[authGuard]},
-  {path:"admin-productos/eliminar/:id",component:EliminarProductoComponent,canActivate:[authGuard]},
-  {path:"admin-pedidos",component:GestionPedidoAdminComponent,canActivate:[authGuard]},
-  {path:"",redirectTo:"login",pathMatch:"full"},
-  {path:"**",component:HomeComponent}
+  // Rutas públicas para login y registro
+  { path: "login", component: LogueoComponent, canActivate: [NoAuthGuard] },
+  { path: "registrar", component: RegistroComponent, canActivate: [NoAuthGuard] },
+  
+  // Rutas accesibles para todos los usuarios autenticados (usuarios y administradores)
+  { path: "inicio", component: HomeComponent, canActivate: [authGuard] },
+  { path: "productos", component: ListaProductosComponent, canActivate: [authGuard] },
+  { path: "carrito", component: CarritoComponent, canActivate: [authGuard] },
+  { path: "confirmar-pedido", component: ConfirmarPedidoComponent, canActivate: [authGuard] },
+  { path: "pagar-pedido", component: PagarPedidoComponent, canActivate: [authGuard] },
+  { path: "productos/:id", component: DetalleProductoComponent, canActivate: [authGuard] },
+  
+  // Rutas exclusivas para administradores
+  { path: "admin-productos", component: GestionProductoComponent, canActivate: [authGuard, AdminGuard] },
+  { path: "admin-productos/cargar", component: FormularioProductoComponent, canActivate: [authGuard, AdminGuard] },
+  { path: "admin-productos/editar/:id", component: FormularioProductoComponent, canActivate: [authGuard, AdminGuard] },
+  { path: "admin-productos/eliminar/:id", component: EliminarProductoComponent, canActivate: [authGuard, AdminGuard] },
+  { path: "admin-pedidos", component: GestionPedidoAdminComponent, canActivate: [authGuard, AdminGuard] },
+  
+  // Redirección y rutas no encontradas
+  { path: "", redirectTo: "login", pathMatch: "full" },
+  { path: "**", component: HomeComponent }
 ];

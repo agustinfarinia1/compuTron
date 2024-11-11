@@ -362,7 +362,8 @@
         "numero": 1515,
         "piso": "1",
         "departamento": "C"
-      }
+      },
+      "role": "admin"
     },
     {
       "id": "2",
@@ -378,7 +379,8 @@
         "numero": 1515,
         "piso": "2",
         "departamento": "A"
-      }
+      },
+      "role": "admin"
     },
     {
       "id": "3",
@@ -395,6 +397,23 @@
         "piso": "2",
         "departamento": "C"
       }
+    },
+    {
+      "id": "4",
+      "email": "prueba1@ho.com",
+      "nombre": "c",
+      "apellido": "c",
+      "nombreUsuario": "prueba1@ho.com",
+      "contrasena": "prueba1@ho.com",
+      "fechaNacimiento": "2024-10-30",
+      "codigoPostal": 2,
+      "direccion": {
+        "calle": "2",
+        "numero": 2,
+        "piso": "",
+        "departamento": ""
+      },
+      "role": "user"
     }
   ],
   "carrito": [
@@ -412,6 +431,11 @@
       "idUsuario": "3",
       "carrito": [],
       "id": "b3f0"
+    },
+    {
+      "id": "60fc",
+      "idUsuario": "4",
+      "carrito": []
     }
   ],
   "pedidos": [
@@ -428,7 +452,7 @@
         "piso": "1",
         "departamento": "C"
       },
-      "idEstadoPedido": "1"
+      "idEstadoPedido": "2"
     },
     {
       "id": "2",
@@ -509,6 +533,41 @@
         "departamento": "C"
       },
       "idEstadoPedido": "1"
+    },
+    {
+      "id": "6",
+      "idUsuario": "1",
+      "fechaCreacion": "2024-11-09T23:27:10.747Z",
+      "precioFinal": 39715,
+      "listaPedido": [
+        {
+          "id": "P2",
+          "cantidad": 1
+        }
+      ],
+      "idMetodoDePago": "M1",
+      "direccionEnvio": {
+        "calle": "luro",
+        "numero": 1515,
+        "piso": "1",
+        "departamento": "C"
+      },
+      "idEstadoPedido": "1"
+    },
+    {
+      "id": "7",
+      "idUsuario": "1",
+      "fechaCreacion": "2024-11-10T00:29:36.926Z",
+      "precioFinal": 39715,
+      "listaPedido": [],
+      "idMetodoDePago": "M2",
+      "direccionEnvio": {
+        "calle": "luro",
+        "numero": 1515,
+        "piso": "1",
+        "departamento": "C"
+      },
+      "idEstadoPedido": "4"
     }
   ]
 }
