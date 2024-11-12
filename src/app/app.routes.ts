@@ -15,6 +15,7 @@ import { NoAuthGuard } from './services/noauth.service';
 import { GestionPedidoAdminComponent } from './components/pedido/gestion-pedido-admin/gestion-pedido-admin.component';
 import { AdminGuard } from './guards/admin.guard';
 import { PedidoUsuarioComponent } from './components/pedido/pedido-usuario/pedido-usuario.component';
+import { GestionPerfilComponent } from './components/usuario/gestion-perfil/gestion-perfil.component';
 
 export const routes: Routes = [
   // Rutas públicas para login y registro
@@ -29,6 +30,7 @@ export const routes: Routes = [
   { path: "pagar-pedido", component: PagarPedidoComponent, canActivate: [authGuard] },
   { path: "productos/:id", component: DetalleProductoComponent, canActivate: [authGuard] },
   { path: "ver-pedidos", component: PedidoUsuarioComponent, canActivate: [authGuard] },
+  { path: "perfil", component: GestionPerfilComponent, canActivate: [authGuard] },
   
   // Rutas exclusivas para administradores
   { path: "admin-productos", component: GestionProductoComponent, canActivate: [authGuard, AdminGuard] },

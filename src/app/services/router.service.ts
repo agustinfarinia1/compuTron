@@ -35,4 +35,8 @@ export class RouterService {
   irAPagarPedido(){
     this.router.navigateByUrl("pagar-pedido");
   }
+  irAPerfil(){
+    this.router.navigateByUrl("perfil");
+  }
+  
 }

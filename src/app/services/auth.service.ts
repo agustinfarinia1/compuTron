@@ -66,4 +66,13 @@ export class AuthService {
       console.error("Error al obtener los datos:", error);
     }
   }
+
+  actualizarPerfil(usuario: Persona) {
+    return this.http.put(`${this.apiUrl}/${usuario.id}`, usuario);
+  }
+  
+  obtenerUsuarioActual(): Persona {
+    const usuario = localStorage.getItem('usuario');
+    return usuario ? JSON.parse(usuario) : null;
+  }
 }

@@ -6,9 +6,10 @@ import { EstadoPedido } from '../../../models/estadoPedido.model ';
 import { CommonModule } from '@angular/common';
 import { MetodoDePago } from '../../../models/metodoDePago.model';
 import { MetodosDePagoService } from '../../../services/metodosDePago.service';
+import { EmailService } from '../../../services/email.service';
+import { UsuarioService } from '../../../services/usuario.service';
 import { Producto } from '../../../models/producto.model';
 import { ProductosService } from '../../../services/productos.service';
-import { ProductoLista } from '../../../models/productoLista.model';
 
 @Component({
   selector: 'app-gestion-pedido-admin',
@@ -23,8 +24,13 @@ export class GestionPedidoAdminComponent implements OnInit{
   metodoDePagos : MetodoDePago[] | null;
   estadoPedidos : EstadoPedido[] | null;
   productos : Producto[] | null;
-
-  constructor(private PedidoService : PedidoService,private estadoPedidoService : EstadoPedidoService,private metodoDePagoService : MetodosDePagoService,private productoService : ProductosService){
+ 
+  constructor(private PedidoService : PedidoService,private estadoPedidoService : EstadoPedidoService,
+    private productoService : ProductosService,
+    private metodoDePagoService : MetodosDePagoService, 
+    private correoService: EmailService,
+    private usuarioService: UsuarioService
+  ){
     this.pedidos = null;
     this.metodoDePagos = null;
     this.estadoPedidos = null;
@@ -38,22 +44,23 @@ export class GestionPedidoAdminComponent implements OnInit{
     this.productoService.getProductos().then((respuestaProducto) => this.productos = respuestaProducto);
   }
 
-  avanzarEstadoPedido(pedido : Pedido){
-    if(this.estadoPedidos){
-      let index = this.estadoPedidos?.findIndex((busqueda) => busqueda.getId() === pedido.getIdEstadoPedido());
-      if(pedido.getIdEstadoPedido() === "1"){
-        pedido.getListaPedido().forEach((itemLista : any) => {
-          if(this.productos){
-            let producto = this.productos.find((busquedaProducto : Producto) => busquedaProducto.getId() === itemLista.id);
-            if(producto){
-              producto.setCantidad(producto.getCantidad() - itemLista.cantidad);
-              this.productoService.editarProducto(producto);
-            }
-          }
-        });
-      }
+  avanzarEstadoPedido(pedido: Pedido): void {
+    if (this.estadoPedidos) {
+      let index = this.estadoPedidos.findIndex((estado) => estado.getId() === pedido.getIdEstadoPedido());
       pedido.setIdEstadoPedido(this.estadoPedidos[index + 1].getId());
-      this.PedidoService.editarPedido(pedido);
+      
+      this.PedidoService.editarPedido(pedido).then(() => {
+        // Solo se envía correo cuando el estado del pedido es "Confirmado" (ID '2' en este caso)
+        if (pedido.getIdEstadoPedido() === '2') {
+          this.usuarioService.obtenerUsuarioPorId(pedido.getIdUsuario()).subscribe((usuario) => {
+            if (usuario && usuario.email) {  // Verifica que 'usuario' y 'usuario.email' no sean undefined
+              this.correoService.enviarConfirmacionPedido(usuario.email, pedido.getId());
+            } else {
+              console.error("Usuario o correo no disponible");
+            }
+          });
+        }
+      });
     }
   }
 
