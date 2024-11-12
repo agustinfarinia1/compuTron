@@ -77,7 +77,7 @@
       "categoria": "C2",
       "marca": "Corsair",
       "modelo": "CMH32GX5M2B5200C40",
-      "cantidad": 7,
+      "cantidad": 6,
       "precio": 204938,
       "imagen": "http://http2.mlstatic.com/D_757994-MLU73551837907_122023-I.jpg",
       "eliminado": false
@@ -89,7 +89,7 @@
       "categoria": "C2",
       "marca": "Kingston",
       "modelo": "KF432C16BB/8",
-      "cantidad": 6,
+      "cantidad": 5,
       "precio": 29715,
       "imagen": "http://http2.mlstatic.com/D_805641-MLA74781352069_022024-I.jpg",
       "eliminado": false
@@ -125,7 +125,7 @@
       "categoria": "C3",
       "marca": "AMD",
       "modelo": "5700G",
-      "cantidad": 14,
+      "cantidad": 12,
       "precio": 304339,
       "imagen": "http://http2.mlstatic.com/D_622790-MLU72699561931_112023-I.jpg",
       "eliminado": false
@@ -436,32 +436,7 @@
   "carrito": [
     {
       "idUsuario": "1",
-      "carrito": [
-        {
-          "id": "P1",
-          "codigoML": "MLA1455439633",
-          "titulo": "Memoria Corsair Vengeance Rgb Ddr5 32 Gb(2x16) 5200mhz Intel",
-          "categoria": "C2",
-          "marca": "Corsair",
-          "modelo": "CMH32GX5M2B5200C40",
-          "cantidad": 3,
-          "precio": 204938,
-          "imagen": "http://http2.mlstatic.com/D_757994-MLU73551837907_122023-I.jpg",
-          "eliminado": false
-        },
-        {
-          "id": "P2",
-          "codigoML": "MLA1117902383",
-          "titulo": "Memoria Ram Fury Beast Ddr4 Gamer Color Negro 8gb 1 Kingston Kf432c16bb/8",
-          "categoria": "C2",
-          "marca": "Kingston",
-          "modelo": "KF432C16BB/8",
-          "cantidad": 1,
-          "precio": 29715,
-          "imagen": "http://http2.mlstatic.com/D_805641-MLA74781352069_022024-I.jpg",
-          "eliminado": false
-        }
-      ],
+      "carrito": [],
       "id": "CR1"
     },
     {
@@ -482,157 +457,8 @@
     {
       "idUsuario": "5",
       "carrito": [],
-      "id": "fd56"
+      "id": "9546"
     }
   ],
-  "pedidos": [
-<<<<<<< HEAD
-=======
-    {
-      "id": "1",
-      "idUsuario": "1",
-      "fechaCreacion": "2024-11-09T17:29:07.501Z",
-      "precioFinal": 214938,
-      "listaPedido": [],
-      "idMetodoDePago": "M2",
-      "direccionEnvio": {
-        "calle": "luro",
-        "numero": 1515,
-        "piso": "1",
-        "departamento": "C"
-      },
-      "idEstadoPedido": "2"
-    },
-    {
-      "id": "2",
-      "idUsuario": "1",
-      "fechaCreacion": "2024-11-09T18:35:26.691Z",
-      "precioFinal": 214938,
-      "listaPedido": [
-        {
-          "id": "P1",
-          "cantidad": 1
-        }
-      ],
-      "idMetodoDePago": "M4",
-      "direccionEnvio": {
-        "calle": "luro",
-        "numero": 1515,
-        "piso": "1",
-        "departamento": "C"
-      },
-      "idEstadoPedido": "2"
-    },
-    {
-      "id": "3",
-      "idUsuario": "1",
-      "fechaCreacion": "2024-11-09T18:35:26.691Z",
-      "precioFinal": 214938,
-      "listaPedido": [
-        {
-          "id": "P1",
-          "cantidad": 1
-        }
-      ],
-      "idMetodoDePago": "M4",
-      "direccionEnvio": {
-        "calle": "luro",
-        "numero": 1515,
-        "piso": "1",
-        "departamento": "C"
-      },
-      "idEstadoPedido": "3"
-    },
-    {
-      "id": "4",
-      "idUsuario": "1",
-      "fechaCreacion": "2024-11-09T18:35:26.691Z",
-      "precioFinal": 214938,
-      "listaPedido": [
-        {
-          "id": "P1",
-          "cantidad": 1
-        }
-      ],
-      "idMetodoDePago": "M4",
-      "direccionEnvio": {
-        "calle": "luro",
-        "numero": 1515,
-        "piso": "1",
-        "departamento": "C"
-      },
-      "idEstadoPedido": "4"
-    },
-    {
-      "id": "5",
-      "idUsuario": "1",
-      "fechaCreacion": "2024-11-09T18:35:26.691Z",
-      "precioFinal": 214938,
-      "listaPedido": [
-        {
-          "id": "P1",
-          "cantidad": 1
-        }
-      ],
-      "idMetodoDePago": "M4",
-      "direccionEnvio": {
-        "calle": "luro",
-        "numero": 1515,
-        "piso": "1",
-        "departamento": "C"
-      },
-      "idEstadoPedido": "1"
-    },
-    {
-      "id": "6",
-      "idUsuario": "1",
-      "fechaCreacion": "2024-11-09T23:27:10.747Z",
-      "precioFinal": 39715,
-      "listaPedido": [
-        {
-          "id": "P2",
-          "cantidad": 1
-        }
-      ],
-      "idMetodoDePago": "M1",
-      "direccionEnvio": {
-        "calle": "luro",
-        "numero": 1515,
-        "piso": "1",
-        "departamento": "C"
-      },
-      "idEstadoPedido": "1"
-    },
-    {
-      "id": "7",
-      "idUsuario": "1",
-      "fechaCreacion": "2024-11-10T00:29:36.926Z",
-      "precioFinal": 39715,
-      "listaPedido": [],
-      "idMetodoDePago": "M2",
-      "direccionEnvio": {
-        "calle": "luro",
-        "numero": 1515,
-        "piso": "1",
-        "departamento": "C"
-      },
-      "idEstadoPedido": "4"
-    },
-    {
-      "id": "8",
-      "idUsuario": "5",
-      "fechaCreacion": "2024-11-11T23:00:04.967Z",
-      "precioFinal": 201318,
-      "listaPedido": [],
-      "idMetodoDePago": "M1",
-      "direccionEnvio": {
-        "calle": "Mariano Acosta",
-        "numero": 1,
-        "piso": "1",
-        "departamento": "1"
-      },
-      "idEstadoPedido": "2"
-    }
->>>>>>> email-branch
-  ]
+  "pedidos": []
 }

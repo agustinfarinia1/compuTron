@@ -55,6 +55,19 @@ export class PedidoService {
     }
   }
 
+  getPedidosUsuario = async(idUsuario : string) => {
+    const url = `http://localhost:3000/pedidos/?idUsuario=${idUsuario}&_sort=idEstadoPedido&_order=asc`;
+    try {
+        const respuesta = await fetch(url);
+        const datos = await respuesta.json();
+        let newPedido = datos.map((respuesta : any) => new Pedido(respuesta.id,respuesta.idUsuario,respuesta.fechaCreacion,respuesta.precioFinal,respuesta.idMetodoDePago,new Direccion(respuesta.direccionEnvio.calle,respuesta.direccionEnvio.numero,respuesta.direccionEnvio.piso,respuesta.direccionEnvio.departamento),respuesta.idEstadoPedido,respuesta.listaPedido));
+        return newPedido;
+      } 
+    catch (error) {
+      console.error("Error al obtener los datos:", error);
+    }
+  }
+
   getCantidadPedidos = async() => {
     const url = `http://localhost:3000/pedidos`;
       try {

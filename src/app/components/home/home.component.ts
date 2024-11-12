@@ -3,7 +3,6 @@ import { ListaProductosComponent } from "../producto/lista-productos/lista-produ
 import { AuthService } from '../../services/auth.service';
 import { RouterService } from '../../services/router.service';
 import { CarritoService } from '../../services/carrito.service';
-import { CategoriasService } from '../../services/categorias.service';
 
 @Component({
   selector: 'app-home',
