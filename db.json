@@ -77,7 +77,7 @@
       "categoria": "C2",
       "marca": "Corsair",
       "modelo": "CMH32GX5M2B5200C40",
-      "cantidad": 7,
+      "cantidad": 6,
       "precio": 204938,
       "imagen": "http://http2.mlstatic.com/D_757994-MLU73551837907_122023-I.jpg",
       "eliminado": false
@@ -89,7 +89,7 @@
       "categoria": "C2",
       "marca": "Kingston",
       "modelo": "KF432C16BB/8",
-      "cantidad": 6,
+      "cantidad": 5,
       "precio": 29715,
       "imagen": "http://http2.mlstatic.com/D_805641-MLA74781352069_022024-I.jpg",
       "eliminado": false
@@ -125,7 +125,7 @@
       "categoria": "C3",
       "marca": "AMD",
       "modelo": "5700G",
-      "cantidad": 14,
+      "cantidad": 12,
       "precio": 304339,
       "imagen": "http://http2.mlstatic.com/D_622790-MLU72699561931_112023-I.jpg",
       "eliminado": false
@@ -414,37 +414,29 @@
         "departamento": ""
       },
       "role": "user"
+    },
+    {
+      "id": "5",
+      "email": "prueba2@gmail.com",
+      "nombre": "patricio",
+      "apellido": "rodriguez",
+      "nombreUsuario": "prueba2",
+      "contrasena": "prueba123",
+      "fechaNacimiento": "2001-12-13",
+      "codigoPostal": 7600,
+      "direccion": {
+        "calle": "dellepian",
+        "numero": 1221,
+        "piso": "",
+        "departamento": ""
+      },
+      "role": "user"
     }
   ],
   "carrito": [
     {
       "idUsuario": "1",
-      "carrito": [
-        {
-          "id": "P1",
-          "codigoML": "MLA1455439633",
-          "titulo": "Memoria Corsair Vengeance Rgb Ddr5 32 Gb(2x16) 5200mhz Intel",
-          "categoria": "C2",
-          "marca": "Corsair",
-          "modelo": "CMH32GX5M2B5200C40",
-          "cantidad": 3,
-          "precio": 204938,
-          "imagen": "http://http2.mlstatic.com/D_757994-MLU73551837907_122023-I.jpg",
-          "eliminado": false
-        },
-        {
-          "id": "P2",
-          "codigoML": "MLA1117902383",
-          "titulo": "Memoria Ram Fury Beast Ddr4 Gamer Color Negro 8gb 1 Kingston Kf432c16bb/8",
-          "categoria": "C2",
-          "marca": "Kingston",
-          "modelo": "KF432C16BB/8",
-          "cantidad": 1,
-          "precio": 29715,
-          "imagen": "http://http2.mlstatic.com/D_805641-MLA74781352069_022024-I.jpg",
-          "eliminado": false
-        }
-      ],
+      "carrito": [],
       "id": "CR1"
     },
     {
@@ -461,8 +453,115 @@
       "id": "60fc",
       "idUsuario": "4",
       "carrito": []
+    },
+    {
+      "idUsuario": "5",
+      "carrito": [],
+      "id": "9546"
     }
   ],
   "pedidos": [
+    {
+      "id": "1",
+      "idUsuario": "1",
+      "fechaCreacion": "2024-11-12T00:07:33.636Z",
+      "precioFinal": 214938,
+      "idMetodoDePago": "M3",
+      "direccionEnvio": {
+        "calle": "luro",
+        "numero": 1515,
+        "piso": "1",
+        "departamento": "C"
+      },
+      "idEstadoPedido": "2",
+      "listaPedido": [
+        {
+          "id": "P1",
+          "cantidad": 1
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "idUsuario": "1",
+      "fechaCreacion": "2024-11-12T00:07:47.378Z",
+      "precioFinal": 314339,
+      "idMetodoDePago": "M3",
+      "direccionEnvio": {
+        "calle": "luro",
+        "numero": 1515,
+        "piso": "1",
+        "departamento": "C"
+      },
+      "idEstadoPedido": "2",
+      "listaPedido": [
+        {
+          "id": "P5",
+          "cantidad": 1
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "idUsuario": "5",
+      "fechaCreacion": "2024-11-12T00:08:30.427Z",
+      "precioFinal": 314339,
+      "idMetodoDePago": "M4",
+      "direccionEnvio": {
+        "calle": "dellepian",
+        "numero": 1221
+      },
+      "idEstadoPedido": "2",
+      "listaPedido": [
+        {
+          "id": "P5",
+          "cantidad": 1
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "idUsuario": "5",
+      "fechaCreacion": "2024-11-12T00:17:46.930Z",
+      "precioFinal": 46994,
+      "idMetodoDePago": "M3",
+      "direccionEnvio": {
+        "calle": "dellepian",
+        "numero": 1221
+      },
+      "idEstadoPedido": "1",
+      "listaPedido": [
+        {
+          "id": "P3",
+          "cantidad": 1
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "idUsuario": "5",
+      "fechaCreacion": "2024-11-12T03:50:27.275Z",
+      "precioFinal": 2348289.2,
+      "idMetodoDePago": "M2",
+      "direccionEnvio": {
+        "calle": "dellepian",
+        "numero": 1221
+      },
+      "idEstadoPedido": "1",
+      "listaPedido": [
+        {
+          "id": "P6",
+          "cantidad": 2
+        },
+        {
+          "id": "P1",
+          "cantidad": 1
+        },
+        {
+          "id": "P14",
+          "cantidad": 1
+        }
+      ]
+    }
   ]
 }

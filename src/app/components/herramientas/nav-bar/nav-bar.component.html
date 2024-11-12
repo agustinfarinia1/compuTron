@@ -26,6 +26,9 @@
       <!-- Menú de usuario alineado a la derecha -->
       <ul class="navbar-nav ms-auto">
         <li class="nav-item d-flex align-items-center">
+          <a class="nav-link" [routerLink]="['/ver-pedidos']">Pedidos</a>
+        </li>
+        <li class="nav-item d-flex align-items-center">
           <app-contador-carrito></app-contador-carrito> <!-- Componente del contador -->
           <a class="nav-link" [routerLink]="['/carrito']">Carrito</a>
         </li>

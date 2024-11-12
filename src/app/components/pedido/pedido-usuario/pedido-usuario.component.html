@@ -1,0 +1,23 @@
+<div class="container">
+    <h3 class="d-flex justify-content-center">Pedidos Usuario</h3>
+    <div class="row gy-3 mb-3" *ngIf="pedidos">
+        <div class="col-12" *ngFor="let pedido of pedidos; let i = index">
+            <div class="border p-3 d-flex justify-content-between align-items-center bg-warning">
+                <div>
+                    <h5 class="mb-1">Pedido Numero: {{pedido.getId()}}</h5>
+                    <p class="mb-1">Fecha pedido: {{pedido.getFechaCreacion() | date}}</p>
+                    <p class="mb-1">PrecioFinal: {{pedido.getPrecioFinal() | currency}}</p>
+                    <p class="mb-1">Metodo de Pago: {{getMetodoDePago(pedido.getIdMetodoDePago())?.getValor()}}</p>
+                    <p class="mb-1">Estado pedido: {{getEstadoPedido(pedido.getIdEstadoPedido())?.getValor()}}</p>
+                </div>
+            </div>
+            <div class="border bg-warning p-3" *ngIf="pedido">
+                <div *ngFor="let itemPedido of getListaPedido(pedido); let i = index">
+                    <app-producto-lista-pedido [itemPedido]="itemPedido">
+
+                    </app-producto-lista-pedido>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
