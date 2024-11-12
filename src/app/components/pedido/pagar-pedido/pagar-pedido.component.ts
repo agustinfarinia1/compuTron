@@ -10,11 +10,12 @@ import { ProductoLista } from '../../../models/productoLista.model';
 import { MetodosDePagoService } from '../../../services/metodosDePago.service';
 import { Direccion } from '../../../models/direccion.model';
 import { PedidoService } from '../../../services/pedido.service';
+import { MensajesComponent } from "../../herramientas/mensajes/mensajes.component";
 
 @Component({
   selector: 'app-pagar-pedido',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, MensajesComponent],
   templateUrl: './pagar-pedido.component.html',
   styleUrl: './pagar-pedido.component.css'
 })
@@ -26,12 +27,18 @@ export class PagarPedidoComponent implements OnInit{
   metodosDePago : MetodoDePago[];
   carrito : Carrito | null;
   direccion : Direccion | null;
+  mostrarMensaje : boolean;
+  mensajeTexto : string;
+  redireccionMensaje : string;
 
   constructor(private metodosDePagoService : MetodosDePagoService,private router : RouterService,private carritoService : CarritoService,private pedidoService : PedidoService){
     this.usuario = {};
     this.pedido = null;
     this.carrito = null;
     this.direccion = null;
+    this.mostrarMensaje = false;
+    this.mensajeTexto = "Creacion pedido exitosa! Le llegara un mail de confirmacion despues de revisar el pago";
+    this.redireccionMensaje = "home";
     this.pagarPedidoForm = new FormGroup({
       metodoDePago : new FormControl("",[Validators.required])
     })
@@ -100,9 +107,14 @@ export class PagarPedidoComponent implements OnInit{
         })
         this.pedido.setIdMetodoDePago(metodoDePago.id);
         this.actualizarEstados();
-        alert("pedido creado exitosamente");
-        this.router.irAHome();
+        this.mostrarMensaje = true;
+
       }
     }
+  }
+
+  cerrarAlert(){
+    this.mostrarMensaje = false;
+    this.router.irAHome();
   }
 }

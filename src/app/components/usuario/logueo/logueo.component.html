@@ -24,8 +24,9 @@
         class="form-control"
       />
     </div>
-
-    <button type="submit" class="btn btn-dark" [disabled]="!loginForm.valid">Iniciar Sesión</button> <!-- Deshabilita el botón si el formulario es inválido -->
+    <div class="d-flex justify-content-center">
+      <button type="submit" class="btn btn-dark" [disabled]="!loginForm.valid">Iniciar Sesión</button> <!-- Deshabilita el botón si el formulario es inválido -->
+    </div>
 
     <!-- Botón de registro pequeño -->
     <div class="mt-3 text-center">

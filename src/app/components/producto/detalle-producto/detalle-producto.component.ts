@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Producto } from '../../../models/producto.model';
 import { RouterService } from '../../../services/router.service';
 import { CommonModule } from '@angular/common';
@@ -8,11 +8,12 @@ import { CarritoService } from '../../../services/carrito.service';
 import { Carrito } from '../../../models/carrito.model';
 import { ProductosService } from '../../../services/productos.service';
 import { CategoriasService } from '../../../services/categorias.service';
+import { MensajesComponent } from "../../herramientas/mensajes/mensajes.component";
 
 @Component({
   selector: 'app-detalle-producto',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, ListaProductosComponent],
+  imports: [CommonModule, ReactiveFormsModule, ListaProductosComponent, MensajesComponent],
   templateUrl: './detalle-producto.component.html',
   styleUrls: ['./detalle-producto.component.css']
 })
@@ -23,10 +24,14 @@ export class DetalleProductoComponent implements OnInit,OnChanges {
   carritoFormulario: FormGroup;
   carrito: Carrito | null = null;
   private currentUserId: string = '';
+  mostrarMensaje : boolean;
+  mensajeTexto : string;
 
   constructor(private productoService : ProductosService,private carritoService:CarritoService,private categoriaService : CategoriasService,private router : RouterService){
     this.producto = null;
     this.categorias = [];
+    this.mostrarMensaje = false;
+    this.mensajeTexto = "Se Agregaron productos al carrito correctamente!";
     this.carritoFormulario = new FormGroup({
       cantidad: new FormControl(1, [Validators.required, Validators.min(1)]),
     });
@@ -147,7 +152,7 @@ export class DetalleProductoComponent implements OnInit,OnChanges {
           localStorage.setItem('cantidadCarrito', cantidadTotal.toString());
       
           await this.carritoService.setCarritoServer(usuario.id, this.carrito);
-          alert('Producto agregado al carrito exitosamente');
+          this.mostrarMensaje = true;
         }
       }
     }

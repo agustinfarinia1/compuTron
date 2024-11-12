@@ -77,7 +77,7 @@
       "categoria": "C2",
       "marca": "Corsair",
       "modelo": "CMH32GX5M2B5200C40",
-      "cantidad": 6,
+      "cantidad": 16,
       "precio": 204938,
       "imagen": "http://http2.mlstatic.com/D_757994-MLU73551837907_122023-I.jpg",
       "eliminado": false
@@ -89,7 +89,7 @@
       "categoria": "C2",
       "marca": "Kingston",
       "modelo": "KF432C16BB/8",
-      "cantidad": 5,
+      "cantidad": 15,
       "precio": 29715,
       "imagen": "http://http2.mlstatic.com/D_805641-MLA74781352069_022024-I.jpg",
       "eliminado": false
@@ -101,7 +101,7 @@
       "categoria": "C2",
       "marca": "SK hynix",
       "modelo": "HMA81GS6AFR8N-UH",
-      "cantidad": 6,
+      "cantidad": 16,
       "precio": 36994,
       "imagen": "http://http2.mlstatic.com/D_835706-MLA74781908139_022024-I.jpg",
       "eliminado": false
@@ -149,7 +149,7 @@
       "categoria": "C3",
       "marca": "Intel",
       "modelo": "i5-12400F",
-      "cantidad": 6,
+      "cantidad": 16,
       "precio": 209089,
       "imagen": "http://http2.mlstatic.com/D_618874-MLU77742070764_072024-I.jpg",
       "eliminado": false
@@ -161,7 +161,7 @@
       "categoria": "C4",
       "marca": "Asus",
       "modelo": "A320M-K",
-      "cantidad": 8,
+      "cantidad": 18,
       "precio": 186497,
       "imagen": "http://http2.mlstatic.com/D_923272-MLM43779520023_102020-I.jpg",
       "eliminado": false
@@ -185,7 +185,7 @@
       "categoria": "C8",
       "marca": "LG",
       "modelo": "24MS500-B",
-      "cantidad": 3,
+      "cantidad": 13,
       "precio": 192975,
       "imagen": "http://http2.mlstatic.com/D_818066-MLU78248919307_082024-I.jpg",
       "eliminado": false
@@ -221,7 +221,7 @@
       "categoria": "C5",
       "marca": "MSI",
       "modelo": "RTX 4060",
-      "cantidad": 9,
+      "cantidad": 19,
       "precio": 586653.5,
       "imagen": "http://http2.mlstatic.com/D_629071-MLA74986655372_032024-I.jpg",
       "eliminado": false
@@ -233,13 +233,13 @@
       "categoria": "C5",
       "marca": "XFX",
       "modelo": "RX 6650 XT",
-      "cantidad": 6,
+      "cantidad": 16,
       "precio": 419373.2,
       "imagen": "http://http2.mlstatic.com/D_799821-MLU78582995864_082024-I.jpg",
       "eliminado": false
     },
     {
-      "id": "P8",
+      "id": "P15",
       "codigoML": "MLA1732679638",
       "titulo": "Placa De Video Nvidia Msi  Ventus Xs Geforce Gtx 16 Series Gtx 1660 Super Geforce Gtx 1660 Super Ventus Xs Oc Oc Edition 6gb",
       "categoria": "da6a",
@@ -251,7 +251,7 @@
       "eliminado": false
     },
     {
-      "id": "P9",
+      "id": "P16",
       "codigoML": "MLA1388318679",
       "titulo": "Auriculares Hyperx Cloud Stinger 2 Wireless Dts X Sound Pc",
       "categoria": "e66e",
@@ -263,7 +263,7 @@
       "eliminado": false
     },
     {
-      "id": "P10",
+      "id": "P17",
       "codigoML": "MLA1663048848",
       "titulo": "Level Up Hercules Gabinete Gamer Vidrio Templado X4 Fan Rgb Color Blanco",
       "categoria": "87cb",
@@ -281,7 +281,7 @@
       "categoria": "C8",
       "marca": "BenQ",
       "modelo": "XL2731",
-      "cantidad": 1,
+      "cantidad": 10,
       "precio": 1077110,
       "imagen": "http://http2.mlstatic.com/D_703083-MLA44692848241_012021-I.jpg",
       "eliminado": false
@@ -293,7 +293,7 @@
       "categoria": "C8",
       "marca": "Philips",
       "modelo": "193V5LHSB2",
-      "cantidad": 5,
+      "cantidad": 10,
       "precio": 150999,
       "imagen": "http://http2.mlstatic.com/D_640006-MLU78043969365_072024-I.jpg",
       "eliminado": false
@@ -305,7 +305,7 @@
       "categoria": "C4",
       "marca": "Asus",
       "modelo": "PRIME H510M-K R2.0",
-      "cantidad": 9,
+      "cantidad": 10,
       "precio": 112999,
       "imagen": "http://http2.mlstatic.com/D_865300-MLU70743000283_072023-I.jpg",
       "eliminado": false
@@ -317,7 +317,7 @@
       "categoria": "C8",
       "marca": "HyperX",
       "modelo": "Origins 60",
-      "cantidad": 5,
+      "cantidad": 10,
       "precio": 166369,
       "imagen": "http://http2.mlstatic.com/D_629040-MLU79290721363_092024-I.jpg",
       "eliminado": false
@@ -341,7 +341,7 @@
       "categoria": "C8",
       "marca": "Genius",
       "modelo": "SLIMSTAR Q200",
-      "cantidad": 1,
+      "cantidad": 10,
       "precio": 14900,
       "imagen": "http://http2.mlstatic.com/D_922991-MLA78327691274_082024-I.jpg",
       "eliminado": false
@@ -396,27 +396,11 @@
         "numero": 5686,
         "piso": "2",
         "departamento": "C"
-      }
-    },
-    {
-      "id": "4",
-      "email": "prueba1@ho.com",
-      "nombre": "c",
-      "apellido": "c",
-      "nombreUsuario": "prueba1@ho.com",
-      "contrasena": "prueba1@ho.com",
-      "fechaNacimiento": "2024-10-30",
-      "codigoPostal": 2,
-      "direccion": {
-        "calle": "2",
-        "numero": 2,
-        "piso": "",
-        "departamento": ""
       },
       "role": "user"
     },
     {
-      "id": "5",
+      "id": "4",
       "email": "theirsha17@gmail.com",
       "nombre": "ciro",
       "apellido": "lopez",
@@ -431,6 +415,23 @@
         "departamento": "1"
       },
       "role": "user"
+    },
+    {
+      "id": "5",
+      "email": "prueba2@gmail.com",
+      "nombre": "patricio",
+      "apellido": "rey",
+      "nombreUsuario": "prueba2",
+      "contrasena": "prueba123",
+      "fechaNacimiento": "2001-02-12",
+      "codigoPostal": 7600,
+      "direccion": {
+        "calle": "arana y goiri",
+        "numero": 3434,
+        "piso": "",
+        "departamento": ""
+      },
+      "role": "user"
     }
   ],
   "carrito": [
@@ -441,7 +442,20 @@
     },
     {
       "idUsuario": "2",
-      "carrito": [],
+      "carrito": [
+        {
+          "id": "P7",
+          "codigoML": "MLA1456936255",
+          "titulo": "Procesador Gamer Intel Core I5-12400f Bx8071512400f De 6 Núcleos Y  4.4ghz De Frecuencia",
+          "categoria": "C3",
+          "marca": "Intel",
+          "modelo": "i5-12400F",
+          "cantidad": 1,
+          "precio": 209089,
+          "imagen": "http://http2.mlstatic.com/D_618874-MLU77742070764_072024-I.jpg",
+          "eliminado": false
+        }
+      ],
       "id": "CR2"
     },
     {
@@ -455,10 +469,35 @@
       "carrito": []
     },
     {
+      "id": "c06d",
       "idUsuario": "5",
-      "carrito": [],
-      "id": "9546"
+      "carrito": []
     }
   ],
-  "pedidos": []
+  "pedidos": [
+    {
+      "id": "1",
+      "idUsuario": "2",
+      "fechaCreacion": "2024-11-12T18:06:47.939Z",
+      "precioFinal": 395577,
+      "idMetodoDePago": "M3",
+      "direccionEnvio": {
+        "calle": "carasa",
+        "numero": 1515,
+        "piso": "2",
+        "departamento": "A"
+      },
+      "idEstadoPedido": "1",
+      "listaPedido": [
+        {
+          "id": "P1",
+          "cantidad": 1
+        },
+        {
+          "id": "P4",
+          "cantidad": 1
+        }
+      ]
+    }
+  ]
 }
