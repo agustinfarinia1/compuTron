@@ -6,6 +6,8 @@ import { EstadoPedido } from '../../../models/estadoPedido.model ';
 import { CommonModule } from '@angular/common';
 import { MetodoDePago } from '../../../models/metodoDePago.model';
 import { MetodosDePagoService } from '../../../services/metodosDePago.service';
+import { EmailService } from '../../../services/email.service';
+import { UsuarioService } from '../../../services/usuario.service';
 
 @Component({
   selector: 'app-gestion-pedido-admin',
@@ -19,8 +21,11 @@ export class GestionPedidoAdminComponent implements OnInit{
   pedidos : Pedido[] | null;
   metodoDePagos : MetodoDePago[] | null;
   estadoPedidos : EstadoPedido[] | null;
-
-  constructor(private PedidoService : PedidoService,private estadoPedidoService : EstadoPedidoService,private metodoDePagoService : MetodosDePagoService){
+ 
+  constructor(private PedidoService : PedidoService,private estadoPedidoService : EstadoPedidoService,private metodoDePagoService : MetodosDePagoService, 
+    private correoService: EmailService,
+    private usuarioService: UsuarioService
+  ){
     this.pedidos = null;
     this.metodoDePagos = null;
     this.estadoPedidos = null;
@@ -32,11 +37,23 @@ export class GestionPedidoAdminComponent implements OnInit{
     this.estadoPedidoService.getEstadoPedido().then((respuestaEstadoPedido) => this.estadoPedidos = respuestaEstadoPedido);
   }
 
-  avanzarEstadoPedido(pedido : Pedido){
-    if(this.estadoPedidos){
-      let index = this.estadoPedidos?.findIndex((busqueda) => busqueda.getId() === pedido.getIdEstadoPedido());
+  avanzarEstadoPedido(pedido: Pedido): void {
+    if (this.estadoPedidos) {
+      let index = this.estadoPedidos.findIndex((estado) => estado.getId() === pedido.getIdEstadoPedido());
       pedido.setIdEstadoPedido(this.estadoPedidos[index + 1].getId());
-      this.PedidoService.editarPedido(pedido);
+      
+      this.PedidoService.editarPedido(pedido).then(() => {
+        // Solo se envía correo cuando el estado del pedido es "Confirmado" (ID '2' en este caso)
+        if (pedido.getIdEstadoPedido() === '2') {
+          this.usuarioService.obtenerUsuarioPorId(pedido.getIdUsuario()).subscribe((usuario) => {
+            if (usuario && usuario.email) {  // Verifica que 'usuario' y 'usuario.email' no sean undefined
+              this.correoService.enviarConfirmacionPedido(usuario.email, pedido.getId());
+            } else {
+              console.error("Usuario o correo no disponible");
+            }
+          });
+        }
+      });
     }
   }
 

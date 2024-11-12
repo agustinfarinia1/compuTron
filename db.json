@@ -360,7 +360,7 @@
       "direccion": {
         "calle": "luro",
         "numero": 1515,
-        "piso": "1",
+        "piso": "2",
         "departamento": "C"
       },
       "role": "admin"
@@ -372,7 +372,7 @@
       "apellido": "fariña",
       "nombreUsuario": "agustin",
       "contrasena": "agustin123",
-      "fechaNacimiento": "2000-01-01",
+      "fechaNacimiento": "3333-03-31",
       "codigoPostal": 7600,
       "direccion": {
         "calle": "carasa",
@@ -414,6 +414,23 @@
         "departamento": ""
       },
       "role": "user"
+    },
+    {
+      "id": "5",
+      "email": "theirsha17@gmail.com",
+      "nombre": "ciro",
+      "apellido": "lopez",
+      "nombreUsuario": "Ciro1",
+      "contrasena": "1234ciro",
+      "fechaNacimiento": "2024-11-08",
+      "codigoPostal": 7600,
+      "direccion": {
+        "calle": "Mariano Acosta",
+        "numero": 1,
+        "piso": "1",
+        "departamento": "1"
+      },
+      "role": "user"
     }
   ],
   "carrito": [
@@ -436,6 +453,11 @@
       "id": "60fc",
       "idUsuario": "4",
       "carrito": []
+    },
+    {
+      "idUsuario": "5",
+      "carrito": [],
+      "id": "fd56"
     }
   ],
   "pedidos": [
@@ -568,6 +590,21 @@
         "departamento": "C"
       },
       "idEstadoPedido": "4"
+    },
+    {
+      "id": "8",
+      "idUsuario": "5",
+      "fechaCreacion": "2024-11-11T23:00:04.967Z",
+      "precioFinal": 201318,
+      "listaPedido": [],
+      "idMetodoDePago": "M1",
+      "direccionEnvio": {
+        "calle": "Mariano Acosta",
+        "numero": 1,
+        "piso": "1",
+        "departamento": "1"
+      },
+      "idEstadoPedido": "2"
     }
   ]
 }
