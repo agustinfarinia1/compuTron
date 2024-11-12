@@ -1,9 +1,8 @@
 # CompuTron
 
-- Este proyecto fue generado con [Angular Version 17](https://github.com/angular/angular-cli).
-
 ## Descripcion
 - E-commerce de productos de informatica.
+- Este proyecto fue generado con [Angular Version 17](https://github.com/angular/angular-cli).
 - Recoleccion de datos mediante [API Mercado Libre](https://developers.mercadolibre.com.ar/es_ar/guia-para-producto).
 - Uso de estilos Bootstrap.
 - Uso de [EmailJS](https://www.emailjs.com/) para poder mandar emails personalizados.
