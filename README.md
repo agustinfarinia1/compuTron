@@ -14,7 +14,7 @@
 
 ### Modelo de dominio
 
-![modelo de dominio](assets/modelo-dominio.png)
+![modelo de dominio](https://github.com/agustinfarinia1/compuTron/blob/main/src/assets/modelo-dominio.png)
 
 ### Integrantes
 [Fariña Martinez Agustin Ariel](https://www.linkedin.com/in/agustin-farinia/)
