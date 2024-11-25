@@ -1,9 +1,20 @@
 # CompuTron
 - E-commerce de productos de informatica.
 - Este proyecto fue generado con [Angular Version 17](https://github.com/angular/angular-cli).
-- Recoleccion de datos mediante [API Mercado Libre](https://developers.mercadolibre.com.ar/es_ar/guia-para-producto).
+
+### Funcionalidades del sistema
+- Recoleccion de datos mediante [API Mercado Libre](https://developers.mercadolibre.com.ar/es_ar/guia-para-producto) para la carga de Productos.
+- Uso de [EmailJS](https://www.emailjs.com/) para envio de emails personalizados.
+- Persistencia total con [Json Server](https://github.com/typicode/json-server).
+- Enrutamiento para tres tipos de acceso(anonimo, usuario y administrador).
+- Persistencia de estado con local storage.
+- Diferentes filtros (categorias, precios).
+- Validacion de datos al registrar usuario.
 - Uso de estilos Bootstrap.
-- Uso de [EmailJS](https://www.emailjs.com/) para poder mandar emails personalizados.
+
+### Modelo de dominio
+
+![modelo de dominio](assets/modelo-dominio.png)
 
 ### Integrantes
 [Fariña Martinez Agustin Ariel](https://www.linkedin.com/in/agustin-farinia/)
