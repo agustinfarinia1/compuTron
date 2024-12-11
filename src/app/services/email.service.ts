@@ -23,4 +23,22 @@ export class EmailService {
     };
     return emailjs.send(this.serviceID, this.templateID, templateParams, this.userID);
   }
+
+  enviarEnvioPedido(emailUsuario: string, numeroPedido: string): Promise<EmailJSResponseStatus> {
+    const templateParams = {
+      email_usuario: emailUsuario,
+      numero_pedido: numeroPedido,
+      mensaje: `Tu orden #${numeroPedido} esta en camino. Gracias por tu compra.`,
+    };
+    return emailjs.send(this.serviceID, this.templateID, templateParams, this.userID);
+  }
+
+  enviarFinPedido(emailUsuario: string, numeroPedido: string): Promise<EmailJSResponseStatus> {
+    const templateParams = {
+      email_usuario: emailUsuario,
+      numero_pedido: numeroPedido,
+      mensaje: `Tu orden #${numeroPedido} finalizo con exito. Gracias por tu compra.`,
+    };
+    return emailjs.send(this.serviceID, this.templateID, templateParams, this.userID);
+  }
 }

@@ -60,6 +60,24 @@ export class GestionPedidoAdminComponent implements OnInit{
             }
           });
         }
+        if (pedido.getIdEstadoPedido() === '3') {
+          this.usuarioService.obtenerUsuarioPorId(pedido.getIdUsuario()).subscribe((usuario) => {
+            if (usuario && usuario.email) {  // Verifica que 'usuario' y 'usuario.email' no sean undefined
+              this.correoService.enviarEnvioPedido(usuario.email, pedido.getId());
+            } else {
+              console.error("Usuario o correo no disponible");
+            }
+          });
+        }
+        if (pedido.getIdEstadoPedido() === '4') {
+          this.usuarioService.obtenerUsuarioPorId(pedido.getIdUsuario()).subscribe((usuario) => {
+            if (usuario && usuario.email) {  // Verifica que 'usuario' y 'usuario.email' no sean undefined
+              this.correoService.enviarFinPedido(usuario.email, pedido.getId());
+            } else {
+              console.error("Usuario o correo no disponible");
+            }
+          });
+        }
       });
     }
   }
