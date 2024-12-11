@@ -9,7 +9,7 @@ interface Usuario {
   codigo: string;
   email: string;
   usuario: string;
-  password: string; // Asegúrate de que este campo sea el correcto
+  password: string; 
   nombre: string;
   apellido: string;
   direccion: string;

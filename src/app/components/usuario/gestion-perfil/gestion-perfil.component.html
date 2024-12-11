@@ -32,7 +32,7 @@
         <input type="text" id="codigoPostal" class="form-control" [(ngModel)]="usuario.codigoPostal" name="codigoPostal" required />
       </div>
   
-      <!-- Dirección -->
+      <!-- Dirección form aparte -->
       <h5>Dirección</h5>
       <div class="mb-3">
         <label for="calle" class="form-label">Calle</label>
@@ -58,7 +58,6 @@
       <button type="submit" class="btn btn-dark">Guardar cambios</button>
     </form>
   
-    <!-- Mensaje de confirmación (si es necesario) -->
     <div *ngIf="mensajeConfirmacion" class="alert alert-success mt-3" role="alert">
       {{ mensajeConfirmacion }}
     </div>

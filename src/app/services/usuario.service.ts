@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'; // Si usas una API REST
+import { HttpClient } from '@angular/common/http'; 
 import { Observable } from 'rxjs';
 import { Persona } from '../models/persona.model';
 
@@ -8,7 +8,7 @@ import { Persona } from '../models/persona.model';
 })
 export class UsuarioService {
 
-  private apiUrl = 'http://localhost:3000/usuarios'; // URL de tu API, si estás utilizando una
+  private apiUrl = 'http://localhost:3000/usuarios'; 
 
   constructor(private http: HttpClient) {}
 
@@ -18,8 +18,8 @@ export class UsuarioService {
   }
 
   // Método para obtener el usuario desde el localStorage (si no usas API)
-  obtenerUsuarioPorIdLocal(id: string): Persona | null {
-    const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
-    return usuarios.find((usuario: Persona) => usuario.id === id) || null;
-  }
+  // obtenerUsuarioPorIdLocal(id: string): Persona | null {
+  //   const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
+  //   return usuarios.find((usuario: Persona) => usuario.id === id) || null;
+  // }
 }

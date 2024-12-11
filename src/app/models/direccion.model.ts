@@ -1,8 +1,8 @@
 export class Direccion {
   calle: string;
   numero: number;
-  piso?: string; // Opcional
-  departamento?: string; // Opcional
+  piso?: string; 
+  departamento?: string;
 
   constructor(calle: string, numero: number, piso?: string, departamento?: string) {
     this.calle = calle;

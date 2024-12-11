@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { AuthService } from '../services/auth.service'; // Asegúrate de importar el AuthService
+import { AuthService } from '../services/auth.service'; 
 
 
 
@@ -23,7 +23,7 @@ import { AuthService } from '../services/auth.service'; // Asegúrate de importa
       if (rol === 'admin') {
         return true;
       } else {
-        this.router.navigate(['/no-autorizado']); // Redirigir a página de acceso no autorizado
+        this.router.navigate(['/no-autorizado']); // te envia a la página de acceso no autorizado
         return false;
       }
     }

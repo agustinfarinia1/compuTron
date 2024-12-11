@@ -11,7 +11,7 @@ import { ProductosService } from '../../services/productos.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './carrito.component.html',
-  styleUrls: ['./carrito.component.css'], // Corrige 'styleUrl' a 'styleUrls'
+  styleUrls: ['./carrito.component.css'], 
 })
 export class CarritoComponent implements OnInit {
   carrito: Carrito | null;
@@ -61,7 +61,7 @@ export class CarritoComponent implements OnInit {
       }
     }
   }
-
+  // Actualiza la cantidad total de productos en el carrito que se almacena en el localStorage.
   cambiarCarritoLocalStorage(cantidad : number){
     let cantidadFinal = 0;
     let respuestaCantidad = localStorage.getItem("cantidadCarrito");
@@ -125,7 +125,7 @@ export class CarritoComponent implements OnInit {
     }
     return respuesta;
   }
-
+  // Comprueba que todos los productos del carrito tengan suficiente stock. 
   continuarCarrito() {
     let productosSinStock : any[]= [];
     let verificacionCarrito = false;
