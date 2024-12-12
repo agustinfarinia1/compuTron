@@ -50,34 +50,21 @@ export class GestionPedidoAdminComponent implements OnInit{
       pedido.setIdEstadoPedido(this.estadoPedidos[index + 1].getId());
       
       this.PedidoService.editarPedido(pedido).then(() => {
-        // Solo se envía correo cuando el estado del pedido es "Confirmado" (ID '2' en este caso)
-        if (pedido.getIdEstadoPedido() === '2') {
           this.usuarioService.obtenerUsuarioPorId(pedido.getIdUsuario()).subscribe((usuario) => {
             if (usuario && usuario.email) {  // Verifica que 'usuario' y 'usuario.email' no sean undefined
+              if (pedido.getIdEstadoPedido() === '2') {
               this.correoService.enviarConfirmacionPedido(usuario.email, pedido.getId());
+              }
+              if (pedido.getIdEstadoPedido() === '3') {
+                this.correoService.enviarEnvioPedido(usuario.email, pedido.getId());
+                }
+              if (pedido.getIdEstadoPedido() === '4') {
+                this.correoService.enviarFinPedido(usuario.email, pedido.getId());
+              }
             } else {
               console.error("Usuario o correo no disponible");
             }
           });
-        }
-        if (pedido.getIdEstadoPedido() === '3') {
-          this.usuarioService.obtenerUsuarioPorId(pedido.getIdUsuario()).subscribe((usuario) => {
-            if (usuario && usuario.email) {  // Verifica que 'usuario' y 'usuario.email' no sean undefined
-              this.correoService.enviarEnvioPedido(usuario.email, pedido.getId());
-            } else {
-              console.error("Usuario o correo no disponible");
-            }
-          });
-        }
-        if (pedido.getIdEstadoPedido() === '4') {
-          this.usuarioService.obtenerUsuarioPorId(pedido.getIdUsuario()).subscribe((usuario) => {
-            if (usuario && usuario.email) {  // Verifica que 'usuario' y 'usuario.email' no sean undefined
-              this.correoService.enviarFinPedido(usuario.email, pedido.getId());
-            } else {
-              console.error("Usuario o correo no disponible");
-            }
-          });
-        }
       });
     }
   }

@@ -6,6 +6,7 @@ import { Categoria } from '../models/categoria.model';
 })
 export class CategoriasService {
 
+  // Crea una nueva categoria de productos en el JsonServer
   setNewCategoria = async(newCategoria : Categoria) => {
     try{
       const url = `http://localhost:3000/categorias`;
@@ -23,6 +24,7 @@ export class CategoriasService {
     }
   }
 
+  // edita una categoria productos existente, ligada a su ID
   editarCategoria = async(categoria : Categoria) => {
     try{
       const url = `http://localhost:3000/categorias/${categoria.getId()}`;
@@ -39,6 +41,7 @@ export class CategoriasService {
     }
   }
 
+  // Obtiene categorias producto
   getCategorias = async() => {
     const url = `http://localhost:3000/categorias`;
       try {
@@ -50,6 +53,7 @@ export class CategoriasService {
         }
   }
 
+  // Obtiene cantidad total de categorias.
   getCantidadCategorias = async() => {
     const url = `http://localhost:3000/categorias`;
       try {

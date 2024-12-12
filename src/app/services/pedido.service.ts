@@ -9,6 +9,7 @@ export class PedidoService {
 
   constructor() { }
 
+  // Registra nuevo pedido en el JsonServer
   setNewPedido = async(pedido : Pedido) => {
     try{
       const url = `http://localhost:3000/pedidos`;
@@ -26,6 +27,7 @@ export class PedidoService {
     }
   }
 
+  //Edita pedido en el jsonServer, edita el producto con dicho ID
   editarPedido = async(pedido : Pedido) => {
     try{
       const url = `http://localhost:3000/pedidos/${pedido.getId()}`;
@@ -42,6 +44,7 @@ export class PedidoService {
     }
   }
 
+  // Obtiene todos los pedidos con un orden ascendente de estado actual.
   getPedidos = async() => {
     const url = `http://localhost:3000/pedidos?_sort=idEstadoPedido&_order=asc`;
     try {
@@ -55,6 +58,7 @@ export class PedidoService {
     }
   }
 
+  // Obtiene los pedidos de un usuario especifico.
   getPedidosUsuario = async(idUsuario : string) => {
     const url = `http://localhost:3000/pedidos/?idUsuario=${idUsuario}&_sort=idEstadoPedido&_order=asc`;
     try {
@@ -68,6 +72,7 @@ export class PedidoService {
     }
   }
 
+  // Obtiene la cantidad total de pedidos.
   getCantidadPedidos = async() => {
     const url = `http://localhost:3000/pedidos`;
       try {

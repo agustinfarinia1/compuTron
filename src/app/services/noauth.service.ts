@@ -9,6 +9,7 @@ import { AuthService } from './auth.service';  // Asegúrate de tener este servi
 export class NoAuthGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
+  // Controla el acceso del usuario no autenticado.
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if (!this.authService.isAuthenticated()) {
       return true;  // Permitir acceso si no está autenticado

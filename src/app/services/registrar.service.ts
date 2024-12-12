@@ -8,7 +8,7 @@ import { Persona } from '../models/persona.model';
   providedIn: 'root'
 })
 export class RegistroService {
-  private apiUrl = 'http://localhost:3000/usuarios';
+  private apiUrl = 'http://localhost:3000/usuarios'; // URL del JsonServer, para los usuarios
   private mockUsers: Persona[] = []; // Almacenamiento temporal
 
   constructor(private http: HttpClient) {}

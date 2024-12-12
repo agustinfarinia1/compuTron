@@ -6,6 +6,7 @@ import { MetodoDePago } from '../models/metodoDePago.model';
 })
 export class MetodosDePagoService {
 
+  // Genera un nuevo metodo de pago.
   setNewMetodoDePago = async(newMetodoDePago : MetodoDePago) => {
     try{
       const url = `http://localhost:3000/metodos-de-pago`;
@@ -23,6 +24,7 @@ export class MetodosDePagoService {
     }
   }
 
+  // Obtiene todos los metodos de pagos.
   getMetodosDePago = async() => {
     const url = `http://localhost:3000/metodos-de-pago`;
       try {
@@ -34,6 +36,7 @@ export class MetodosDePagoService {
         }
   }
 
+  //Obtiene la cantidad total de metodos de pagos
   getCantidadMetodoDePago = async() => {
     const url = `http://localhost:3000/metodos-de-pago`;
       try {

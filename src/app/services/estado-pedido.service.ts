@@ -8,6 +8,7 @@ export class EstadoPedidoService {
 
   constructor() { }
 
+  // Genera un nuevo estadoPedido en JsonServer
   setNewEstadoPedido = async(newEstadoPedido : EstadoPedido) => {
     try{
       const url = `http://localhost:3000/estado-pedido`;
@@ -25,6 +26,7 @@ export class EstadoPedidoService {
     }
   }
 
+  // Edita un estadoPedido en  el jsonServer, dependiendo el ID
   editarEstadoPedido = async(estadoPedido : EstadoPedido) => {
     try{
       const url = `http://localhost:3000/estado-pedido/${estadoPedido.getId()}`;
@@ -41,6 +43,7 @@ export class EstadoPedidoService {
     }
   }
 
+  //Obtiene todos los estadosPedido
   getEstadoPedido = async() => {
     const url = `http://localhost:3000/estado-pedido`;
       try {
@@ -52,6 +55,7 @@ export class EstadoPedidoService {
         }
   }
 
+  // Obtiene la cantidad total de estadoPedido.
   getCantidadEstadoPedido = async() => {
     const url = `http://localhost:3000/estado-pedido`;
       try {

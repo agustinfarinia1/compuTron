@@ -6,6 +6,7 @@ import { Producto } from '../models/producto.model';
 })
 export class ProductosService {
 
+  //Setea un producto nuevo.
   setNewProducto = async(producto : Producto) => {
     try{
       const url = `http://localhost:3000/stock`;
@@ -23,6 +24,7 @@ export class ProductosService {
     }
   }
 
+  //Edita un producto, por su ID
   editarProducto = async(producto : Producto) => {
     try{
       const url = `http://localhost:3000/stock/${producto.getId()}`;
@@ -39,6 +41,7 @@ export class ProductosService {
     }
   }
 
+  // Obtiene un arreglo de los productos existentes en el sistema (que tengan stock y no esten eliminados)
   getProductos = async() => {
     const url = `http://localhost:3000/stock?cantidad_gt=0&eliminado=false`;
       try {
@@ -50,6 +53,7 @@ export class ProductosService {
         }
   }
 
+  // Obtiene productos por una categoria proporcionada por parametro.
   getProductosPorCategoria = async(categoria : string) => {
     const url = `http://localhost:3000/stock?categoria=${categoria}&cantidad_gt=0&eliminado=false`;
       try {
@@ -61,6 +65,7 @@ export class ProductosService {
         }
   }
 
+  //Obtiene la cantidad de productos totales.
   getCantidadProductos = async() => {
     const url = `http://localhost:3000/stock`;
       try {
@@ -73,6 +78,7 @@ export class ProductosService {
     return 0;
   }
 
+  //Obtiene un producto por ID
   consultarCodigo = async(codigo : string) => {
     const url = `http://localhost:3000/stock?id=${codigo}&eliminado=false`;
     try {

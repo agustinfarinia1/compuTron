@@ -8,6 +8,8 @@ export class RouterService {
 
   router = inject(Router);
 
+  // Se utiliza para realizar las redirecciones con este servicio.
+
   irAHome () {
     this.router.navigateByUrl("/inicio");
   }

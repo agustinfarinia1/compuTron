@@ -13,6 +13,7 @@ export class CarritoService {
 
   constructor() {}
 
+  //Obtiene el carrito del usuario logueado.
   getCarritoServer = async (idUsuario: string) => {
     const url = `http://localhost:3000/carrito?idUsuario=${idUsuario}`;
     try {
@@ -30,6 +31,7 @@ export class CarritoService {
     return this.carrito;
   };
 
+  // Se modifica el estado del carrito con las modificaciones realizadas.
   setCarritoServer = async (idUsuario: string, carrito: Carrito) => {
     try {
       const urlGet = `http://localhost:3000/carrito?idUsuario=${idUsuario}`;
@@ -72,8 +74,8 @@ export class CarritoService {
       console.error('Error:', error);
     }
   };
-  
 
+  // Cambia la cantidad de los productos en el carrito, de un producto en especifico
   cambiarCantidad(productoId: string, cantidad: number): void {
     if (this.carrito) {
       const producto = this.carrito.getCarrito().find((p) => p.getId() === productoId);
@@ -84,6 +86,7 @@ export class CarritoService {
     }
   }
 
+  // Actualiza la cantidad total de productos en el carrito
   private actualizarCantidadTotal(): void {
     if (this.carrito) {
       const total = this.carrito.getCarrito().reduce((sum, producto) => sum + producto.getCantidad(), 0);
@@ -93,6 +96,7 @@ export class CarritoService {
     }
   }
 
+  // Obtiene la cantidad de productos en el carrito del cliente.
   getCantidadCarritos = async() => {
     const url = `http://localhost:3000/carrito`;
       try {
