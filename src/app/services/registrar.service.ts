@@ -15,7 +15,7 @@ export class RegistroService {
 
   verificarDatos(nombreUsuario: string, email: string): Observable<{ emailDisponible: boolean; usuarioDisponible: boolean }> {
     return this.http.get<Persona[]>(this.apiUrl).pipe(
-      map(personas => this.checkAvailability(personas, nombreUsuario, email)),
+      map(personas => this.checkAvailability(personas, nombreUsuario, email)), // Mapea para revisar que no se repitan el usuario ni el mail
       catchError((error) => {
         console.error('Error al obtener los usuarios de la API:', error);
         return of({ emailDisponible: false, usuarioDisponible: false }); // Para manejar el error y no fallar
@@ -23,7 +23,7 @@ export class RegistroService {
     );
   }
   
-
+  // revisa uno a uno 
   private checkAvailability(personas: Persona[], nombreUsuario: string, email: string) {
     const emailDisponible = !personas.some(persona => persona.email && persona.email.toLowerCase() === email.toLowerCase());
     const usuarioDisponible = !personas.some(persona => persona.nombreUsuario && persona.nombreUsuario.toLowerCase() === nombreUsuario.toLowerCase());
@@ -32,12 +32,12 @@ export class RegistroService {
 
 
   async registrarUsuario(usuario: Persona): Promise<Observable<Persona>> {
-    const id =  await this.getCantidadUsuarios();  // Obtener el id basado en la cantidad de usuarios
+    const id =  await this.getCantidadUsuarios();  // Crea el id basado en la cantidad de usuarios
 
     // Asignar el id al usuario
     const usuarioConId = { ...usuario, id: id.toString() };
     return this.verificarDatos(usuario.nombreUsuario, usuario.email).pipe(
-      switchMap(({ emailDisponible, usuarioDisponible }) => {
+      switchMap(({ emailDisponible, usuarioDisponible }) => {  // Cambio de observable 
         if (!emailDisponible || !usuarioDisponible) {
           const error = !emailDisponible ? 'El email ya está registrado' : 'El nombre de usuario ya está en uso';
           return throwError(() => new Error(error));
