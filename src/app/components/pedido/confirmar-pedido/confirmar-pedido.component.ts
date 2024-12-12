@@ -30,7 +30,6 @@ export class ConfirmarPedidoComponent implements OnInit{
     else{
       this.precioFinal = JSON.parse(respuestaPrecio);
       localStorage.setItem("precioPedido",(this.precioFinal + this.precioEnvio).toString());
-      //Obtengo el precioFinal del carrito para seguir el proceso
     }
 
     this.pedidoFormulario = new FormGroup({

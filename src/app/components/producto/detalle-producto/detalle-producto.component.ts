@@ -72,16 +72,14 @@ export class DetalleProductoComponent implements OnInit,OnChanges {
     localStorage.removeItem('carritoId');
     this.carrito = null;
   }
-
-  private async initializeUserCart(userId: string) {
-    // Si el usuario es diferente, limpiamos todo
+  // por si el usuario es diferente, lo limpiamos todo
+  private async initializeUserCart(userId: string) {  
     if (this.currentUserId !== userId) {
       await this.clearCartData();
       this.currentUserId = userId;
     }
 
     try {
-      // Intentamos obtener el carrito del servidor
       const serverCart = await this.carritoService.getCarritoServer(userId);
       
       if (serverCart) {

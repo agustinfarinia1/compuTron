@@ -7,10 +7,10 @@ export class Persona {
   apellido: string;
   nombreUsuario: string;
   contrasena: string;
-  fechaNacimiento: Date; // Formato 'YYYY-MM-DD'
+  fechaNacimiento: Date; 
   codigoPostal: string;
-  direccion: Direccion; // Referencia al modelo Direccion
-  role: 'user' | 'admin'; // Agregado el rol
+  direccion: Direccion; 
+  role: 'user' | 'admin'; 
 
   constructor(
     email: string,
@@ -20,8 +20,8 @@ export class Persona {
     contrasena: string,
     fechaNacimiento: Date,
     codigoPostal: string,
-    direccion: Direccion, // Ahora acepta un objeto Direccion
-    role: 'user' | 'admin', // Añadir el campo 'role'
+    direccion: Direccion, 
+    role: 'user' | 'admin', 
     id: string = ""
   ) {
     this.id = id;
@@ -32,7 +32,7 @@ export class Persona {
     this.contrasena = contrasena;
     this.fechaNacimiento = fechaNacimiento;
     this.codigoPostal = codigoPostal;
-    this.direccion = direccion; // Inicializa con el objeto Direccion
-    this.role = role; // Inicializa el rol
+    this.direccion = direccion; 
+    this.role = role; 
   }
 }

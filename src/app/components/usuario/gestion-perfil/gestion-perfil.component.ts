@@ -11,7 +11,6 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './gestion-perfil.component.html',
-  //styleUrl: './gestion-perfil.component.css'
 })
 export class GestionPerfilComponent implements OnInit {
   usuario!: Persona; // Se inicializa en ngOnInit desde localStorage

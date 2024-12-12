@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'; // Si usas una API REST
+import { HttpClient } from '@angular/common/http'; 
 import { Observable } from 'rxjs';
 import { Persona } from '../models/persona.model';
 

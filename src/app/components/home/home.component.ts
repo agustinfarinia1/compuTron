@@ -26,7 +26,6 @@ export class HomeComponent implements OnInit{
         let usuario = JSON.parse(respuestaUsuario);
         if(usuario){
           if(!localStorage.getItem("cantidadCarrito")){ 
-            // Si es la primera vez que ingresa al sistema, se crea en el localStorage la cantidad de carrito que aparece en en navbar
             this.carritoService.getCarritoServer(usuario.id).then((respuestaCarrito) => {
               let carrito = respuestaCarrito?.getCarrito();
               if(carrito){

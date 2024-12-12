@@ -44,7 +44,7 @@ export class CarritoService {
         // Aquí, extraemos solo los datos necesarios del carrito, como el array de productos
         const carritoData = {
           idUsuario,
-          carrito: carrito.getCarrito(), // Asegúrate de que esto sea un array de productos simple
+          carrito: carrito.getCarrito(), // Esto tendria q ser un array de productos simple
         };
         await fetch(urlPut, {
           method: 'PUT',
@@ -55,7 +55,7 @@ export class CarritoService {
         });
       } else {
         const urlPost = `http://localhost:3000/carrito`;
-        // Asegúrate de enviar solo los datos necesarios
+        
         const carritoData = {
           idUsuario,
           carrito: carrito.getCarrito(),

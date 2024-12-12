@@ -52,6 +52,7 @@ export class RegistroComponent {
       })
     });
   }
+  // todos los mensajes son para mostrar en consola no para el usuario
   alfanumericaValidator(control: AbstractControl): ValidationErrors | null {
     const value = control.value || '';
     const alfanumericaRegex = /^(?=.*[a-zA-Z])(?=.*\d)/; // Al menos una letra y un número
