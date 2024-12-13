@@ -25,6 +25,7 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) {}
 
   login(nombreUsuario: string, contrasena: string): Promise<boolean> {
+    
     return this.http.get<Persona[]>(this.apiUrl).pipe(
       catchError(error => {
         console.error('Error al obtener usuarios:', error);
@@ -35,19 +36,37 @@ export class AuthService {
 
       const user = usuarios.find(u => u.nombreUsuario === nombreUsuario && u.contrasena === contrasena);
       if (user) {
+        const tiempoExpiracion = Date.now() +  30 * 60 * 1000; // 30 minutos
         localStorage.setItem('usuario', JSON.stringify(user));
-        localStorage.setItem('rol', user.role); // Guardar el rol en el localStorage
-        return true;
+        localStorage.setItem('tiempo', JSON.stringify(tiempoExpiracion)); // Guardar los datos de la sesión en localStorage con tiempo de expiración
+        localStorage.setItem('rol', user.role);                           // Guardar el rol en el localStorage
         return true;
       } else {
         return false;
       }
     });
   }
+  // Verificar si la sesión ha expirado
+  verificarSesion() {
+    const respuesta =localStorage.getItem('tiempo');
+    if (respuesta) {
+        const datos =  JSON.parse(respuesta);
+        if (Date.now() > datos) {
+            this.logout();
+            return false;
+        } else {
+            return true;
+        }
+    } else {
+        this.logout();
+        return false;
+    }
+  }
 
   logout() {
     localStorage.removeItem('usuario');
     localStorage.removeItem('cantidadCarrito');
+    localStorage.removeItem('tiempo');
     this.router.navigate(['/login']);
   }
 
