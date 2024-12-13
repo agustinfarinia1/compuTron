@@ -23,7 +23,7 @@ import { AuthService } from '../services/auth.service';
       if (rol === 'admin') {
         return true;
       } else {
-        this.router.navigate(['/no-autorizado']); // te envia a la página de acceso no autorizado
+        this.router.navigate(['/home']); // te envia a la página de acceso no autorizado
         return false;
       }
     }

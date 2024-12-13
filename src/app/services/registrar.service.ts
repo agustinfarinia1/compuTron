@@ -37,14 +37,14 @@ export class RegistroService {
     // Asignar el id al usuario
     const usuarioConId = { ...usuario, id: id.toString() };
     return this.verificarDatos(usuario.nombreUsuario, usuario.email).pipe(
-      switchMap(({ emailDisponible, usuarioDisponible }) => {  // Cambio de observable 
+      switchMap(({ emailDisponible, usuarioDisponible }) => {  // Si el email o el nombre de usuario no están disponibles, lanza un error.
         if (!emailDisponible || !usuarioDisponible) {
           const error = !emailDisponible ? 'El email ya está registrado' : 'El nombre de usuario ya está en uso';
           return throwError(() => new Error(error));
         }
 
         return this.http.post<Persona>(this.apiUrl, usuarioConId).pipe(
-          catchError(() => {
+          catchError(() => {                             //Si ocurre un error con el servidor, guarda los datos en una lista simulada.
             console.warn('Guardando en datos simulados');
             const newUser = { ...usuario  }; 
             this.mockUsers.push(newUser);
