@@ -16,6 +16,13 @@
                     <button class="btn btn-sm btn-dark" (click)="avanzarEstadoPedido(pedido)" *ngIf="pedido.getIdEstadoPedido() === '3'">Finalizar Pedido</button>
                 </div>
             </div>
+            <div class="border bg-warning p-3" *ngIf="pedido">
+                <div *ngFor="let itemPedido of pedido.getListaPedido(); let i = index">
+                    <app-producto-lista-pedido [itemPedido]="itemPedido">
+
+                    </app-producto-lista-pedido>
+                </div>
+            </div>
         </div>
     </div>
 </div>

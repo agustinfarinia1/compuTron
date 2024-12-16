@@ -10,11 +10,13 @@ import { EmailService } from '../../../services/email.service';
 import { UsuarioService } from '../../../services/usuario.service';
 import { Producto } from '../../../models/producto.model';
 import { ProductosService } from '../../../services/productos.service';
+import { ProductoLista } from '../../../models/productoLista.model';
+import { ProductoListaPedidoComponent } from '../producto-lista-pedido/producto-lista-pedido.component';
 
 @Component({
   selector: 'app-gestion-pedido-admin',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,ProductoListaPedidoComponent],
   templateUrl: './gestion-pedido-admin.component.html',
   styleUrl: './gestion-pedido-admin.component.css'
 })
@@ -25,7 +27,9 @@ export class GestionPedidoAdminComponent implements OnInit{
   estadoPedidos : EstadoPedido[] | null;
   productos : Producto[] | null;
  
-  constructor(private PedidoService : PedidoService,private estadoPedidoService : EstadoPedidoService,
+  constructor(
+    private PedidoService : PedidoService,
+    private estadoPedidoService : EstadoPedidoService,
     private productoService : ProductosService,
     private metodoDePagoService : MetodosDePagoService, 
     private correoService: EmailService,
@@ -49,24 +53,69 @@ export class GestionPedidoAdminComponent implements OnInit{
       let index = this.estadoPedidos.findIndex((estado) => estado.getId() === pedido.getIdEstadoPedido());
       pedido.setIdEstadoPedido(this.estadoPedidos[index + 1].getId());
       
-      this.PedidoService.editarPedido(pedido).then(() => {
-          this.usuarioService.obtenerUsuarioPorId(pedido.getIdUsuario()).subscribe((usuario) => {
-            if (usuario && usuario.email) {  // Verifica que 'usuario' y 'usuario.email' no sean undefined
-              if (pedido.getIdEstadoPedido() === '2') {
+      let usuario = this.usuarioService.obtenerUsuarioPorId(pedido.getIdUsuario());
+      usuario.subscribe((usuario) => {
+        // Obtiene la informacion del usuario que tiene asignado el pedido para realizar el aviso por email
+        if (usuario && usuario.email) {
+          // Una vez que se realiza la confirmacion, se actualiza el stock actual de la tienda  
+          if (pedido.getIdEstadoPedido() === '2') { 
+            let verificacion = this.verificacionStockProductos(pedido.getListaPedido());
+            if(verificacion){
+              this.actualizarStockProductos(pedido.getListaPedido());
+              pedido.setIdEstadoPedido("2");
               this.correoService.enviarConfirmacionPedido(usuario.email, pedido.getId());
-              }
-              if (pedido.getIdEstadoPedido() === '3') {
-                this.correoService.enviarEnvioPedido(usuario.email, pedido.getId());
-                }
-              if (pedido.getIdEstadoPedido() === '4') {
-                this.correoService.enviarFinPedido(usuario.email, pedido.getId());
-              }
-            } else {
-              console.error("Usuario o correo no disponible");
             }
-          });
-      });
+            else{
+              pedido.setIdEstadoPedido("1");
+              alert("ERROR: stock invalido para esta operacion");
+            }
+          }
+          if (pedido.getIdEstadoPedido() === '3') {
+            this.correoService.enviarEnvioPedido(usuario.email, pedido.getId());
+            pedido.setIdEstadoPedido("3");
+          }
+          if (pedido.getIdEstadoPedido() === '4') {
+            this.correoService.enviarFinPedido(usuario.email, pedido.getId());
+            pedido.setIdEstadoPedido("4");
+          }
+          // Actualiza el estado del pedido
+          this.PedidoService.editarPedido(pedido);
+        } else {
+          console.error("Usuario o correo no disponible");
+        }
+      })
     }
+  }
+
+  verificacionStockProductos(listaPedido : ProductoLista[]){
+    let verificacion = true;
+    listaPedido.forEach((itemProducto : any) => {
+      // Filtra los productos que estan dentro del pedido
+      const productoPedido = this.productos?.find((busquedaProducto : Producto) => busquedaProducto.getId() == itemProducto.id);
+      // Verifica que el stock restante no sea invalido
+      if(productoPedido){
+        if((productoPedido.getCantidad() - itemProducto.cantidad) < 0){
+          verificacion = false;
+        }
+      }
+      // Si no esta dentro del arreglo de producto disponibles, el producto fue eliminado o no tiene stock
+      else{
+        verificacion = false;
+      }
+    })
+    return verificacion;
+  }
+
+  actualizarStockProductos(listaPedido : ProductoLista[]){
+    listaPedido.forEach((itemProducto : any) => {
+      // Filtra los productos que estan dentro del pedido
+      let productoPedido = this.productos?.find((busquedaProducto) => busquedaProducto.getId() === itemProducto.id);
+      // Actualiza el stock total del pedido y realiza la edicion en JsonServer
+      if(productoPedido){
+        productoPedido.setCantidad(productoPedido.getCantidad() - itemProducto.cantidad);
+        this.productoService.editarProducto(productoPedido);
+      }
+    })
   }
 
   getMetodoDePago(idMetodoDePago : string){

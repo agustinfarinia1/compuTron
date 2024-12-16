@@ -137,7 +137,7 @@
       "categoria": "C3",
       "marca": "Intel",
       "modelo": "i9-14900K",
-      "cantidad": 16,
+      "cantidad": 13,
       "precio": 856989,
       "imagen": "http://http2.mlstatic.com/D_972763-MLU78939419339_092024-I.jpg",
       "eliminado": false
@@ -149,7 +149,7 @@
       "categoria": "C3",
       "marca": "Intel",
       "modelo": "i5-12400F",
-      "cantidad": 16,
+      "cantidad": 13,
       "precio": 209089,
       "imagen": "http://http2.mlstatic.com/D_618874-MLU77742070764_072024-I.jpg",
       "eliminado": false
@@ -345,18 +345,6 @@
       "precio": 14900,
       "imagen": "http://http2.mlstatic.com/D_922991-MLA78327691274_082024-I.jpg",
       "eliminado": false
-    },
-    {
-      "id": "P24",
-      "codigoML": "golsito",
-      "titulo": "gol",
-      "categoria": "C8",
-      "marca": "volkwange",
-      "modelo": "power",
-      "cantidad": 1,
-      "precio": 5000,
-      "imagen": "https://i.pinimg.com/236x/71/01/af/7101af3df2bc8c9752d3692cf299c903.jpg",
-      "eliminado": true
     }
   ],
   "usuarios": [
@@ -453,7 +441,7 @@
       "id": "CR1"
     },
     {
-      "idUsuario": "2",
+      "idUsuario": "1",
       "carrito": [
         {
           "id": "P7",
@@ -509,7 +497,7 @@
         "piso": "2",
         "departamento": "A"
       },
-      "idEstadoPedido": "4",
+      "idEstadoPedido": "1",
       "listaPedido": [
         {
           "id": "P1",
@@ -517,6 +505,54 @@
         },
         {
           "id": "P4",
+          "cantidad": 1
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "idUsuario": "1",
+      "fechaCreacion": "2024-12-16T13:59:56.544Z",
+      "precioFinal": 3289008,
+      "idMetodoDePago": "M4",
+      "direccionEnvio": {
+        "calle": "luro",
+        "numero": 1515,
+        "piso": "2",
+        "departamento": "C"
+      },
+      "idEstadoPedido": "1",
+      "listaPedido": [
+        {
+          "id": "P1",
+          "cantidad": 16
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "idUsuario": "1",
+      "fechaCreacion": "2024-12-16T16:18:58.686Z",
+      "precioFinal": 1256717,
+      "idMetodoDePago": "M3",
+      "direccionEnvio": {
+        "calle": "luro",
+        "numero": 1515,
+        "piso": "2",
+        "departamento": "C"
+      },
+      "idEstadoPedido": "1",
+      "listaPedido": [
+        {
+          "id": "P4",
+          "cantidad": 1
+        },
+        {
+          "id": "P7",
+          "cantidad": 1
+        },
+        {
+          "id": "P6",
           "cantidad": 1
         }
       ]
