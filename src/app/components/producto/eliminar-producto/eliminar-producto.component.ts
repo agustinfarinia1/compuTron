@@ -15,12 +15,14 @@ import { CategoriasService } from '../../../services/categorias.service';
 export class EliminarProductoComponent implements OnInit{
   @Input("id") idProducto!: string;
   categorias : [];
+  verificacion : boolean;
 
   producto : Producto;
 
   constructor(private productoService : ProductosService,private router: RouterService,private categoriaService : CategoriasService){
     this.producto = new Producto("","","","","",0,0,"");
     this.categorias = [];
+    this.verificacion = false;
   }
 
   ngOnInit(): void {
@@ -39,12 +41,22 @@ export class EliminarProductoComponent implements OnInit{
   }
 
   volverAlInicio () {
-    this.router.irAHome();
+    this.router.irAGestionProducto();
   }
 
-  eliminarProducto (producto : Producto) {
-    producto.setEliminado(true);
-    this.productoService.editarProducto(producto);
-    this.router.irAHome();
+  eliminarProducto () {
+    this.verificacion = true;
+  }
+
+  cancelarOperacion () {
+    this.verificacion = false;
+  }
+
+  confirmarEliminacionProducto(){
+    if(this.producto){
+      this.producto.setEliminado(true);
+      this.productoService.editarProducto(this.producto);
+      this.router.irAGestionProducto();
+    }
   }
 }

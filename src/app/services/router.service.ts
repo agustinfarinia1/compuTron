@@ -18,6 +18,10 @@ export class RouterService {
     this.router.navigateByUrl("/login");
   }
 
+  irAGestionProducto () {
+    this.router.navigateByUrl(`admin-productos`);
+  }
+
   irAEditarProducto (id : string) {
     this.router.navigateByUrl(`admin-productos/editar/${id}`);
   }

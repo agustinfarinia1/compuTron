@@ -117,20 +117,27 @@ export class CarritoComponent implements OnInit {
 
   consultarStockProducto (productoConsulta : Producto) {
     let respuesta = true;
-    let producto = this.productos.find(producto => producto.getId() === productoConsulta.getId());
+    let producto = this.productos.find((producto : Producto) => producto.getId() === productoConsulta.getId());
+    // Si el producto esta disponible para la venta
     if(producto){
+      // Si el producto no supera el stock que necesita para la venta
       if(productoConsulta.getCantidad() > producto.getCantidad()){
         respuesta = false;
       }
     }
+    // el producto no se encuentra disponible, por falta de stock o eliminacion del sistema
+    else{
+      respuesta = false;
+    }
     return respuesta;
   }
+
   // Comprueba que todos los productos del carrito tengan suficiente stock. 
   continuarCarrito() {
     let productosSinStock : any[]= [];
     let verificacionCarrito = false;
     if(this.carrito){
-      this.carrito.getCarrito().forEach(carritoItem => {
+      this.carrito.getCarrito().forEach((carritoItem : Producto) => {
         let producto = this.consultarStockProducto(carritoItem);
         if(producto === false){
           verificacionCarrito = true;

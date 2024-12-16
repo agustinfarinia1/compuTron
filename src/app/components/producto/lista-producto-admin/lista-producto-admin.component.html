@@ -10,7 +10,7 @@
                   <p class="card-text mb-1"><span class="badge bg-dark">{{filtrarCategoria(producto.getCategoria())}}</span></p>
                   <p class="mb-1">Marca: {{producto.getMarca()}}</p>
                   <p class="mb-1">Marca: {{producto.getModelo()}}</p>
-                  <p class="mb-0"><strong>Precio:</strong> ${{producto.getPrecio()}}</p>
+                  <p class="mb-0"><strong>Precio:</strong> {{producto.getPrecio() | currency}}</p>
               </div>
               <div>
                   <a class="btn btn-sm btn-dark me-2" [routerLink]="['editar/',producto.getId()]">Editar</a>
