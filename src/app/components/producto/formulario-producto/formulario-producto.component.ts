@@ -26,12 +26,15 @@ export class FormularioProductoComponent{
   cantidadProductos : number;
   modoFormulario : number;
   cartelExito : boolean;
+  verificacionEdicion : boolean;
 
   constructor(private servicioMl:ApiMlService,private productosServicio: ProductosService,private router : RouterService,private categoriaService : CategoriasService){
     this.cantidadProductos = 0;
     this.modoFormulario = 0;
     this.cartelExito = false;
     this.categorias = null;
+    this.verificacionEdicion = false;
+
     this.productoFormulario = new FormGroup({
       busqueda : new FormControl(),
       codigoML : new FormControl("",[Validators.required,Validators.minLength(3)],),
@@ -63,6 +66,7 @@ export class FormularioProductoComponent{
           this.productoFormulario.get("titulo")?.patchValue(respuestaProducto.titulo);
           this.productoFormulario.get("marca")?.patchValue(respuestaProducto.marca);
           this.productoFormulario.get("modelo")?.patchValue(respuestaProducto.modelo);
+          this.productoFormulario.get("cantidad")?.patchValue(respuestaProducto.cantidad);
           this.productoFormulario.get("precio")?.patchValue(respuestaProducto.precio);
           this.productoFormulario.get("imagen")?.patchValue(respuestaProducto.imagen);
         }
