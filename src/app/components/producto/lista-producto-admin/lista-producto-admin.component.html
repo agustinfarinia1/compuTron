@@ -12,6 +12,7 @@
                   <p class="mb-1">Modelo: {{producto.getModelo()}}</p>
                   <p class="mb-1">Cantidad: {{producto.getCantidad()}}</p>
                   <p class="mb-0"><strong>Precio:</strong> {{producto.getPrecio() | currency}}</p>
+                  <p class="card-text mb-1" *ngIf="producto.getCantidad() === 0"><span class="badge bg-danger">Agotado</span></p>
               </div>
               <div>
                   <a class="btn btn-sm btn-dark me-2" [routerLink]="['editar/',producto.getId()]">Editar</a>

@@ -37,22 +37,14 @@ export class ListaProductosComponent {
   }
 
   ngOnInit(): void {
+    // Obtiene las categorias actualizados
     this.categoriasServicio.getCategorias().then((respuestaCategorias) => this.listaCategorias = respuestaCategorias);
-    if (!this.categoriaListado) {
-      this.productosServicio.getProductos().then((respuestaProductos) => {
-        this.listaProductos = respuestaProductos;
-        this.productosFiltrados = [...this.listaProductos]; // Inicializamos productos filtrados con todos los productos
-        this.productosParaBuscar = [...this.listaProductos]; // Productos iniciales para la búsqueda
-      });
-    } else {
-      console.log(this.categoriaListado);
-      this.productosServicio.getProductosPorCategoria(this.categoriaListado).then((respuestaProductos) => {
-        this.listaProductos = respuestaProductos;
-        this.productosFiltrados = [...this.listaProductos];
-        this.productosParaBuscar = [...this.listaProductos]; // Productos iniciales para la búsqueda
-        this.verFiltros = false;
-      });
-    }
+    // Obtiene los productos actualizados
+    this.productosServicio.getProductos().then((respuestaProductos) => {
+      this.listaProductos = respuestaProductos;
+      this.productosFiltrados = [...this.listaProductos]; // Inicializamos productos filtrados con todos los productos
+      this.productosParaBuscar = [...this.listaProductos]; // Productos iniciales para la búsqueda
+    });
     this.cargaLista = true;
   }
 
