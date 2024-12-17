@@ -56,8 +56,8 @@ export class Carrito {
     return this.idUsuario;
   }
 
-  getCarrito() {
-    return this.carrito;
+  getCarrito(): Producto[] {
+    return this.carrito || []; // Retorna un array vacío si no existe
   }
 
   vaciarCarrito () {

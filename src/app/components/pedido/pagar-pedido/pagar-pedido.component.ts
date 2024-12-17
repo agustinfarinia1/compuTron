@@ -30,7 +30,7 @@ export class PagarPedidoComponent implements OnInit{
   mostrarMensaje : boolean;
   mensajeTexto : string;
   redireccionMensaje : string;
-
+  isButtonDisabled: boolean = false;
   constructor(private metodosDePagoService : MetodosDePagoService,private router : RouterService,private carritoService : CarritoService,private pedidoService : PedidoService){
     this.usuario = {};
     this.pedido = null;
@@ -108,7 +108,7 @@ export class PagarPedidoComponent implements OnInit{
         this.pedido.setIdMetodoDePago(metodoDePago.id);
         this.actualizarEstados();
         this.mostrarMensaje = true;
-
+        this.isButtonDisabled = true;
       }
     }
   }

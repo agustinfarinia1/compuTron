@@ -23,7 +23,7 @@ export class ListaProductoAdminComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.productosService.getProductos().then((respuestaProductos) => this.listaProductos = respuestaProductos);
+    this.productosService.getProductosAdmin().then((respuestaProductos) => this.listaProductos = respuestaProductos);
     this.categoriasService.getCategorias().then((respuestaCategorias) => this.listaCategorias = respuestaCategorias);
   }
 

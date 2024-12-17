@@ -52,6 +52,17 @@ export class ProductosService {
           console.error("Error al obtener los datos:", error);
         }
   }
+  getProductosAdmin = async() => {
+    const url = `http://localhost:3000/stock?eliminado=false`;
+      try {
+          const respuesta = await fetch(url);
+          const datos = await respuesta.json();
+          return datos.map((item: any) => new Producto(item.codigoML,item.titulo,item.categoria,item.marca,item.modelo,item.cantidad,item.precio,item.imagen,item.id));
+        } catch (error) {
+          console.error("Error al obtener los datos:", error);
+        }
+  }
+
 
   // Obtiene productos por una categoria proporcionada por parametro.
   getProductosPorCategoria = async(categoria : string) => {

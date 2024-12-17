@@ -4,6 +4,7 @@ import { AuthService } from '../../services/auth.service';
 import { RouterService } from '../../services/router.service';
 import { CarritoService } from '../../services/carrito.service';
 
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -43,4 +44,5 @@ export class HomeComponent implements OnInit{
   irAProductos() {
     this.router.irAProductos();
   }
+
 }

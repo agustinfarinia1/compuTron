@@ -5,16 +5,18 @@ import { CommonModule } from '@angular/common';
 import { Carrito } from '../../models/carrito.model';
 import { RouterService } from '../../services/router.service';
 import { ProductosService } from '../../services/productos.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-carrito',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './carrito.component.html',
   styleUrls: ['./carrito.component.css'], 
 })
 export class CarritoComponent implements OnInit {
-  carrito: Carrito | null;
+  carrito: Carrito | null = null;
+
   cargaCarrito: boolean;
   productos : Producto [];
   precioTotal : number;
@@ -33,15 +35,37 @@ export class CarritoComponent implements OnInit {
       this.productos = respuestaProductos});
   }
 
+  // async obtenerCarrito() {
+  //   let usuario;
+  //   try {
+  //     usuario = localStorage.getItem("usuario");
+  //     if(usuario){
+  //       usuario = JSON.parse(usuario);
+  //       this.carrito = await this.carritoService.getCarritoServer(usuario.id);
+  //       if(this.carrito){
+  //         this.cargaCarrito = true;
+  //       }
+  //     }
+  //   } catch (error) {
+  //     console.error("Error al obtener el carrito:", error);
+  //   }
+  // }
   async obtenerCarrito() {
     let usuario;
     try {
       usuario = localStorage.getItem("usuario");
-      if(usuario){
+      if (usuario) {
         usuario = JSON.parse(usuario);
         this.carrito = await this.carritoService.getCarritoServer(usuario.id);
-        if(this.carrito){
+        if (this.carrito && this.carrito.getCarrito()) {
           this.cargaCarrito = true;
+  
+  
+          // Verificar si el carrito está vacío
+          if (this.carrito.getCarrito().length === 0) {
+            alert("El carrito está vacío. Redirigiendo al Home...");
+            this.router.irAHome(); // Llamada a tu routerService para ir al Home
+          }
         }
       }
     } catch (error) {

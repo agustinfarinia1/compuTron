@@ -26,7 +26,7 @@
                 </span>
             </div>
             <div class="d-grid">
-            <button type="submit" class="btn btn-dark" [disabled]="pagarPedidoForm.invalid">Pagar</button>
+            <button type="submit" class="btn btn-dark" [disabled]="pagarPedidoForm.invalid || isButtonDisabled" >Pagar</button>
             </div>
         </form>
     </div>
