@@ -95,7 +95,11 @@
 
       <div class="form-group">
         <label for="codigoPostal">Código Postal:</label>
-        <input type="number" id="codigoPostal" formControlName="codigoPostal">
+        <input 
+          type="number" 
+          id="codigoPostal"
+          min="1" 
+          formControlName="codigoPostal">
       </div>
 
       <div formGroupName="direccion" class="direccion-section">
@@ -117,6 +121,7 @@
             id="numero" 
             formControlName="numero"
             placeholder="Ingrese el número"
+            min="1"
           >
         </div>
 

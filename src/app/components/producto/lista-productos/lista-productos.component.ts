@@ -6,7 +6,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
 import { ProductosService } from '../../../services/productos.service';
 import { CategoriasService } from '../../../services/categorias.service';
-import { BuscadorComponent } from "../../buscador/buscador.component";
 
 @Component({
   selector: 'app-lista-productos',
@@ -21,17 +20,21 @@ export class ListaProductosComponent {
   @Input() categoriaListado: string = '';
   listaCategorias: [] = [];
   cargaLista: boolean = false;
-  p: number = 1;
+  pagina: number = 1;
+  categoriaSeleccionada: string = 'default';
   ordenSeleccionado: string = 'default';
   productosFiltrados: Producto[] = [];  // Inicializamos como vacío
   productosParaBuscar: Producto[] = [];  // Productos que coinciden con la búsqueda
   terminoBusqueda: string = '';  // Término actual de búsqueda
   productosSugeridos: Producto[] = [];  // Productos para autocompletar
+  verFiltros : boolean;
 
   constructor(
     private categoriasServicio: CategoriasService,
     private productosServicio: ProductosService
-  ) {}
+  ) {
+    this.verFiltros = true;
+  }
 
   ngOnInit(): void {
     this.categoriasServicio.getCategorias().then((respuestaCategorias) => this.listaCategorias = respuestaCategorias);
@@ -42,20 +45,34 @@ export class ListaProductosComponent {
         this.productosParaBuscar = [...this.listaProductos]; // Productos iniciales para la búsqueda
       });
     } else {
+      console.log(this.categoriaListado);
       this.productosServicio.getProductosPorCategoria(this.categoriaListado).then((respuestaProductos) => {
         this.listaProductos = respuestaProductos;
         this.productosFiltrados = [...this.listaProductos];
         this.productosParaBuscar = [...this.listaProductos]; // Productos iniciales para la búsqueda
+        this.verFiltros = false;
       });
     }
     this.cargaLista = true;
   }
 
+  filtrarCategoria() {
+    if(this.categoriaSeleccionada != "default" && this.listaCategorias){
+      let categoriaFiltro : any = this.listaCategorias.at(parseInt(this.categoriaSeleccionada));
+      if(categoriaFiltro){
+        this.productosFiltrados = this.listaProductos.filter((productoFiltrado) => productoFiltrado.getCategoria() === categoriaFiltro.id);
+      }
+    }
+    else{
+      this.productosFiltrados = this.listaProductos;
+    }
+  }
+
   ordenarProductos() {
     if (this.ordenSeleccionado === 'asc') {
-      this.listaProductos.sort((a, b) => a.getPrecio() - b.getPrecio());
+      this.productosFiltrados.sort((a, b) => a.getPrecio() - b.getPrecio());
     } else if (this.ordenSeleccionado === 'desc') {
-      this.listaProductos.sort((a, b) => b.getPrecio() - a.getPrecio());
+      this.productosFiltrados.sort((a, b) => b.getPrecio() - a.getPrecio());
     } else {
       this.productosServicio.getProductos().then((respuestaProductos) => this.listaProductos = respuestaProductos);
     }

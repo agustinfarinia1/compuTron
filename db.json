@@ -77,7 +77,7 @@
       "categoria": "C2",
       "marca": "Corsair",
       "modelo": "CMH32GX5M2B5200C40",
-      "cantidad": 16,
+      "cantidad": 10,
       "precio": 204938,
       "imagen": "http://http2.mlstatic.com/D_757994-MLU73551837907_122023-I.jpg",
       "eliminado": false
@@ -113,7 +113,7 @@
       "categoria": "C3",
       "marca": "AMD",
       "modelo": "4600g",
-      "cantidad": 10,
+      "cantidad": 16,
       "precio": 180639,
       "imagen": "http://http2.mlstatic.com/D_921573-MLU79266660511_092024-I.jpg",
       "eliminado": false
@@ -242,7 +242,7 @@
       "id": "P15",
       "codigoML": "MLA1732679638",
       "titulo": "Placa De Video Nvidia Msi  Ventus Xs Geforce Gtx 16 Series Gtx 1660 Super Geforce Gtx 1660 Super Ventus Xs Oc Oc Edition 6gb",
-      "categoria": "da6a",
+      "categoria": "C5",
       "marca": "MSI",
       "modelo": "GTX 1660 SUPER",
       "cantidad": 10,
@@ -254,7 +254,7 @@
       "id": "P16",
       "codigoML": "MLA1388318679",
       "titulo": "Auriculares Hyperx Cloud Stinger 2 Wireless Dts X Sound Pc",
-      "categoria": "e66e",
+      "categoria": "C8",
       "marca": "HyperX",
       "modelo": "676a2aa",
       "cantidad": 10,
@@ -266,7 +266,7 @@
       "id": "P17",
       "codigoML": "MLA1663048848",
       "titulo": "Level Up Hercules Gabinete Gamer Vidrio Templado X4 Fan Rgb Color Blanco",
-      "categoria": "87cb",
+      "categoria": "C7",
       "marca": "Level Up",
       "modelo": "Hércules",
       "cantidad": 13,
@@ -345,6 +345,78 @@
       "precio": 14900,
       "imagen": "http://http2.mlstatic.com/D_922991-MLA78327691274_082024-I.jpg",
       "eliminado": false
+    },
+    {
+      "id": "P24",
+      "codigoML": "MLA1927089184",
+      "titulo": "Gabinete Gamer Corsair 4000d Airflow Mid-tower Atx Black",
+      "categoria": "C7",
+      "marca": "Corsair",
+      "modelo": "Airflow",
+      "cantidad": 15,
+      "precio": 141549,
+      "imagen": "http://http2.mlstatic.com/D_953765-MLU72756729888_112023-I.jpg",
+      "eliminado": false
+    },
+    {
+      "id": "P25",
+      "codigoML": "MLA1925201350",
+      "titulo": "Disco Solido Kingston Ssd 1tb Nvme Pcie 4.0 M.2 Snv2s/1000g Color Azul",
+      "categoria": "C6",
+      "marca": "Kingston",
+      "modelo": "SNV2S/1000G",
+      "cantidad": 16,
+      "precio": 84999,
+      "imagen": "http://http2.mlstatic.com/D_830625-MLA52062909392_102022-I.jpg",
+      "eliminado": false
+    },
+    {
+      "id": "P26",
+      "codigoML": "MLA1464997840",
+      "titulo": "Disco Kingston Sólido  Sa400s37/480g Sata Iii 480gb Negro",
+      "categoria": "C6",
+      "marca": "Kingston",
+      "modelo": "SA400S37/480G",
+      "cantidad": 12,
+      "precio": 45744.6,
+      "imagen": "http://http2.mlstatic.com/D_909330-MLU78030257407_072024-I.jpg",
+      "eliminado": false
+    },
+    {
+      "id": "P27",
+      "codigoML": "MLA923768287",
+      "titulo": "Fuente De Alimentación Para Pc Sentey High Beat Power Hbp700-gs 700w Negra 220v",
+      "categoria": "C1",
+      "marca": "Sentey",
+      "modelo": "HBP700-GS",
+      "cantidad": 11,
+      "precio": 99000,
+      "imagen": "http://http2.mlstatic.com/D_871496-MLA45687292161_042021-I.jpg",
+      "eliminado": false
+    },
+    {
+      "id": "P28",
+      "codigoML": "MLA1969263268",
+      "titulo": "Fuente De Alimentación Para Pc Gigabyte Gp-p550b 550w Black 220v",
+      "categoria": "C1",
+      "marca": "Gigabyte",
+      "modelo": "GP-P550B",
+      "cantidad": 19,
+      "precio": 78490,
+      "imagen": "http://http2.mlstatic.com/D_864104-MLU78583822913_082024-I.jpg",
+      "eliminado": false
+    },
+    {
+      "id": "P29",
+      "codigoML": "MLA1377811108",
+      "titulo": "Fuente De Alimentación Para Pc Thermaltake Smart Spd-0600 600w",
+      "categoria": "C1",
+      "marca": "Thermaltake",
+      "modelo": "SPD-0600",
+      "cantidad": 11,
+      "precio": 78235,
+      "imagen": "http://http2.mlstatic.com/D_822359-MLA74934597829_032024-I.jpg",
+      "eliminado": false
     }
   ],
   "usuarios": [
@@ -359,43 +431,43 @@
       "codigoPostal": 7600,
       "direccion": {
         "calle": "luro",
-        "numero": 1515,
-        "piso": "2",
-        "departamento": "C"
+        "numero": 1000,
+        "piso": "",
+        "departamento": ""
       },
       "role": "admin"
     },
     {
       "id": "2",
-      "email": "agustin.farinia@gmail.com",
-      "nombre": "agustin",
-      "apellido": "fariña",
-      "nombreUsuario": "agustin",
-      "contrasena": "agustin123",
-      "fechaNacimiento": "3333-03-31",
+      "email": "admin2@gmail.com",
+      "nombre": "pedro",
+      "apellido": "gutierrez",
+      "nombreUsuario": "admin2",
+      "contrasena": "admin123",
+      "fechaNacimiento": "2005-12-18",
       "codigoPostal": 7600,
       "direccion": {
-        "calle": "carasa",
-        "numero": 1515,
-        "piso": "2",
+        "calle": "colon",
+        "numero": 1123,
+        "piso": "1",
         "departamento": "A"
       },
       "role": "admin"
     },
     {
       "id": "3",
-      "email": "prueba@gmail.com",
-      "nombre": "ernesto",
-      "apellido": "copa",
-      "nombreUsuario": "prueba",
-      "contrasena": "prueba123",
-      "fechaNacimiento": "2000-12-10",
+      "email": "agustin.farinia@gmail.com",
+      "nombre": "agustin",
+      "apellido": "fariña",
+      "nombreUsuario": "agustin",
+      "contrasena": "agustin123",
+      "fechaNacimiento": "2000-04-14",
       "codigoPostal": 7600,
       "direccion": {
-        "calle": "constitucion",
-        "numero": 5686,
-        "piso": "2",
-        "departamento": "C"
+        "calle": "etchegaray",
+        "numero": 1212,
+        "piso": "",
+        "departamento": ""
       },
       "role": "user"
     },
@@ -404,32 +476,15 @@
       "email": "theirsha17@gmail.com",
       "nombre": "ciro",
       "apellido": "lopez",
-      "nombreUsuario": "Ciro1",
-      "contrasena": "1234ciro",
-      "fechaNacimiento": "2024-11-08",
+      "nombreUsuario": "ciro",
+      "contrasena": "ciro1234",
+      "fechaNacimiento": "2003-12-26",
       "codigoPostal": 7600,
       "direccion": {
-        "calle": "Mariano Acosta",
-        "numero": 1,
+        "calle": "bahia blanca",
+        "numero": 2323,
         "piso": "1",
-        "departamento": "1"
-      },
-      "role": "user"
-    },
-    {
-      "id": "5",
-      "email": "prueba2@gmail.com",
-      "nombre": "patricio",
-      "apellido": "rey",
-      "nombreUsuario": "prueba2",
-      "contrasena": "prueba123",
-      "fechaNacimiento": "2001-02-12",
-      "codigoPostal": 7600,
-      "direccion": {
-        "calle": "arana y goiri",
-        "numero": 3434,
-        "piso": "",
-        "departamento": ""
+        "departamento": "D"
       },
       "role": "user"
     }
@@ -437,123 +492,92 @@
   "carrito": [
     {
       "idUsuario": "1",
-      "carrito": [],
-      "id": "CR1"
-    },
-    {
-      "idUsuario": "1",
       "carrito": [
         {
-          "id": "P7",
-          "codigoML": "MLA1456936255",
-          "titulo": "Procesador Gamer Intel Core I5-12400f Bx8071512400f De 6 Núcleos Y  4.4ghz De Frecuencia",
-          "categoria": "C3",
-          "marca": "Intel",
-          "modelo": "i5-12400F",
-          "cantidad": 1,
-          "precio": 209089,
-          "imagen": "http://http2.mlstatic.com/D_618874-MLU77742070764_072024-I.jpg",
+          "id": "P25",
+          "codigoML": "MLA1925201350",
+          "titulo": "Disco Solido Kingston Ssd 1tb Nvme Pcie 4.0 M.2 Snv2s/1000g Color Azul",
+          "categoria": "C6",
+          "marca": "Kingston",
+          "modelo": "SNV2S/1000G",
+          "cantidad": 4,
+          "precio": 84999,
+          "imagen": "http://http2.mlstatic.com/D_830625-MLA52062909392_102022-I.jpg",
           "eliminado": false
         }
       ],
-      "id": "CR2"
+      "id": "ff69"
+    },
+    {
+      "id": "483d",
+      "idUsuario": "2",
+      "carrito": []
     },
     {
       "idUsuario": "3",
       "carrito": [],
-      "id": "b3f0"
+      "id": "4f82"
     },
     {
-      "id": "60fc",
       "idUsuario": "4",
-      "carrito": []
-    },
-    {
-      "id": "c06d",
-      "idUsuario": "5",
-      "carrito": []
-    },
-    {
-      "id": "0991",
-      "idUsuario": "0002",
-      "carrito": []
-    },
-    {
-      "id": "cfcb",
-      "idUsuario": "0002",
-      "carrito": []
+      "carrito": [],
+      "id": "16b3"
     }
   ],
   "pedidos": [
     {
       "id": "1",
-      "idUsuario": "2",
-      "fechaCreacion": "2024-11-12T18:06:47.939Z",
-      "precioFinal": 395577,
-      "idMetodoDePago": "M3",
+      "idUsuario": "3",
+      "fechaCreacion": "2024-12-17T19:02:04.351Z",
+      "precioFinal": 829752,
+      "idMetodoDePago": "M4",
       "direccionEnvio": {
-        "calle": "carasa",
-        "numero": 1515,
-        "piso": "2",
-        "departamento": "A"
+        "calle": "etchegaray",
+        "numero": 1212
       },
-      "idEstadoPedido": "1",
+      "idEstadoPedido": "2",
       "listaPedido": [
         {
           "id": "P1",
-          "cantidad": 1
-        },
-        {
-          "id": "P4",
-          "cantidad": 1
+          "cantidad": 4
         }
       ]
     },
     {
       "id": "2",
-      "idUsuario": "1",
-      "fechaCreacion": "2024-12-16T13:59:56.544Z",
-      "precioFinal": 3289008,
-      "idMetodoDePago": "M4",
+      "idUsuario": "4",
+      "fechaCreacion": "2024-12-17T19:02:42.668Z",
+      "precioFinal": 732556,
+      "idMetodoDePago": "M1",
       "direccionEnvio": {
-        "calle": "luro",
-        "numero": 1515,
-        "piso": "2",
-        "departamento": "C"
+        "calle": "bahia blanca",
+        "numero": 2323,
+        "piso": "1",
+        "departamento": "D"
       },
-      "idEstadoPedido": "1",
+      "idEstadoPedido": "2",
       "listaPedido": [
         {
-          "id": "P1",
-          "cantidad": 16
+          "id": "P4",
+          "cantidad": 4
         }
       ]
     },
     {
       "id": "3",
       "idUsuario": "1",
-      "fechaCreacion": "2024-12-16T16:18:58.686Z",
-      "precioFinal": 1256717,
-      "idMetodoDePago": "M3",
+      "fechaCreacion": "2024-12-17T19:03:23.562Z",
+      "precioFinal": 349996,
+      "idMetodoDePago": "M2",
       "direccionEnvio": {
         "calle": "luro",
-        "numero": 1515,
-        "piso": "2",
-        "departamento": "C"
+        "numero": 1000
       },
-      "idEstadoPedido": "1",
+      "idEstadoPedido": "2",
       "listaPedido": [
         {
-          "id": "P4",
-          "cantidad": 1
-        },
-        {
-          "id": "P7",
-          "cantidad": 1
-        },
-        {
-          "id": "P6",
-          "cantidad": 1
+          "id": "P25",
+          "cantidad": 4
         }
       ]
     }
