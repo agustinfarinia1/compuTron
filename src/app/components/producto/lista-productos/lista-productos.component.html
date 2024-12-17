@@ -8,12 +8,33 @@
     </select>
   </div>
 
+  <!-- Buscador con autocompletado -->
+  <div class="d-flex mb-3">
+    <input type="text" class="form-control" [(ngModel)]="terminoBusqueda" (input)="actualizarBusqueda(terminoBusqueda)" placeholder="Buscar productos...">
+    <button class="btn btn-primary ms-2" (click)="buscarProductos()">Buscar</button>
+  </div>
+
+<!-- Sugerencias mientras se escribe -->
+<div *ngIf="terminoBusqueda && productosSugeridos.length" class="list-group">
+  <ul class="list-group">
+    <li *ngFor="let producto of productosSugeridos" 
+        class="list-group-item list-group-item-action"
+        (click)="seleccionarSugerencia(producto)"
+        style="cursor: pointer;">
+      {{ producto.getTitulo() }}
+    </li>
+  </ul>
+</div>
+
+
+  <!-- Mostrar productos con paginación solo si la lista de productos está cargada -->
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4" *ngIf="cargaLista">
-    <div class="col" *ngFor="let producto of listaProductos | paginate: { itemsPerPage: 8, currentPage: p }; let i=index">
+    <div class="col" *ngFor="let producto of productosFiltrados | paginate: { itemsPerPage: 8, currentPage: p }; let i=index">
       <app-producto-item [producto]="producto" [indice]="i" [listaCategorias]="listaCategorias"></app-producto-item>
     </div>
   </div>
 
+  <!-- Paginación -->
   <div class="d-flex justify-content-center mt-2">
     <pagination-controls class="my-pagination" (pageChange)="p = $event" previousLabel="Anterior" nextLabel="Siguiente">
     </pagination-controls>
