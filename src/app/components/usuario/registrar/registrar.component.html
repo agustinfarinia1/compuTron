@@ -68,8 +68,30 @@
 
       <div class="form-group">
         <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-        <input type="date" id="fechaNacimiento" formControlName="fechaNacimiento">
+        <input 
+          type="date" 
+          id="fechaNacimiento" 
+          formControlName="fechaNacimiento"
+          class="form-control"
+        >
+        <!-- Mensajes de error -->
+        <div *ngIf="registroForm.get('fechaNacimiento')?.errors && registroForm.get('fechaNacimiento')?.touched" class="text-danger">
+          <small *ngIf="registroForm.get('fechaNacimiento')?.errors?.['required']">
+            La fecha de nacimiento es obligatoria.
+          </small>
+          <small *ngIf="registroForm.get('fechaNacimiento')?.errors?.['fechaFutura']">
+            No puedes seleccionar una fecha futura.
+          </small>
+          <span class="error" *ngIf="registroForm.controls['fechaNacimiento'].touched 
+          && registroForm.controls['fechaNacimiento'].hasError('anioInvalido')">
+          El año no puede ser menor a 1900.
+          </span>
+          <small *ngIf="registroForm.get('fechaNacimiento')?.errors?.['menorDeEdad']">
+            Debes tener al menos 18 años.
+          </small>
+        </div>
       </div>
+      
 
       <div class="form-group">
         <label for="codigoPostal">Código Postal:</label>

@@ -42,7 +42,7 @@ export class RegistroComponent {
           this.alfanumericaValidator 
         ]
       ],
-      fechaNacimiento: ['', Validators.required],
+      fechaNacimiento: ['', [Validators.required, this.validarFechaNacimiento]],
       codigoPostal: ['', Validators.required],
       direccion: this.fb.group({
         calle: ['', Validators.required],
@@ -51,6 +51,39 @@ export class RegistroComponent {
         departamento: ['']
       })
     });
+  }
+  // Validador personalizado para la fecha de nacimiento
+  validarFechaNacimiento(control: AbstractControl): ValidationErrors | null {
+    const fechaSeleccionada = new Date(control.value);
+    const hoy = new Date();
+    const limiteAnioMinimo = 1900;
+
+    if (isNaN(fechaSeleccionada.getTime())) {
+      return null; // No validar si la fecha está vacía
+    }
+    // No permitir fechas futuras
+    if (fechaSeleccionada > hoy ) {
+      return { fechaFutura: true };
+    }
+    if (fechaSeleccionada.getFullYear() < limiteAnioMinimo) {
+      return { anioInvalido: true }; // Error: año menor a 1900
+    }
+  
+
+    // Calcular la edad
+    let edad = hoy.getFullYear() - fechaSeleccionada.getFullYear();
+    const mes = hoy.getMonth() - fechaSeleccionada.getMonth();
+    const dia = hoy.getDate() - fechaSeleccionada.getDate();
+
+    if (mes < 0 || (mes === 0 && dia < 0)) {
+      edad--;
+    }
+
+    // Verificar si tiene menos de 18 años
+    if (edad < 18) {
+      return { menorDeEdad: true };
+    }
+    return null; // Fecha válida
   }
   // todos los mensajes son para mostrar en consola no para el usuario
   alfanumericaValidator(control: AbstractControl): ValidationErrors | null {
