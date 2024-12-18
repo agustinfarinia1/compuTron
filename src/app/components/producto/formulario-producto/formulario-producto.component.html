@@ -61,14 +61,14 @@
     </div>
     <div class="col-md-6">
       <label for="cantidad" class="form-label text-dark">Cantidad</label>
-      <input id="cantidad" class="form-control bg-white" type="number" name="cantidad" placeholder="Cantidad producto" min="1" formControlName="cantidad">
+      <input id="cantidad" class="form-control bg-white" type="number" name="cantidad" placeholder="Cantidad producto" min="1" max="100" formControlName="cantidad">
       <span *ngIf="productoFormulario.get('cantidad')?.invalid && productoFormulario.get('cantidad')?.touched" class="text-danger">
         Error-Cantidad : Dato Incorrecto
       </span>
     </div>
     <div class="col-md-6">
       <label for="precio" class="form-label text-dark">Precio</label>
-      <input id="precio" class="form-control bg-white" type="number" name="precio" placeholder="Precio producto" min="1000" formControlName="precio">
+      <input id="precio" class="form-control bg-white" type="number" name="precio" placeholder="Precio producto" min="1000" max="10000000" formControlName="precio">
       <span *ngIf="productoFormulario.get('modelo')?.invalid && productoFormulario.get('modelo')?.touched" class="text-danger">
         Error-Precio : Dato Incorrecto
       </span>

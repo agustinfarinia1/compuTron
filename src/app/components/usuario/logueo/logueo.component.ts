@@ -25,6 +25,8 @@ export class LogueoComponent {
           alert('Inicio de sesión exitoso');
           this.router.irAHome();
         } else {
+          this.loginData.nombreUsuario = "";
+          this.loginData.contrasena = "";
           alert('Usuario o contraseña incorrectos');
         }
       });
