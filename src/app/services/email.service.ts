@@ -6,9 +6,9 @@ import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
 })
 export class EmailService {
   // Keys de EmailJS
-  private serviceID = 'service_gdo1qng';
-  private templateID = 'template_cmrch8s';
-  private userID = 'G9kIoumErpWJWTI-w';
+  private serviceID = 'service_2pbluc2';
+  private templateID = 'template_y8rr51p';
+  private userID = 'mUHz1rV4pPCDOWm0F';
 
   constructor() {}
 

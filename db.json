@@ -77,7 +77,7 @@
       "categoria": "C2",
       "marca": "Corsair",
       "modelo": "CMH32GX5M2B5200C40",
-      "cantidad": 10,
+      "cantidad": 7,
       "precio": 204938,
       "imagen": "http://http2.mlstatic.com/D_757994-MLU73551837907_122023-I.jpg",
       "eliminado": false
@@ -89,7 +89,7 @@
       "categoria": "C2",
       "marca": "Kingston",
       "modelo": "KF432C16BB/8",
-      "cantidad": 15,
+      "cantidad": 0,
       "precio": 29715,
       "imagen": "http://http2.mlstatic.com/D_805641-MLA74781352069_022024-I.jpg",
       "eliminado": false
@@ -101,7 +101,7 @@
       "categoria": "C2",
       "marca": "SK hynix",
       "modelo": "HMA81GS6AFR8N-UH",
-      "cantidad": 16,
+      "cantidad": 1,
       "precio": 36994,
       "imagen": "http://http2.mlstatic.com/D_835706-MLA74781908139_022024-I.jpg",
       "eliminado": false
@@ -113,7 +113,7 @@
       "categoria": "C3",
       "marca": "AMD",
       "modelo": "4600g",
-      "cantidad": 16,
+      "cantidad": 1,
       "precio": 180639,
       "imagen": "http://http2.mlstatic.com/D_921573-MLU79266660511_092024-I.jpg",
       "eliminado": false
@@ -125,7 +125,7 @@
       "categoria": "C3",
       "marca": "AMD",
       "modelo": "5700G",
-      "cantidad": 12,
+      "cantidad": 0,
       "precio": 304339,
       "imagen": "http://http2.mlstatic.com/D_622790-MLU72699561931_112023-I.jpg",
       "eliminado": false
@@ -137,7 +137,7 @@
       "categoria": "C3",
       "marca": "Intel",
       "modelo": "i9-14900K",
-      "cantidad": 13,
+      "cantidad": 12,
       "precio": 856989,
       "imagen": "http://http2.mlstatic.com/D_972763-MLU78939419339_092024-I.jpg",
       "eliminado": false
@@ -149,7 +149,7 @@
       "categoria": "C3",
       "marca": "Intel",
       "modelo": "i5-12400F",
-      "cantidad": 13,
+      "cantidad": 12,
       "precio": 209089,
       "imagen": "http://http2.mlstatic.com/D_618874-MLU77742070764_072024-I.jpg",
       "eliminado": false
@@ -161,7 +161,7 @@
       "categoria": "C4",
       "marca": "Asus",
       "modelo": "A320M-K",
-      "cantidad": 18,
+      "cantidad": 16,
       "precio": 186497,
       "imagen": "http://http2.mlstatic.com/D_923272-MLM43779520023_102020-I.jpg",
       "eliminado": false
@@ -173,7 +173,7 @@
       "categoria": "C4",
       "marca": "MSI",
       "modelo": "B650M GAMING PLUS WIFI",
-      "cantidad": 11,
+      "cantidad": 0,
       "precio": 252995.1,
       "imagen": "http://http2.mlstatic.com/D_662498-MLU76802482028_062024-I.jpg",
       "eliminado": false
@@ -329,7 +329,7 @@
       "categoria": "C8",
       "marca": "Genius",
       "modelo": "DX-120",
-      "cantidad": 10,
+      "cantidad": 6,
       "precio": 4821,
       "imagen": "http://http2.mlstatic.com/D_917606-MLA32845594879_112019-I.jpg",
       "eliminado": false
@@ -353,7 +353,7 @@
       "categoria": "C7",
       "marca": "Corsair",
       "modelo": "Airflow",
-      "cantidad": 15,
+      "cantidad": 14,
       "precio": 141549,
       "imagen": "http://http2.mlstatic.com/D_953765-MLU72756729888_112023-I.jpg",
       "eliminado": false
@@ -413,9 +413,21 @@
       "categoria": "C1",
       "marca": "Thermaltake",
       "modelo": "SPD-0600",
-      "cantidad": 11,
+      "cantidad": 10,
       "precio": 78235,
       "imagen": "http://http2.mlstatic.com/D_822359-MLA74934597829_032024-I.jpg",
+      "eliminado": false
+    },
+    {
+      "id": "P30",
+      "codigoML": "MLA1109822968",
+      "titulo": "Placa De Video Nvidia Msi Geforce Gtx 1050ti Oc Dual Fan 4gb",
+      "categoria": "C5",
+      "marca": "MSI",
+      "modelo": "GTX 1050 Ti",
+      "cantidad": 0,
+      "precio": 475961.49,
+      "imagen": "http://http2.mlstatic.com/D_993264-MLA48023653267_102021-I.jpg",
       "eliminado": false
     }
   ],
@@ -492,20 +504,7 @@
   "carrito": [
     {
       "idUsuario": "1",
-      "carrito": [
-        {
-          "id": "P25",
-          "codigoML": "MLA1925201350",
-          "titulo": "Disco Solido Kingston Ssd 1tb Nvme Pcie 4.0 M.2 Snv2s/1000g Color Azul",
-          "categoria": "C6",
-          "marca": "Kingston",
-          "modelo": "SNV2S/1000G",
-          "cantidad": 4,
-          "precio": 84999,
-          "imagen": "http://http2.mlstatic.com/D_830625-MLA52062909392_102022-I.jpg",
-          "eliminado": false
-        }
-      ],
+      "carrito": [],
       "id": "ff69"
     },
     {
@@ -526,28 +525,10 @@
   ],
   "pedidos": [
     {
-      "id": "1",
-      "idUsuario": "3",
-      "fechaCreacion": "2024-12-17T19:02:04.351Z",
-      "precioFinal": 829752,
-      "idMetodoDePago": "M4",
-      "direccionEnvio": {
-        "calle": "etchegaray",
-        "numero": 1212
-      },
-      "idEstadoPedido": "2",
-      "listaPedido": [
-        {
-          "id": "P1",
-          "cantidad": 4
-        }
-      ]
-    },
-    {
-      "id": "2",
+      "id": "16",
       "idUsuario": "4",
-      "fechaCreacion": "2024-12-17T19:02:42.668Z",
-      "precioFinal": 732556,
+      "fechaCreacion": "2024-12-18T01:27:11.079Z",
+      "precioFinal": 46994,
       "idMetodoDePago": "M1",
       "direccionEnvio": {
         "calle": "bahia blanca",
@@ -555,29 +536,29 @@
         "piso": "1",
         "departamento": "D"
       },
-      "idEstadoPedido": "2",
+      "idEstadoPedido": "4",
       "listaPedido": [
         {
-          "id": "P4",
-          "cantidad": 4
+          "id": "P3",
+          "cantidad": 1
         }
       ]
     },
     {
-      "id": "3",
+      "id": "2",
       "idUsuario": "1",
-      "fechaCreacion": "2024-12-17T19:03:23.562Z",
-      "precioFinal": 349996,
+      "fechaCreacion": "2024-12-18T05:12:17.779Z",
+      "precioFinal": 314339,
       "idMetodoDePago": "M2",
       "direccionEnvio": {
         "calle": "luro",
         "numero": 1000
       },
-      "idEstadoPedido": "2",
+      "idEstadoPedido": "1",
       "listaPedido": [
         {
-          "id": "P25",
-          "cantidad": 4
+          "id": "P5",
+          "cantidad": 1
         }
       ]
     }
