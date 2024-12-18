@@ -51,7 +51,12 @@ export class GestionPerfilComponent implements OnInit {
       });
     }
     else{
-      alert("ERROR: su fecha de nacimiento es erronea");
+      if(fechaComprobacion > this.fechaMinima){
+        alert("ERROR: Su edad no puede ser menor a 18 años")
+      }
+      if(fechaComprobacion.getFullYear() <= 1900){
+        alert("ERROR: Su fecha de nacimiento tien que ser a partir de 1900");
+      }
     }
   }
 }

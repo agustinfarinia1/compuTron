@@ -20,32 +20,55 @@ import { ProductoListaPedidoComponent } from '../producto-lista-pedido/producto-
   templateUrl: './gestion-pedido-admin.component.html',
   styleUrl: './gestion-pedido-admin.component.css'
 })
-export class GestionPedidoAdminComponent implements OnInit{
+export class GestionPedidoAdminComponent implements OnInit {
+  pedidos: Pedido[] | null;
+  pedidosFiltrados: Pedido[] | null; // Lista de pedidos filtrados
+  metodoDePagos: MetodoDePago[] | null;
+  estadoPedidos: EstadoPedido[] | null;
+  productos: Producto[] | null;
+  filtrosActivos: string[] = []; // Estados seleccionados para el filtro
 
-  pedidos : Pedido[] | null;
-  metodoDePagos : MetodoDePago[] | null;
-  estadoPedidos : EstadoPedido[] | null;
-  productos : Producto[] | null;
- 
   constructor(
-    private PedidoService : PedidoService,
-    private estadoPedidoService : EstadoPedidoService,
-    private productoService : ProductosService,
-    private metodoDePagoService : MetodosDePagoService, 
+    private PedidoService: PedidoService,
+    private estadoPedidoService: EstadoPedidoService,
+    private productoService: ProductosService,
+    private metodoDePagoService: MetodosDePagoService,
     private correoService: EmailService,
     private usuarioService: UsuarioService
-  ){
+  ) {
     this.pedidos = null;
+    this.pedidosFiltrados = null;
     this.metodoDePagos = null;
     this.estadoPedidos = null;
     this.productos = null;
   }
 
   ngOnInit(): void {
-    this.PedidoService.getPedidos().then((respuestaPedidos) => this.pedidos = respuestaPedidos);
-    this.metodoDePagoService.getMetodosDePago().then((respuestaMetodoDePago) => this.metodoDePagos = respuestaMetodoDePago);
-    this.estadoPedidoService.getEstadoPedido().then((respuestaEstadoPedido) => this.estadoPedidos = respuestaEstadoPedido);
-    this.productoService.getProductos().then((respuestaProducto) => this.productos = respuestaProducto);
+    this.PedidoService.getPedidos().then((respuestaPedidos) => {
+      this.pedidos = respuestaPedidos || [];
+      this.pedidosFiltrados = this.pedidos ? [...this.pedidos] : []; // Inicialmente mostrar todos los pedidos
+    });
+    this.metodoDePagoService.getMetodosDePago().then((respuestaMetodoDePago) => (this.metodoDePagos = respuestaMetodoDePago));
+    this.estadoPedidoService.getEstadoPedido().then((respuestaEstadoPedido) => (this.estadoPedidos = respuestaEstadoPedido));
+    this.productoService.getProductos().then((respuestaProducto) => (this.productos = respuestaProducto));
+  }
+
+  filtrarPedidos(estado: string, event: Event): void {
+    const checkbox = event.target as HTMLInputElement;
+  
+    if (checkbox.checked) {
+      this.filtrosActivos.push(estado); // Agregar estado al filtro
+    } else {
+      this.filtrosActivos = this.filtrosActivos.filter((e) => e !== estado); // Quitar estado del filtro
+    }
+  
+    if (this.filtrosActivos.length > 0) {
+      this.pedidosFiltrados = this.pedidos
+        ? this.pedidos.filter((pedido) => this.filtrosActivos.includes(pedido.getIdEstadoPedido()))
+        : [];
+    } else {
+      this.pedidosFiltrados = this.pedidos ? [...this.pedidos] : []; // Sin filtros, mostrar todos
+    }
   }
 
   avanzarEstadoPedido(pedido: Pedido): void {
@@ -63,7 +86,7 @@ export class GestionPedidoAdminComponent implements OnInit{
             if(verificacion){
               this.actualizarStockProductos(pedido.getListaPedido());
               pedido.setIdEstadoPedido("2");
-              this.correoService.enviarConfirmacionPedido(usuario.email, pedido.getId());
+              //this.correoService.enviarConfirmacionPedido(usuario.email, pedido.getId());
             }
             else{
               pedido.setIdEstadoPedido("1");
@@ -71,11 +94,11 @@ export class GestionPedidoAdminComponent implements OnInit{
             }
           }
           if (pedido.getIdEstadoPedido() === '3') {
-            this.correoService.enviarEnvioPedido(usuario.email, pedido.getId());
+            //this.correoService.enviarEnvioPedido(usuario.email, pedido.getId());
             pedido.setIdEstadoPedido("3");
           }
           if (pedido.getIdEstadoPedido() === '4') {
-            this.correoService.enviarFinPedido(usuario.email, pedido.getId());
+           // this.correoService.enviarFinPedido(usuario.email, pedido.getId());
             pedido.setIdEstadoPedido("4");
           }
           // Actualiza el estado del pedido
