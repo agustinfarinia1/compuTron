@@ -13,14 +13,14 @@
             </div>
             <div class="col-md-6">
                 <label for="numeroCalleUsuario" class="form-label text-dark">Numero Calle</label>
-                <input id="numeroCalleUsuario" class="form-control bg-white" type="number" name="numeroCalleUsuario" placeholder="Numero Calle" formControlName="numeroDireccionUsuario">
+                <input id="numeroCalleUsuario" class="form-control bg-white" type="number" name="numeroCalleUsuario" placeholder="Numero Calle" min="1" formControlName="numeroDireccionUsuario">
                 <span *ngIf="pedidoFormulario.get('numeroDireccionUsuario')?.invalid && pedidoFormulario.get('numeroDireccionUsuario')?.touched" class="text-danger">
                     Error-Numero-Calle-Usuario: Dato Incorrecto
                 </span>
             </div>
             <div class="col-md-6">
                 <label for="pisoUsuario" class="form-label text-dark">Piso</label>
-                <input id="pisoUsuario" class="form-control bg-white" type="number" name="pisoUsuario" placeholder="Piso Departamento" formControlName="pisoDireccionUsuario">
+                <input id="pisoUsuario" class="form-control bg-white" type="number" name="pisoUsuario" placeholder="Piso Departamento" min="1" formControlName="pisoDireccionUsuario">
             </div>
             <div class="col-md-6">
                 <label for="departamentoUsuario" class="form-label text-dark">Numero Departamento</label>
@@ -42,11 +42,11 @@
             </div>
             <div class="col-md-6">
                 <label for="numeroCalleUsuario" class="form-label text-dark">Numero Calle</label>
-                <input id="numeroCalleUsuario" class="form-control bg-white" type="number" name="numeroCalleUsuario" placeholder="Numero Calle Alternativa" formControlName="numeroDireccionAlternativa">
+                <input id="numeroCalleUsuario" class="form-control bg-white" type="number" name="numeroCalleUsuario" placeholder="Numero Calle Alternativa" min="1" formControlName="numeroDireccionAlternativa">
             </div>
             <div class="col-md-6">
                 <label for="pisoAlternativa" class="form-label text-dark">Piso</label>
-                <input id="pisoAlternativa" class="form-control bg-white" type="number" name="pisoAlternativa" placeholder="Piso Departamento" formControlName="pisoDireccionAlternativa">
+                <input id="pisoAlternativa" class="form-control bg-white" type="number" name="pisoAlternativa" placeholder="Piso Departamento" min="1" formControlName="pisoDireccionAlternativa">
             </div>
             <div class="col-md-6">
                 <label for="departamentoAlternativa" class="form-label text-dark">Numero Departamento</label>
