@@ -85,3 +85,14 @@
     <button type="submit" class="btn btn-dark" [disabled]="productoFormulario.invalid">{{textoBoton}}</button>
   </div>
 </form>
+<div class="row justify-content-center mt-2" *ngIf="verificacionEdicion">
+  <div class="col-md-6">
+      <div class="card">
+          <h3 class="d-flex justify-content-center">¿Confirma la edicion de este producto?</h3>
+          <div class="d-flex justify-content-center mt-3 mb-2">
+              <a class="btn btn-dark me-2" (click)="cancelarEdicion()">Cancelar</a>
+              <a class="btn btn-warning" (click)="confirmacionEdicion()">Editar</a>
+          </div>
+      </div>
+  </div>
+</div>

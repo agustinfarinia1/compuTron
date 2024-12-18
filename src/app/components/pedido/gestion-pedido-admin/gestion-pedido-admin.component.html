@@ -1,28 +1,71 @@
 <div class="container">
-    <h3 class="d-flex justify-content-center">Gestion Pedidos</h3>
-    <div class="row gy-3 mb-3" *ngIf="pedidos">
-        <div class="col-12" *ngFor="let pedido of pedidos; let i = index">
-            <div class="border p-3 d-flex justify-content-between align-items-center bg-warning">
-                <div>
-                    <h5 class="mb-1">Pedido Numero: {{pedido.getId()}}</h5>
-                    <p class="mb-1">Fecha pedido: {{pedido.getFechaCreacion() | date}}</p>
-                    <p class="mb-1">PrecioFinal: {{pedido.getPrecioFinal() | currency}}</p>
-                    <p class="mb-1">Metodo de Pago: {{getMetodoDePago(pedido.getIdMetodoDePago())?.getValor()}}</p>
-                    <p class="mb-1">Estado pedido: {{getEstadoPedido(pedido.getIdEstadoPedido())?.getValor()}}</p>
-                </div>
-                <div>
-                    <button class="btn btn-sm btn-dark me-2" (click)="avanzarEstadoPedido(pedido)" *ngIf="pedido.getIdEstadoPedido() === '1'">Confirmar Pedido</button>
-                    <button class="btn btn-sm btn-dark me-2" (click)="avanzarEstadoPedido(pedido)" *ngIf="pedido.getIdEstadoPedido() === '2'">Enviar Pedido</button>
-                    <button class="btn btn-sm btn-dark" (click)="avanzarEstadoPedido(pedido)" *ngIf="pedido.getIdEstadoPedido() === '3'">Finalizar Pedido</button>
-                </div>
-            </div>
-            <div class="border bg-warning p-3" *ngIf="pedido">
-                <div *ngFor="let itemPedido of pedido.getListaPedido(); let i = index">
-                    <app-producto-lista-pedido [itemPedido]="itemPedido">
+    <h3 class="d-flex justify-content-center">Gestión de Pedidos</h3>
 
-                    </app-producto-lista-pedido>
+    <!-- Filtros de Pedidos -->
+    <div class="mb-3">
+        <h4>Filtrar Pedidos</h4>
+        <label class="form-check-label me-3">
+            <input class="form-check-input" type="checkbox" (change)="filtrarPedidos('1', $event)" /> A Confirmar
+        </label>
+        <label class="form-check-label me-3">
+            <input class="form-check-input" type="checkbox" (change)="filtrarPedidos('2', $event)" /> Para Enviar
+        </label>
+        <label class="form-check-label me-3">
+            <input class="form-check-input" type="checkbox" (change)="filtrarPedidos('3', $event)" /> Para Finalizar
+        </label>
+        <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" (change)="filtrarPedidos('4', $event)" /> Finalizados
+        </label>
+    </div>
+
+    <!-- Lista de Pedidos Filtrados -->
+    <div *ngIf="pedidosFiltrados?.length; else noPedidos">
+        <div class="row gy-3 mb-3" *ngFor="let pedido of pedidosFiltrados">
+            <div class="col-12">
+                <!-- Detalles del Pedido -->
+                <div class="border p-3 d-flex justify-content-between align-items-center bg-warning">
+                    <div>
+                        <h5 class="mb-1">Pedido Número: {{ pedido?.getId() }}</h5>
+                        <p class="mb-1">Fecha Pedido: {{ pedido?.getFechaCreacion() | date }}</p>
+                        <p class="mb-1">Precio Final: {{ pedido?.getPrecioFinal() | currency }}</p>
+                        <p class="mb-1">Método de Pago: {{ getMetodoDePago(pedido.getIdMetodoDePago())?.getValor() }}</p>
+                        <p class="mb-1">Estado Pedido: {{ getEstadoPedido(pedido.getIdEstadoPedido())?.getValor() }}</p>
+                    </div>
+                    <div>
+                        <!-- Botones según el estado -->
+                        <button 
+                            class="btn btn-sm btn-dark me-2" 
+                            (click)="avanzarEstadoPedido(pedido)" 
+                            *ngIf="pedido?.getIdEstadoPedido() === '1'">
+                            Confirmar Pedido
+                        </button>
+                        <button 
+                            class="btn btn-sm btn-dark me-2" 
+                            (click)="avanzarEstadoPedido(pedido)" 
+                            *ngIf="pedido?.getIdEstadoPedido() === '2'">
+                            Enviar Pedido
+                        </button>
+                        <button 
+                            class="btn btn-sm btn-dark" 
+                            (click)="avanzarEstadoPedido(pedido)" 
+                            *ngIf="pedido?.getIdEstadoPedido() === '3'">
+                            Finalizar Pedido
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Productos del Pedido -->
+                <div class="border bg-warning p-3">
+                    <div *ngFor="let itemPedido of pedido?.getListaPedido()">
+                        <app-producto-lista-pedido [itemPedido]="itemPedido"></app-producto-lista-pedido>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Mensaje cuando no hay pedidos -->
+    <ng-template #noPedidos>
+        <p class="text-center text-muted">No se encontraron pedidos con los filtros aplicados.</p>
+    </ng-template>
 </div>
