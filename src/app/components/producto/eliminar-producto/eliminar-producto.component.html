@@ -1,32 +1,32 @@
 <div class="container my-4">
-  <div class="row justify-content-center">
-    <h2 class="text-center">Eliminar Producto</h2>
-      <div class="col-md-6" *ngIf="producto">
-          <div class="card">
-              <img [src]="producto.getImagen()" alt="Producto Único" class="card-img-top product-image" style="max-height: 200px; object-fit: contain;">
-              <div class="card-body">
-                  <h5 class="d-flex card-title justify-content-center">{{producto.getTitulo()}}</h5>
-                  <p class="card-text">Marca: {{producto.getMarca()}}</p>
-                  <p class="card-text">Modelo: {{producto.getModelo()}}</p>
-                  <p class="card-text">Categoria: {{buscarCategoria(producto.getCategoria())}}</p>
-                  <p class="card-text">Precio: {{producto.getPrecio() | currency}}</p>
-                  <div class="d-flex justify-content-between mt-3">
-                      <a class="btn btn-dark" (click)="volverAlInicio()">Volver</a>
-                      <a class="btn btn-danger" (click)="eliminarProducto()">Eliminar</a>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="row justify-content-center mt-2" *ngIf="verificacion">
-        <div class="col-md-6">
+    <div class="row justify-content-center">
+        <h2 class="text-center">Eliminar Producto</h2>
+        <div class="col-md-6" *ngIf="producto">
             <div class="card">
-                <h3 class="d-flex justify-content-center">¿Confirma la eliminacion de este producto?</h3>
-                <div class="d-flex justify-content-center mt-3 mb-2">
-                    <a class="btn btn-dark me-2" (click)="cancelarOperacion()">Cancelar</a>
-                    <a class="btn btn-danger" (click)="confirmarEliminacionProducto()">Eliminar</a>
+                <img [src]="producto.getImagen()" alt="Producto Único" class="card-img-top product-image" style="max-height: 200px; object-fit: contain;">
+                    <div class="card-body">
+                        <h5 class="d-flex card-title justify-content-center">{{producto.getTitulo()}}</h5>
+                        <p class="card-text">Marca: {{producto.getMarca()}}</p>
+                        <p class="card-text">Modelo: {{producto.getModelo()}}</p>
+                        <p class="card-text">Categoria: {{buscarCategoria(producto.getCategoria())}}</p>
+                        <p class="card-text">Precio: {{producto.getPrecio() | currency}}</p>
+                            <div class="d-flex justify-content-between mt-3">
+                                <a class="btn btn-dark" (click)="volverAlInicio()">Volver</a>
+                                <a class="btn btn-danger" (click)="eliminarProducto()">Eliminar</a>
+                            </div>
+                    </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-2" *ngIf="verificacion">
+            <div class="col-md-6">
+                <div class="card">
+                    <h3 class="d-flex justify-content-center">¿Confirma la eliminacion de este producto?</h3>
+                    <div class="d-flex justify-content-center mt-3 mb-2">
+                        <a class="btn btn-dark me-2" (click)="cancelarOperacion()">Cancelar</a>
+                        <a class="btn btn-danger" (click)="confirmarEliminacionProducto()">Eliminar</a>
+                    </div>
                 </div>
             </div>
         </div>
-      </div>
     </div>
 </div>

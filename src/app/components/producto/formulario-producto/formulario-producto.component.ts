@@ -27,6 +27,7 @@ export class FormularioProductoComponent{
   modoFormulario : number;
   cartelExito : boolean;
   verificacionEdicion : boolean;
+  productoEditado : Producto | null;
 
   constructor(private servicioMl:ApiMlService,private productosServicio: ProductosService,private router : RouterService,private categoriaService : CategoriasService){
     this.cantidadProductos = 0;
@@ -34,6 +35,7 @@ export class FormularioProductoComponent{
     this.cartelExito = false;
     this.categorias = null;
     this.verificacionEdicion = false;
+    this.productoEditado = null;
 
     this.productoFormulario = new FormGroup({
       busqueda : new FormControl(),
@@ -120,18 +122,32 @@ export class FormularioProductoComponent{
       let producto : Producto = new Producto(this.productoFormulario.get("codigoML")?.value,this.productoFormulario.get("titulo")?.value,this.productoFormulario.get("categoria")?.value,this.productoFormulario.get("marca")?.value,this.productoFormulario.get("modelo")?.value,this.productoFormulario.get("cantidad")?.value,this.productoFormulario.get("precio")?.value,this.productoFormulario.get("imagen")?.value);
       let indexCategoria =  this.productoFormulario.get("categoria")?.value;
       if(indexCategoria){
-        this.cartelExito = true;
         producto.setCategoria(this.categorias[indexCategoria]["id"]);
         if(this.modoFormulario === 1){
           producto.setId(this.idProducto);
-          this.productosServicio.editarProducto(producto);
+          this.productoEditado = producto;
+          this.verificacionEdicion = true;
         }
         else{
           producto.setId(`P${this.cantidadProductos}`);
           this.productosServicio.setNewProducto(producto);
+          this.router.irAGestionProducto();
         }
-        this.router.irAHome();
       }
+    }
+  }
+
+  cancelarEdicion() {
+    this.verificacionEdicion = false;
+  }
+
+  confirmacionEdicion(){
+    if(this.productoEditado){
+      this.productosServicio.editarProducto(this.productoEditado);
+      this.router.irAGestionProducto();
+    }
+    else{
+      alert("ERROR: El producto no fue cargado correctamente");
     }
   }
 }
